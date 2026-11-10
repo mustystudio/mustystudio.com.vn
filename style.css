@@ -1200,3 +1200,84 @@ footer .copyright {
     justify-content: flex-start;
     height: 60px;
 }
+
+
+/* =====================================================
+   MUSTY STUDIO - MULTI PAGE ADDITIONS
+   Giữ nguyên bảng màu và tinh thần thiết kế gốc.
+   ===================================================== */
+.page-hero{background:var(--musty);padding:90px 7%;min-height:300px;display:flex;flex-direction:column;justify-content:center}
+.page-hero .eyebrow{font-size:12px;letter-spacing:3px;font-weight:700;margin-bottom:16px}
+.page-hero h1{font:700 clamp(42px,7vw,82px)/.98 'Space Grotesk',sans-serif;text-transform:uppercase;max-width:900px}
+.page-hero p{max-width:620px;line-height:1.8;margin-top:22px}
+.content-section{padding:75px 7%}
+.content-section h2{font:700 clamp(30px,4vw,48px)/1.1 'Space Grotesk',sans-serif;text-transform:uppercase;margin-bottom:22px}
+.content-section p{line-height:1.9;color:var(--gray);max-width:780px}
+.split-layout{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.split-layout img,.feature-image{width:100%;display:block;object-fit:cover;max-height:560px}
+.info-grid,.collection-grid,.blog-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:35px}
+.info-card{background:var(--light);padding:28px;min-height:170px}
+.info-card h3{font:700 21px 'Space Grotesk',sans-serif;margin-bottom:12px}
+.info-card p{font-size:14px}
+.product-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:20px 0 30px;flex-wrap:wrap}
+.product-toolbar input{border:1px solid var(--border);padding:13px 16px;min-width:min(100%,300px);font:inherit}
+.product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.product-card{min-width:0}
+.product-card img{width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--light);display:block}
+.product-card h3{font:600 17px 'Space Grotesk',sans-serif;margin:14px 0 7px}
+.product-card .price{font-weight:700;margin-bottom:12px}
+.action-button{display:inline-block;background:var(--black);color:var(--white);padding:13px 20px;text-decoration:none;border:0;cursor:pointer;font:700 12px 'DM Sans',sans-serif;letter-spacing:1px}
+.action-button:hover{background:var(--musty-dark);color:white}
+.collection-card{background:var(--black);color:white;min-height:280px;padding:28px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+.collection-card:nth-child(2){background:var(--musty);color:var(--black)}
+.collection-card:nth-child(3){background:var(--light);color:var(--black)}
+.collection-card h3{font:700 28px 'Space Grotesk',sans-serif;text-transform:uppercase}
+.collection-card p{color:inherit;opacity:.8;font-size:14px;margin-top:8px}
+.blog-card{background:var(--light);padding-bottom:24px}
+.blog-card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.blog-card .blog-copy{padding:22px}
+.blog-card small{letter-spacing:2px;font-weight:700;font-size:10px}
+.blog-card h3{font:700 22px 'Space Grotesk',sans-serif;margin:12px 0}
+.blog-card p{font-size:14px}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.contact-form{display:grid;gap:15px}
+.contact-form input,.contact-form textarea{width:100%;padding:14px;border:1px solid var(--border);font:inherit;background:white}
+.contact-form textarea{min-height:150px;resize:vertical}
+.site-notice{padding:14px;background:var(--light);margin-top:15px;font-size:14px}
+.site-footer{background:var(--black);color:white;padding:55px 7% 25px}
+.site-footer a{color:white;text-decoration:none}
+.footer-columns{display:grid;grid-template-columns:2fr 1fr 1fr;gap:35px}
+.footer-columns h3{font:700 20px 'Space Grotesk',sans-serif;margin-bottom:15px}
+.footer-columns p,.footer-columns a{font-size:13px;line-height:2;display:block;color:#ccc}
+.footer-bottom{border-top:1px solid #444;margin-top:35px;padding-top:18px;color:#aaa;font-size:12px}
+.site-header{position:sticky;top:0;z-index:100;background:white;border-bottom:1px solid var(--border)}
+.site-header .header-inner{min-height:76px;padding:10px 5%;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.site-header .brand{display:flex;align-items:center;text-decoration:none;color:var(--black);font:700 22px 'Space Grotesk',sans-serif;letter-spacing:-1px}
+.site-header .brand img{height:48px;width:48px;object-fit:cover;margin-right:10px}
+.site-header nav{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.site-header nav a{font-size:11px;font-weight:700;letter-spacing:1px;text-decoration:none;color:var(--black)}
+.site-header nav a:hover,.site-header nav a[aria-current="page"]{color:var(--musty-dark)}
+.menu-toggle{display:none;background:none;border:0;font-size:25px;cursor:pointer}
+.cart-drawer{position:fixed;inset:0;background:#0008;z-index:300;display:none;justify-content:flex-end}
+.cart-drawer.open{display:flex}
+.cart-panel{background:white;width:min(420px,100%);height:100%;padding:28px;overflow:auto}
+.cart-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}
+.cart-row{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--border)}
+.cart-row button{border:0;background:none;font-size:20px;cursor:pointer}
+.cart-total-line{display:flex;justify-content:space-between;font-weight:700;margin:25px 0}
+@media(max-width:900px){
+ .site-header .header-inner{flex-wrap:wrap}
+ .menu-toggle{display:block}
+ .site-header nav{display:none;order:3;width:100%;flex-direction:column;align-items:flex-start;padding:12px 0}
+ .site-header nav.open{display:flex}
+ .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .info-grid,.collection-grid,.blog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .split-layout,.contact-layout{grid-template-columns:1fr}
+}
+@media(max-width:550px){
+ .page-hero{padding:65px 6%}
+ .content-section{padding:55px 6%}
+ .product-grid,.info-grid,.collection-grid,.blog-grid,.footer-columns{grid-template-columns:1fr}
+ .product-toolbar{align-items:stretch}
+ .product-toolbar input{width:100%}
+}
