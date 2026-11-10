@@ -1,1 +1,16 @@
 
+<header class="header">
+  <a href="index.html" class="logo">
+    MUSTY STUDIO
+    <span>RECYCLED & HANDMADE</span>
+  </a>
+
+  <nav class="navbar">
+    <a href="index.html">Trang chủ</a>
+    <a href="about.html">Giới thiệu</a>
+    <a href="products.html">Sản phẩm</a>
+    <a href="blog.html">Bài viết</a>
+    <a href="collections.html">Bộ sưu tập</a>
+    <a href="contact.html">Liên hệ</a>
+  </nav>
+</header>
