@@ -1,48 +1,582 @@
-<!doctype html>
-<html lang="vi"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Trang chủ | MUSTY STUDIO</title><meta name="description" content="MUSTY STUDIO - Túi tái chế, hàng tự may và những thiết kế độc bản.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css"></head><body>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<header class="site-header">
- <div class="header-inner">
-  <a class="brand" href="index.html"><img src="images/musty-hero.jpg" alt="MUSTY STUDIO">MUSTY STUDIO</a>
-  <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false">☰</button>
-  <nav aria-label="Điều hướng chính"><a href="index.html" aria-current="page">Trang chủ</a><a href="about.html">Giới thiệu</a><a href="products.html">Sản phẩm</a><a href="blog.html">Bài viết</a><a href="contact.html">Liên hệ</a><a href="collections.html">Bộ sưu tập</a></nav>
-  <button class="action-button cart-open" type="button">GIỎ HÀNG (<span class="cart-count">0</span>)</button>
- </div>
-</header>
-<main>
-<section class="page-hero"><div class="eyebrow">RECYCLED • HANDMADE • INDEPENDENT</div><h1>MADE TO BE<br>DIFFERENT.</h1><p>MUSTY STUDIO — túi tái chế, hàng tự may và những thiết kế độc bản. Mỗi sản phẩm là một lựa chọn khác biệt, được tạo nên từ tinh thần sáng tạo và trân trọng vật liệu.</p><p><a class="action-button" href="products.html">KHÁM PHÁ SẢN PHẨM →</a></p></section>
-<section class="content-section split-layout"><div><div class="eyebrow">OUR STORY</div><h2>Không chạy theo số đông.</h2><p>Musty tin rằng một món đồ đẹp không nhất thiết phải hoàn hảo hay sản xuất hàng loạt. Chúng tôi yêu những chất liệu được tái sử dụng, những đường may thủ công và cá tính riêng trong từng thiết kế.</p><p style="margin-top:24px"><a class="action-button" href="about.html">TÌM HIỂU VỀ MUSTY</a></p></div><img src="images/musty-hero.jpg" alt="Tinh thần MUSTY STUDIO"></section>
-<section class="content-section" style="background:var(--light)"><div class="eyebrow">SELECTED ITEMS</div><h2>Sản phẩm nổi bật</h2><div class="product-grid">
-<article class="product-card"><img src="images/product11.jpg" alt="MUSTY BAG 01"><h3>MUSTY BAG 01</h3><p class="price">350.000₫</p><button class="action-button add-to-cart" data-name="MUSTY BAG 01" data-price="350000">THÊM VÀO GIỎ</button></article>
-<article class="product-card"><img src="images/product2.jpg" alt="MUSTY BAG 02"><h3>MUSTY BAG 02</h3><p class="price">390.000₫</p><button class="action-button add-to-cart" data-name="MUSTY BAG 02" data-price="390000">THÊM VÀO GIỎ</button></article>
-<article class="product-card"><img src="images/product3.jpg" alt="MUSTY PATCH BAG"><h3>MUSTY PATCH BAG</h3><p class="price">450.000₫</p><button class="action-button add-to-cart" data-name="MUSTY PATCH BAG" data-price="450000">THÊM VÀO GIỎ</button></article>
-<article class="product-card"><img src="images/product4.jpg" alt="MUSTY SPECIAL"><h3>MUSTY SPECIAL</h3><p class="price">520.000₫</p><button class="action-button add-to-cart" data-name="MUSTY SPECIAL" data-price="520000">THÊM VÀO GIỎ</button></article>
-</div><p style="margin-top:30px"><a class="action-button" href="products.html">XEM TẤT CẢ SẢN PHẨM</a></p></section>
-<section class="content-section"><div class="eyebrow">EXPLORE MUSTY</div><h2>Khám phá thế giới Musty</h2><div class="info-grid">
-<div class="info-card"><h3>01 / Giới thiệu</h3><p>Câu chuyện, tinh thần và cách Musty tạo nên sản phẩm.</p><a href="about.html">Tìm hiểu →</a></div>
-<div class="info-card"><h3>02 / Bộ sưu tập</h3><p>Khám phá những nhóm thiết kế mang cá tính riêng.</p><a href="collections.html">Khám phá →</a></div>
-<div class="info-card"><h3>03 / Bài viết</h3><p>Góc nhìn về handmade, tái chế và phong cách sống.</p><a href="blog.html">Đọc thêm →</a></div></div></section>
-</main>
+    <title>MUSTY STUDIO | Recycled & Handmade</title>
 
-<footer class="site-footer">
- <div class="footer-columns">
-  <div><h3>MUSTY STUDIO</h3><p>Recycled • Handmade • Independent.<br>Những chiếc túi tái chế và thiết kế thủ công mang dấu ấn riêng.</p></div>
-  <div><h3>KHÁM PHÁ</h3><a href="about.html">Giới thiệu</a><a href="products.html">Sản phẩm</a><a href="collections.html">Bộ sưu tập</a></div>
-  <div><h3>KẾT NỐI</h3><a href="blog.html">Bài viết</a><a href="contact.html">Liên hệ</a><a href="https://www.instagram.com/musty_stu/" target="_blank" rel="noopener">Instagram</a></div>
- </div>
- <div class="footer-bottom">© <span class="current-year"></span> MUSTY STUDIO. Recycled & Handmade.</div>
-</footer>
-<div class="cart-drawer" aria-hidden="true">
- <aside class="cart-panel" aria-label="Giỏ hàng">
-  <div class="cart-head"><h2>GIỎ HÀNG</h2><button class="cart-close" type="button" aria-label="Đóng">✕</button></div>
-  <div class="cart-items"><p>Giỏ hàng đang trống.</p></div>
-  <div class="cart-total-line"><span>Tổng cộng</span><span class="cart-total">0₫</span></div>
-  <a class="action-button checkout-link" href="contact.html">LIÊN HỆ ĐẶT HÀNG</a>
- </aside>
+    <meta name="description" content="MUSTY STUDIO - Túi tái chế, hàng tự may và những thiết kế độc bản.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+  <a href="#home" class="logo">
+    <img src="images/musty-hero.jpg" alt="Musty Studio">
+</a>
+        <nav class="nav">
+
+            <a href="#home">HOME</a>
+
+            <a href="#shop">SHOP</a>
+
+            <a href="#collection">COLLECTION</a>
+
+            <a href="#about">ABOUT</a>
+
+            <a href="#contact">CONTACT</a>
+
+        </nav>
+
+        <div class="header-actions">
+
+            <button class="search-btn" onclick="toggleSearch()">
+                🔍
+            </button>
+
+            <button class="cart-btn" onclick="toggleCart()">
+                🛒
+                <span id="cart-count">0</span>
+            </button>
+
+            <button class="menu-btn" onclick="toggleMenu()">
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= SEARCH ================= -->
+
+    <div class="search-box" id="searchBox">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Tìm sản phẩm..."
+            onkeyup="searchProducts()"
+        >
+
+    </div>
+
+
+    <!-- ================= HERO ================= -->
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+
+                <p class="small-title">
+                    MUSTY STUDIO
+                </p>
+
+                <h1>
+                    REUSE.
+                    <br>
+                    REMAKE.
+                    <br>
+                    <span>REPEAT.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Túi tái chế & hàng tự may.
+                    <br>
+                    Mỗi thiết kế là một câu chuyện riêng.
+                </p>
+
+                <a href="#shop" class="main-button">
+                    KHÁM PHÁ MUSTY →
+                </a>
+
+            </div>
+
+            <div class="hero-shape">
+
+                <div class="hero-circle">
+                    MUSTY
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= INTRO ================= -->
+
+        <section class="intro">
+
+            <p class="section-label">
+                MUSTY HOUSE
+            </p>
+
+            <h2>
+                CŨ KHÔNG CÓ NGHĨA
+                <br>
+                LÀ HẾT GIÁ TRỊ.
+            </h2>
+
+            <p>
+                MUSTY tạo ra những sản phẩm mới từ những chất liệu
+                đã từng có một câu chuyện. Tái sử dụng, tự may và
+                biến những thứ quen thuộc thành những thiết kế
+                hoàn toàn khác.
+            </p>
+
+        </section>
+
+
+        <!-- ================= SHOP ================= -->
+
+        <section class="shop" id="shop">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="section-label">
+                        SHOP
+                    </p>
+
+                    <h2>
+                        MUSTY PICKS
+                    </h2>
+                </div>
+
+                <p>
+                    Những thiết kế được chọn lọc
+                    dành cho bạn.
+                </p>
+
+            </div>
+
+
+            <div class="products" id="product-list">
+
+                <!-- PRODUCT 1 -->
+
+                <article class="product">
+
+                 <div class="product-image">
+    <span class="product-tag">
+        NEW
+    </span>
+
+    <img src="images/product11.jpg" alt="MUSTY BAG 01">
 </div>
-<script src="script.js"></script></body></html>
+
+                    <div class="product-info">
+
+                        <h3>
+                            MUSTY BAG 01
+                        </h3>
+
+                        <p>
+                            Recycled Handmade Bag
+                        </p>
+
+                        <strong>
+                            420.000₫
+                        </strong>
+
+                        <button
+                            onclick="addToCart('MUSTY BAG 01', 350000)"
+                        >
+                            ADD TO CART
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PRODUCT 2 -->
+
+                <article class="product">
+
+                    <div class="product-image">
+
+                     <img src="images/product2.jpg" alt="MUSTY BAG 02">
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>
+                            MUSTY BAG 02
+                        </h3>
+
+                        <p>
+                            Handmade Recycled Bag
+                        </p>
+
+                        <strong>
+                            380.000₫
+                        </strong>
+
+                        <button
+                            onclick="addToCart('MUSTY BAG 02', 390000)"
+                        >
+                            ADD TO CART
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PRODUCT 3 -->
+
+                <article class="product">
+
+                    <div class="product-image">
+
+                       <img src="images/product3.jpg" alt="MUSTY PATCH BAG">
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>
+                            MUSTY PATCH BAG
+                        </h3>
+
+                        <p>
+                            One of One Design
+                        </p>
+
+                        <strong>
+                            250.000₫
+                        </strong>
+
+                        <button
+                            onclick="addToCart('MUSTY PATCH BAG', 450000)"
+                        >
+                            ADD TO CART
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PRODUCT 4 -->
+
+                <article class="product">
+
+                    <div class="product-image">
+
+                        <span class="product-tag">
+                            LIMITED
+                        </span>
+
+                      <img src="images/product4.jpg" alt="MUSTY SPECIAL">
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>
+                            MUSTY SPECIAL
+                        </h3>
+
+                        <p>
+                            Limited Handmade Piece
+                        </p>
+
+                        <strong>
+                            520.000₫
+                        </strong>
+
+                        <button
+                            onclick="addToCart('MUSTY SPECIAL', 520000)"
+                        >
+                            ADD TO CART
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= COLLECTION ================= -->
+
+        <section class="collection" id="collection">
+
+            <div class="collection-content">
+
+                <p class="section-label">
+                    COLLECTION
+                </p>
+
+                <h2>
+                    MADE FROM
+                    <br>
+                    <span>OLD STORIES.</span>
+                </h2>
+
+                <p>
+                    Những món đồ cũ được biến đổi thành
+                    những thiết kế mới — khác biệt,
+                    có cá tính và không hoàn toàn giống nhau.
+                </p>
+
+                <a href="#shop" class="outline-button">
+                    XEM COLLECTION
+                </a>
+
+            </div>
+
+            <div class="collection-art">
+
+                <div class="art-circle"></div>
+
+                <div class="art-text">
+                    REUSE
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ABOUT ================= -->
+
+        <section class="about" id="about">
+
+            <div class="about-title">
+
+                <p class="section-label">
+                    ABOUT MUSTY
+                </p>
+
+                <h2>
+                    MORE THAN
+                    <br>
+                    A BAG.
+                </h2>
+
+            </div>
+
+            <div class="about-text">
+
+                <p>
+                    MUSTY là một local brand hướng đến việc
+                    tái sử dụng những chất liệu đã có sẵn
+                    để tạo ra những sản phẩm mới.
+                </p>
+
+                <p>
+                    Từ những mảnh vải, quần áo cũ đến những
+                    chất liệu tưởng như không còn giá trị,
+                    chúng được làm lại bằng sự sáng tạo
+                    và thủ công.
+                </p>
+
+                <p>
+                    Vì vậy, mỗi sản phẩm MUSTY đều mang
+                    một chút khác biệt.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= INSTAGRAM ================= -->
+
+        <section class="instagram">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="section-label">
+                        FOLLOW US
+                    </p>
+
+                    <h2>
+                        @MUSTY_STU
+                    </h2>
+
+                </div>
+
+                <a
+                    href="https://www.instagram.com/musty_stu/"
+                    target="_blank"
+                    class="instagram-link"
+                >
+                    FOLLOW INSTAGRAM →
+                </a>
+
+            </div>
+
+
+      <div class="instagram-grid">
+
+                <div class="ig-box">
+                    MUSTY
+                </div>
+
+                <div class="ig-box blue">
+                    STU
+                </div>
+
+                <div class="ig-box colorful">
+                    MUSTY
+                </div>
+
+                <div class="ig-box dark">
+                    HOUSE
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <section class="contact" id="contact">
+
+            <p class="section-label">
+                CONTACT
+            </p>
+
+            <h2>
+                LET'S MAKE
+                <br>
+                SOMETHING
+                <span>NEW.</span>
+            </h2>
+
+            <p>
+                Theo dõi MUSTY để cập nhật những sản phẩm
+                và collection mới nhất.
+            </p>
+
+            <a
+                href="https://www.instagram.com/musty_stu/"
+                target="_blank"
+                class="main-button"
+            >
+                @MUSTY_STU →
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            MUSTY<span>.</span>
+        </div>
+
+        <p>
+            REUSE • REMAKE • REPEAT
+        </p>
+
+        <div class="footer-links">
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#shop">
+                Shop
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a
+                href="https://www.instagram.com/musty_stu/"
+                target="_blank"
+            >
+                Instagram
+            </a>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 MUSTY STUDIO
+        </p>
+
+    </footer>
+
+
+    <!-- ================= CART ================= -->
+
+    <div class="cart-overlay" id="cartOverlay">
+
+        <div class="cart">
+
+            <button
+                class="close-cart"
+                onclick="toggleCart()"
+            >
+                ×
+            </button>
+
+            <h2>
+                YOUR CART
+            </h2>
+
+            <div id="cart-items">
+
+                <p class="empty-cart">
+                    Giỏ hàng đang trống.
+                </p>
+
+            </div>
+
+            <div class="cart-total">
+
+                <span>
+                    TOTAL
+                </span>
+
+                <strong id="cart-total">
+                    0₫
+                </strong>
+
+            </div>
+
+            <button
+                class="checkout"
+                onclick="checkout()"
+            >
+                CHECKOUT
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
