@@ -10,9 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (menuBtn && nav) {
     menuBtn.addEventListener("click", () => {
-      const isOpen = nav.classList.toggle(
-        nav.matches(".site-header nav") ? "open" : "active"
-      );
+      const menuClass = nav.matches(".site-header nav") ? "open" : "active";
+      const isOpen = nav.classList.toggle(menuClass);
 
       menuBtn.setAttribute("aria-expanded", isOpen);
     });
@@ -36,20 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (searchInput) {
     searchInput.addEventListener("input", () => {
-      const keyword = searchInput.value
-        .trim()
-        .toLocaleLowerCase("vi");
+      const keyword = searchInput.value.trim().toLocaleLowerCase("vi");
 
-      const products = document.querySelectorAll(
-        ".product-card, .product"
-      );
+      document.querySelectorAll(".product-card, .product").forEach(product => {
+        const productText = product.textContent.toLocaleLowerCase("vi");
 
-      products.forEach(product => {
-        const productText = product.textContent
-          .toLocaleLowerCase("vi");
-
-        product.style.display =
-          productText.includes(keyword) ? "" : "none";
+        product.style.display = productText.includes(keyword) ? "" : "none";
       });
     });
   }
@@ -61,28 +52,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let cart = [];
 
-  const cartBtn = document.querySelector(
-    ".cart-open, .cart-btn"
-  );
-
-  const cartDrawer = document.querySelector(
-    ".cart-drawer, .cart-overlay"
-  );
-
-  const cartClose = document.querySelector(
-    ".cart-close, .close-cart"
-  );
-
+  const cartBtn = document.querySelector(".cart-open, .cart-btn");
+  const cartDrawer = document.querySelector(".cart-drawer, .cart-overlay");
+  const cartClose = document.querySelector(".cart-close, .close-cart");
   const cartItems = document.querySelector(".cart-items");
-
   const cartCount = document.querySelector(".cart-count");
-
   const cartTotal = document.querySelector(
     ".cart-total-line .cart-total, .cart-total"
   );
 
 
-  // Format Vietnamese currency
   function formatMoney(number) {
     return number.toLocaleString("vi-VN") + "₫";
   }
@@ -94,21 +73,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateCart() {
 
-    // Update total quantity
     const totalQuantity = cart.reduce(
-      (sum, item) => sum + item.quantity,
-      0
+      (sum, item) => sum + item.quantity, 0
+    );
+
+    const totalPrice = cart.reduce(
+      (sum, item) => sum + item.price * item.quantity, 0
     );
 
     if (cartCount) {
       cartCount.textContent = totalQuantity;
     }
-
-    // Calculate total price
-    const totalPrice = cart.reduce(
-      (sum, item) => sum + item.price * item.quantity,
-      0
-    );
 
     if (cartTotal) {
       cartTotal.textContent = formatMoney(totalPrice);
@@ -116,15 +91,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!cartItems) return;
 
-    // Empty cart
     if (cart.length === 0) {
-      cartItems.innerHTML = `
-        <p>Giỏ hàng đang trống.</p>
-      `;
+      cartItems.innerHTML = "<p>Giỏ hàng đang trống.</p>";
       return;
     }
 
-    // Display products
     cartItems.innerHTML = cart.map((item, index) => `
       <div class="cart-item cart-row">
 
@@ -132,13 +103,11 @@ document.addEventListener("DOMContentLoaded", () => {
           <strong>${item.name}</strong>
 
           <p>
-            ${formatMoney(item.price)}
-            × ${item.quantity}
+            ${formatMoney(item.price)} × ${item.quantity}
           </p>
 
           <p>
-            Thành tiền:
-            ${formatMoney(item.price * item.quantity)}
+            Thành tiền: ${formatMoney(item.price * item.quantity)}
           </p>
         </div>
 
@@ -146,14 +115,12 @@ document.addEventListener("DOMContentLoaded", () => {
           type="button"
           class="remove-item"
           data-index="${index}"
-          aria-label="Xóa sản phẩm"
-        >
+          aria-label="Xóa sản phẩm">
           ✕
         </button>
 
       </div>
     `).join("");
-
   }
 
 
@@ -171,7 +138,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     cartDrawer.setAttribute("aria-hidden", "false");
-
     updateCart();
   }
 
@@ -188,7 +154,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!cartDrawer) return;
 
     cartDrawer.classList.remove("open", "active");
-
     cartDrawer.setAttribute("aria-hidden", "true");
   }
 
@@ -204,15 +169,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  document.addEventListener("keydown", event => {
-    if (event.key === "Escape") {
-      closeCart();
-    }
-  });
-
 
   // =====================================
-  // 7. ADD PRODUCT TO CART
+  // 7. ADD PRODUCT TO CART - FIXED
   // =====================================
 
   document.addEventListener("click", event => {
@@ -221,22 +180,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!button) return;
 
-    const product = button.closest(".product-card, .product");
+    // Ưu tiên lấy tên và giá trực tiếp từ nút
+    // Dùng cho nút thêm giỏ trong cửa sổ chi tiết
 
-    if (!product) return;
-
-    // Get product name
-    const name =
-      button.dataset.name ||
-      product.querySelector(".product-name")?.textContent.trim() ||
-      product.querySelector("h3")?.textContent.trim();
-
-    // Get product price
+    let name = button.dataset.name;
     let price = Number(button.dataset.price);
 
-    if (!price) {
-      const priceElement = product.querySelector(
-        ".product-price, ".concat(".price, strong")
+    // Nếu nút nằm trong thẻ sản phẩm cũ
+    // thì lấy thông tin từ thẻ sản phẩm
+
+    const productCard = button.closest(".product-card, .product");
+
+    if (!name && productCard) {
+      name =
+        productCard.querySelector(".product-name")?.textContent.trim() ||
+        productCard.querySelector("h3")?.textContent.trim();
+    }
+
+    if ((!price || !Number.isFinite(price)) && productCard) {
+      const priceElement = productCard.querySelector(
+        ".product-price, .price, strong"
       );
 
       if (priceElement) {
@@ -246,13 +209,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // Validate product information
+    // Kiểm tra dữ liệu
     if (!name || !Number.isFinite(price) || price <= 0) {
-      alert("Không thể thêm sản phẩm. Vui lòng kiểm tra tên và giá sản phẩm.");
+      alert("Không thể thêm sản phẩm. Vui lòng kiểm tra thông tin sản phẩm.");
       return;
     }
 
-    // Check whether product already exists
+    // Kiểm tra sản phẩm đã có trong giỏ chưa
     const existingProduct = cart.find(
       item => item.name === name
     );
@@ -267,13 +230,13 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // Update cart
+    // Cập nhật giỏ hàng
     updateCart();
 
-    // Button notification
+    // Thông báo thêm thành công
     const originalText = button.textContent;
 
-    button.textContent = "ĐÃ THÊM ✓";
+    button.textContent = "ĐÃ THÊM VÀO GIỎ ✓";
     button.disabled = true;
 
     setTimeout(() => {
