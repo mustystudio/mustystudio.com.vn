@@ -4,26 +4,329 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>Sản phẩm | MUSTY STUDIO</title>
 <meta name="description" content="Khám phá các sản phẩm túi tái chế và handmade của MUSTY STUDIO.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
+
+<style>
+
+/* =====================================
+   PRODUCT CARD
+===================================== */
+
+.product-card {
+    cursor: pointer;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.08);
+}
+
+.product-card img {
+    cursor: pointer;
+}
+
+.product-card .add-to-cart {
+    position: relative;
+    z-index: 2;
+}
+
+/* =====================================
+   PRODUCT DETAIL MODAL
+===================================== */
+
+.product-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(0,0,0,.72);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity .3s ease, visibility .3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.product-modal.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.product-modal-content {
+    position: relative;
+
+    width: 100%;
+    max-width: 1050px;
+    max-height: 90vh;
+
+    overflow-y: auto;
+    background: #fff;
+
+    transform: translateY(25px);
+    transition: transform .3s ease;
+}
+
+.product-modal.active .product-modal-content {
+    transform: translateY(0);
+}
+
+/* NÚT ĐÓNG */
+
+.product-modal-close {
+    position: sticky;
+    top: 12px;
+    float: right;
+    z-index: 10;
+
+    margin: 12px 12px -55px 0;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #111;
+    color: #fff;
+
+    font-size: 24px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: .25s;
+}
+
+.product-modal-close:hover {
+    background: #12cbd0;
+    color: #111;
+}
+
+/* BỐ CỤC CHI TIẾT */
+
+.product-detail-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+}
+
+/* ẢNH SẢN PHẨM */
+
+.product-detail-image {
+    background: #f5f5f5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 550px;
+    padding: 25px;
+}
+
+.product-detail-image img {
+    width: 100%;
+    height: 100%;
+    max-height: 650px;
+
+    object-fit: contain;
+    display: block;
+}
+
+/* NỘI DUNG */
+
+.product-detail-info {
+    padding: 65px 45px 45px;
+}
+
+.product-detail-category {
+    display: block;
+
+    color: #12bfc5;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    margin-bottom: 18px;
+}
+
+.product-detail-info h2 {
+    font-family: 'Space Grotesk', sans-serif;
+
+    font-size: 34px;
+    line-height: 1.2;
+
+    color: #111;
+
+    margin: 0 0 18px;
+}
+
+.product-detail-price {
+    font-size: 25px;
+    font-weight: 700;
+
+    color: #111;
+
+    margin-bottom: 25px;
+}
+
+.product-detail-info h3 {
+    font-family: 'Space Grotesk', sans-serif;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    margin: 28px 0 12px;
+    color: #111;
+}
+
+.product-detail-description {
+    font-size: 15px;
+    line-height: 1.9;
+
+    color: #666;
+}
+
+.product-detail-info ul {
+    padding-left: 20px;
+
+    color: #666;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.product-detail-info li {
+    margin-bottom: 6px;
+}
+
+/* THÔNG ĐIỆP MUSTY */
+
+.product-detail-note {
+    padding: 18px;
+
+    background: #f1f6f2;
+
+    color: #486143;
+
+    font-size: 13px;
+    line-height: 1.8;
+
+    margin: 25px 0;
+}
+
+/* NÚT THÊM GIỎ */
+
+.product-detail-add {
+    width: 100%;
+    min-height: 50px;
+
+    border: none;
+
+    background: #111;
+    color: #fff;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    transition: .25s;
+}
+
+.product-detail-add:hover {
+    background: #12cbd0;
+    color: #111;
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media(max-width: 768px) {
+
+    .product-modal {
+        padding: 10px;
+    }
+
+    .product-modal-content {
+        max-height: 94vh;
+    }
+
+    .product-detail-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .product-detail-image {
+        min-height: 280px;
+        max-height: 350px;
+    }
+
+    .product-detail-image img {
+        max-height: 330px;
+    }
+
+    .product-detail-info {
+        padding: 35px 25px;
+    }
+
+    .product-detail-info h2 {
+        font-size: 27px;
+    }
+
+    .product-detail-price {
+        font-size: 22px;
+    }
+
+    .product-modal-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        margin: 0;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
+<!-- =====================================
+     HEADER
+===================================== -->
+
 <header class="site-header">
+
  <div class="header-inner">
+
   <a class="brand" href="index.html">
    <img src="images/musty-hero.jpg" alt="MUSTY STUDIO">
    MUSTY STUDIO
   </a>
 
-  <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false">☰</button>
+  <button class="menu-toggle"
+          type="button"
+          aria-label="Mở menu"
+          aria-expanded="false">☰</button>
 
   <nav aria-label="Điều hướng chính">
    <a href="index.html">Trang chủ</a>
@@ -37,168 +340,517 @@
   <button class="action-button cart-open" type="button">
    GIỎ HÀNG (<span class="cart-count">0</span>)
   </button>
+
  </div>
+
 </header>
+
 
 <main>
 
+<!-- =====================================
+     HERO
+===================================== -->
+
 <section class="page-hero">
+
  <div class="eyebrow">MUSTY SHOP</div>
+
  <h1>FIND YOUR<br>OWN PIECE.</h1>
- <p>Khám phá những chiếc túi tái chế và thiết kế thủ công của MUSTY STUDIO.</p>
+
+ <p>
+ Khám phá những chiếc túi tái chế và thiết kế thủ công của MUSTY STUDIO.
+ </p>
+
 </section>
+
+
+<!-- =====================================
+     PRODUCT SECTION
+===================================== -->
 
 <section class="content-section">
 
 <div class="product-toolbar">
+
  <h2>Tất cả sản phẩm</h2>
- <input class="product-search" type="search" placeholder="Tìm sản phẩm..." aria-label="Tìm sản phẩm">
+
+ <input
+  class="product-search"
+  type="search"
+  placeholder="Tìm sản phẩm..."
+  aria-label="Tìm sản phẩm">
+
 </div>
+
 
 <div class="product-grid searchable-products">
 
+
 <!-- PRODUCT 01 -->
-<article class="product-card">
+
+<article class="product-card"
+
+ data-name="MUSTY BAG 01"
+ data-price="350000"
+ data-image="images/product11.jpg"
+ data-category="RECYCLED HANDMADE"
+
+ data-description="Chiếc túi được làm mới từ chất liệu tái sử dụng, mang đến diện mạo khác biệt và tiện dụng cho phong cách hằng ngày."
+
+ data-detail="MUSTY BAG 01 là thiết kế đại diện cho tinh thần tái chế của MUSTY STUDIO. Từ những chất liệu đã qua sử dụng, sản phẩm được làm mới để mang một diện mạo khác biệt. Thay vì để những vật liệu cũ bị lãng quên, MUSTY lựa chọn trao cho chúng một vòng đời mới thông qua sự sáng tạo và kỹ thuật thủ công. Chiếc túi hướng đến sự tiện dụng trong cuộc sống thường ngày, đồng thời tạo điểm nhấn cá tính cho trang phục của bạn.">
+
  <img src="images/product11.jpg" alt="MUSTY BAG 01">
+
  <h3>MUSTY BAG 01</h3>
- <p class="description">A thoughtfully remade bag that gives pre-loved materials a fresh identity.</p>
- <p class="description">Chiếc túi được làm mới từ chất liệu tái sử dụng, mang đến diện mạo khác biệt và tiện dụng cho phong cách hằng ngày.</p>
+
+ <p class="description">
+ A thoughtfully remade bag that gives pre-loved materials a fresh identity.
+ </p>
+
+ <p class="description">
+ Chiếc túi được làm mới từ chất liệu tái sử dụng, mang đến diện mạo khác biệt và tiện dụng cho phong cách hằng ngày.
+ </p>
+
  <p class="price">350.000₫</p>
- <button class="action-button add-to-cart" data-name="MUSTY BAG 01" data-price="350000">THÊM VÀO GIỎ</button>
+
+ <button class="action-button add-to-cart"
+         data-name="MUSTY BAG 01"
+         data-price="350000">
+ THÊM VÀO GIỎ
+ </button>
+
 </article>
+
 
 <!-- PRODUCT 02 -->
-<article class="product-card">
+
+<article class="product-card"
+
+ data-name="MUSTY BAG 02"
+ data-price="390000"
+ data-image="images/product2.jpg"
+ data-category="HANDMADE RECYCLED"
+
+ data-description="Túi tái chế thủ công với thiết kế tối giản, dễ phối đồ và vẫn giữ nét cá tính riêng."
+
+ data-detail="MUSTY BAG 02 mang tinh thần tối giản nhưng không đơn điệu. Sản phẩm được định hướng dành cho những người yêu thích sự gọn gàng, linh hoạt và dễ kết hợp với nhiều phong cách trang phục. Điểm đặc biệt nằm ở cách tận dụng chất liệu và sự chăm chút trong quá trình hoàn thiện thủ công. MUSTY tin rằng một chiếc túi không cần quá cầu kỳ vẫn có thể thể hiện cá tính của người sử dụng.">
+
  <img src="images/product2.jpg" alt="MUSTY BAG 02">
+
  <h3>MUSTY BAG 02</h3>
- <p class="description">A handmade recycled bag with a simple look and an individual character.</p>
- <p class="description">Túi tái chế thủ công với thiết kế tối giản, dễ phối đồ và vẫn giữ nét cá tính riêng.</p>
- 
+
+ <p class="description">
+ A handmade recycled bag with a simple look and an individual character.
+ </p>
+
+ <p class="description">
+ Túi tái chế thủ công với thiết kế tối giản, dễ phối đồ và vẫn giữ nét cá tính riêng.
+ </p>
+
  <p class="price">390.000₫</p>
- <button class="action-button add-to-cart" data-name="MUSTY BAG 02" data-price="390000">THÊM VÀO GIỎ</button>
+
+ <button class="action-button add-to-cart"
+         data-name="MUSTY BAG 02"
+         data-price="390000">
+ THÊM VÀO GIỎ
+ </button>
+
 </article>
+
 
 <!-- PRODUCT 03 -->
-<article class="product-card">
+
+<article class="product-card"
+
+ data-name="MUSTY PATCH BAG"
+ data-price="450000"
+ data-image="images/product3.jpg"
+ data-category="ONE OF ONE DESIGN"
+
+ data-description="Thiết kế chắp vá độc bản, tận dụng những mảnh vải còn lại để tạo nên điểm nhấn riêng cho người sử dụng."
+
+ data-detail="MUSTY PATCH BAG là sự kết hợp sáng tạo giữa những mảnh vải có màu sắc và đặc điểm khác nhau. Thay vì xem vải thừa là vật liệu không còn giá trị, MUSTY biến chúng thành một thiết kế mới mang cá tính riêng. Những đường ghép vải tạo nên hiệu ứng thị giác độc đáo, giúp mỗi chiếc túi trở thành một câu chuyện riêng. Đây là lựa chọn dành cho những ai yêu thích sự sáng tạo, khác biệt và tinh thần thời trang bền vững.">
+
  <img src="images/product3.jpg" alt="MUSTY PATCH BAG">
+
  <h3>MUSTY PATCH BAG</h3>
- <p class="description">A one-of-a-kind patchwork design that turns fabric remnants into a statement piece.</p>
- <p class="description">Thiết kế chắp vá độc bản, tận dụng những mảnh vải còn lại để tạo nên điểm nhấn riêng cho người sử dụng.</p>
+
+ <p class="description">
+ A one-of-a-kind patchwork design that turns fabric remnants into a statement piece.
+ </p>
+
+ <p class="description">
+ Thiết kế chắp vá độc bản, tận dụng những mảnh vải còn lại để tạo nên điểm nhấn riêng cho người sử dụng.
+ </p>
+
  <p class="price">450.000₫</p>
- <button class="action-button add-to-cart" data-name="MUSTY PATCH BAG" data-price="450000">THÊM VÀO GIỎ</button>
+
+ <button class="action-button add-to-cart"
+         data-name="MUSTY PATCH BAG"
+         data-price="450000">
+ THÊM VÀO GIỎ
+ </button>
+
 </article>
+
 
 <!-- PRODUCT 04 -->
-<article class="product-card">
+
+<article class="product-card"
+
+ data-name="MUSTY SPECIAL"
+ data-price="520000"
+ data-image="images/product4.jpg"
+ data-category="LIMITED HANDMADE"
+
+ data-description="Sản phẩm thủ công phiên bản giới hạn, được chăm chút trong từng chi tiết dành cho những ai yêu thích sự khác biệt."
+
+ data-detail="MUSTY SPECIAL là dòng sản phẩm giới hạn dành cho những người yêu thích sự khác biệt. Thiết kế chú trọng đến dấu ấn riêng và sự chăm chút trong từng công đoạn thủ công. Mỗi sản phẩm mang tinh thần sáng tạo độc lập, không chạy theo những khuôn mẫu đại trà. MUSTY mong muốn mang đến một phụ kiện không chỉ có tính ứng dụng mà còn thể hiện được cá tính và gu thẩm mỹ riêng của người sở hữu.">
+
  <img src="images/product4.jpg" alt="MUSTY SPECIAL">
+
  <h3>MUSTY SPECIAL</h3>
- <p class="description">A limited handmade piece, carefully made for those who appreciate distinctive details.</p>
- <p class="description">Sản phẩm thủ công phiên bản giới hạn, được chăm chút trong từng chi tiết dành cho những ai yêu thích sự khác biệt.</p>
+
+ <p class="description">
+ A limited handmade piece, carefully made for those who appreciate distinctive details.
+ </p>
+
+ <p class="description">
+ Sản phẩm thủ công phiên bản giới hạn, được chăm chút trong từng chi tiết dành cho những ai yêu thích sự khác biệt.
+ </p>
+
  <p class="price">520.000₫</p>
- <button class="action-button add-to-cart" data-name="MUSTY SPECIAL" data-price="520000">THÊM VÀO GIỎ</button>
+
+ <button class="action-button add-to-cart"
+         data-name="MUSTY SPECIAL"
+         data-price="520000">
+ THÊM VÀO GIỎ
+ </button>
+
 </article>
+
 
 <!-- PRODUCT 05 -->
-<article class="product-card">
+
+<article class="product-card"
+
+ data-name="THREAD THEORY"
+ data-price="300000"
+ data-image="images/product05.jpg"
+ data-category="DENIM HANDMADE"
+
+ data-description="Túi jean được làm thủ công chỉn chu, nơi từng chi tiết tạo nên sự khác biệt."
+
+ data-detail="THREAD THEORY lấy cảm hứng từ những đường chỉ và kết cấu đặc trưng của chất liệu denim. Thiết kế đề cao vẻ đẹp của sự thủ công, nơi từng chi tiết nhỏ góp phần tạo nên tổng thể hài hòa. Những đường may không đơn thuần là phần hoàn thiện sản phẩm mà còn thể hiện sự tỉ mỉ và tinh thần sáng tạo của người làm. Đây là lựa chọn dành cho những ai yêu thích phụ kiện denim mang phong cách trẻ trung và cá tính.">
+
  <img src="images/product05.jpg" alt="THREAD THEORY">
+
  <h3>THREAD THEORY</h3>
- <p class="description">Thoughtfully handmade denim bags, where every detail makes a difference.</p>
- <p class="description">Túi jean được làm thủ công chỉn chu, nơi từng chi tiết tạo nên sự khác biệt.</p>
+
+ <p class="description">
+ Thoughtfully handmade denim bags, where every detail makes a difference.
+ </p>
+
+ <p class="description">
+ Túi jean được làm thủ công chỉn chu, nơi từng chi tiết tạo nên sự khác biệt.
+ </p>
+
  <p class="price">300.000₫</p>
- <button class="action-button add-to-cart" data-name="THREAD THEORY" data-price="300000">THÊM VÀO GIỎ</button>
+
+ <button class="action-button add-to-cart"
+         data-name="THREAD THEORY"
+         data-price="300000">
+ THÊM VÀO GIỎ
+ </button>
+
 </article>
+
 
 <!-- PRODUCT 06 -->
-<article class="product-card">
- <img src="images/product06.jpg" alt="Élan Handmade">
+
+<article class="product-card"
+
+ data-name="ÉLAN"
+ data-price="319000"
+ data-image="images/product06.jpg"
+ data-category="HANDMADE COLLECTION"
+
+ data-description="Túi thủ công tôn vinh cá tính riêng, sự thanh lịch và phong cách vượt thời gian."
+
+ data-detail="ÉLAN hướng đến vẻ đẹp thanh lịch và sự tự tin trong phong cách cá nhân. Thiết kế thủ công mang đến nét riêng cho người sử dụng, phù hợp với những ai yêu thích sự tinh tế nhưng vẫn muốn thể hiện cá tính. Sản phẩm có thể kết hợp với nhiều lựa chọn trang phục khác nhau, từ phong cách thường ngày đến những dịp cần một điểm nhấn riêng biệt.">
+
+ <img src="images/product06.jpg" alt="ÉLAN">
+
  <h3>ÉLAN</h3>
- <p class="description">Artisan-crafted bags that celebrate individuality, elegance, and timeless style.</p>
- <p class="description">Túi thủ công tôn vinh cá tính riêng, sự thanh lịch và phong cách vượt thời gian.</p>
+
+ <p class="description">
+ Artisan-crafted bags that celebrate individuality, elegance, and timeless style.
+ </p>
+
+ <p class="description">
+ Túi thủ công tôn vinh cá tính riêng, sự thanh lịch và phong cách vượt thời gian.
+ </p>
+
  <p class="price">319.000₫</p>
- <button class="action-button add-to-cart" data-name="ÉLAN" data-price="319000">THÊM VÀO GIỎ</button>
+
+ <button class="action-button add-to-cart"
+         data-name="ÉLAN"
+         data-price="319000">
+ THÊM VÀO GIỎ
+ </button>
+
 </article>
+
 
 <!-- PRODUCT 07 -->
-<article class="product-card">
- <img src="images/product07.jpg" alt="Amora Handmade">
+
+<article class="product-card"
+
+ data-name="AMORA"
+ data-price="339000"
+ data-image="images/product07.jpg"
+ data-category="HANDMADE COLLECTION"
+
+ data-description="Những chiếc túi được chế tác tỉ mỉ, lấy cảm hứng từ vẻ đẹp, đam mê và nghệ thuật thủ công."
+
+ data-detail="AMORA là thiết kế lấy cảm hứng từ vẻ đẹp và niềm đam mê dành cho các sản phẩm thủ công. Sự tỉ mỉ trong quá trình chế tác góp phần tạo nên một món phụ kiện mang nét mềm mại và cá tính. MUSTY hướng đến việc biến những vật liệu quen thuộc thành những thiết kế có giá trị sử dụng và giá trị thẩm mỹ. AMORA dành cho những người trân trọng sự sáng tạo và nét đẹp riêng trong từng sản phẩm.">
+
+ <img src="images/product07.jpg" alt="AMORA">
+
  <h3>AMORA</h3>
- <p class="description">Thoughtfully handcrafted bags inspired by beauty, passion, and the art of handmade living.</p>
- <p class="description">Những chiếc túi được chế tác tỉ mỉ, lấy cảm hứng từ vẻ đẹp, đam mê và nghệ thuật thủ công.</p>
+
+ <p class="description">
+ Thoughtfully handcrafted bags inspired by beauty, passion, and the art of handmade living.
+ </p>
+
+ <p class="description">
+ Những chiếc túi được chế tác tỉ mỉ, lấy cảm hứng từ vẻ đẹp, đam mê và nghệ thuật thủ công.
+ </p>
+
  <p class="price">339.000₫</p>
- <button class="action-button add-to-cart" data-name="AMORA" data-price="339000">THÊM VÀO GIỎ</button>
+
+ <button class="action-button add-to-cart"
+         data-name="AMORA"
+         data-price="339000">
+ THÊM VÀO GIỎ
+ </button>
+
 </article>
+
 
 <!-- PRODUCT 08 -->
-<article class="product-card">
- <img src="images/product08.jpg" alt="Raw Denim Handmade">
+
+<article class="product-card"
+
+ data-name="RAW DENIM"
+ data-price="319000"
+ data-image="images/product08.jpg"
+ data-category="DENIM STREETWEAR"
+
+ data-description="Túi jean thủ công với chất liệu mộc mạc, chi tiết nổi bật và phong cách đường phố độc đáo."
+
+ data-detail="RAW DENIM dành cho những người yêu thích vẻ đẹp mộc mạc và cá tính của denim. Thiết kế khai thác nét đặc trưng của chất liệu jean, kết hợp với những chi tiết tạo điểm nhấn nổi bật. Phong cách này phù hợp với những trang phục thường ngày, đặc biệt là những ai yêu thích tinh thần streetwear. RAW DENIM là cách MUSTY thể hiện sự sáng tạo thông qua một chất liệu quen thuộc nhưng luôn có khả năng tạo ra những diện mạo mới.">
+
+ <img src="images/product08.jpg" alt="RAW DENIM">
+
  <h3>RAW DENIM</h3>
- <p class="description">Handcrafted denim bags with raw textures, bold details, and a unique streetwear identity.</p>
- <p class="description">Túi jean thủ công với chất liệu mộc mạc, chi tiết nổi bật và phong cách đường phố độc đáo.</p>
+
+ <p class="description">
+ Handcrafted denim bags with raw textures, bold details, and a unique streetwear identity.
+ </p>
+
+ <p class="description">
+ Túi jean thủ công với chất liệu mộc mạc, chi tiết nổi bật và phong cách đường phố độc đáo.
+ </p>
+
  <p class="price">319.000₫</p>
- <button class="action-button add-to-cart" data-name="RAW DENIM" data-price="319000">THÊM VÀO GIỎ</button>
+
+ <button class="action-button add-to-cart"
+         data-name="RAW DENIM"
+         data-price="319000">
+ THÊM VÀO GIỎ
+ </button>
+
 </article>
+
 
 <!-- PRODUCT 09 -->
-<article class="product-card">
- <img src="images/product09.jpg" alt="Rebel Stitch Handmade">
+
+<article class="product-card"
+
+ data-name="REBEL STITCH"
+ data-price="279000"
+ data-image="images/product09.jpg"
+ data-category="CREATIVE HANDMADE"
+
+ data-description="Túi jean sáng tạo dành cho những người yêu thích sự phá cách và không theo khuôn mẫu."
+
+ data-detail="REBEL STITCH mang tinh thần tự do và phá cách. Thiết kế hướng đến những người không muốn bị giới hạn bởi các quy chuẩn thời trang thông thường. Sự kết hợp giữa chất liệu jean và tinh thần handmade tạo nên một phụ kiện thể hiện cá tính của người sở hữu. Với REBEL STITCH, mỗi lựa chọn phong cách đều là một cách thể hiện bản thân và không cần phải giống bất kỳ ai khác.">
+
+ <img src="images/product09.jpg" alt="REBEL STITCH">
+
  <h3>REBEL STITCH</h3>
- <p class="description">Creative handmade denim bags for those who dare to break the rules.</p>
- <p class="description">Túi jean sáng tạo dành cho những người yêu thích sự phá cách và không theo khuôn mẫu.</p>
+
+ <p class="description">
+ Creative handmade denim bags for those who dare to break the rules.
+ </p>
+
+ <p class="description">
+ Túi jean sáng tạo dành cho những người yêu thích sự phá cách và không theo khuôn mẫu.
+ </p>
+
  <p class="price">279.000₫</p>
- <button class="action-button add-to-cart" data-name="REBEL STITCH" data-price="279000">THÊM VÀO GIỎ</button>
+
+ <button class="action-button add-to-cart"
+         data-name="REBEL STITCH"
+         data-price="279000">
+ THÊM VÀO GIỎ
+ </button>
+
 </article>
+
 
 <!-- PRODUCT 10 -->
-<article class="product-card">
- <img src="images/product10.jpg" alt="Denim Cult Handmade">
+
+<article class="product-card"
+
+ data-name="DENIM CULT"
+ data-price="279000"
+ data-image="images/product10.jpg"
+ data-category="DENIM ORIGINAL"
+
+ data-description="Túi jean độc bản thể hiện cá tính và phong cách riêng."
+
+ data-detail="DENIM CULT tôn vinh chất liệu jean và tinh thần sáng tạo độc lập. Thiết kế dành cho những người muốn tạo dấu ấn riêng thông qua phụ kiện hằng ngày. Với định hướng độc bản, sản phẩm góp phần thể hiện phong cách cá nhân thay vì chạy theo những xu hướng đại trà. MUSTY tin rằng một món đồ có giá trị không chỉ nằm ở vẻ ngoài mà còn ở câu chuyện và ý nghĩa phía sau nó.">
+
+ <img src="images/product10.jpg" alt="DENIM CULT">
+
  <h3>DENIM CULT</h3>
- <p class="description">One-of-a-kind denim bags made to express individuality and personal style.</p>
- <p class="description">Túi jean độc bản thể hiện cá tính và phong cách riêng.</p>
+
+ <p class="description">
+ One-of-a-kind denim bags made to express individuality and personal style.
+ </p>
+
+ <p class="description">
+ Túi jean độc bản thể hiện cá tính và phong cách riêng.
+ </p>
+
  <p class="price">279.000₫</p>
- <button class="action-button add-to-cart" data-name="DENIM CULT" data-price="279000">THÊM VÀO GIỎ</button>
+
+ <button class="action-button add-to-cart"
+         data-name="DENIM CULT"
+         data-price="279000">
+ THÊM VÀO GIỎ
+ </button>
+
 </article>
+
+
+<!-- PRODUCT 11 -->
+
+<article class="product-card"
+
+ data-name="NO BASIC"
+ data-price="409000"
+ data-image="images/product12.jpg"
+ data-category="HANDMADE BACKPACK"
+
+ data-description="Không cơ bản, không bình thường. Balo jean dành cho những cá tính nổi bật."
+
+ data-detail="NO BASIC là thiết kế balo jean dành cho những người yêu thích sự khác biệt. Tên gọi thể hiện tinh thần không đi theo lối mòn và không giới hạn bản thân trong những lựa chọn quen thuộc. Sản phẩm hướng đến phong cách trẻ trung, năng động và nổi bật trong những hoạt động thường ngày. NO BASIC không chỉ là một chiếc balo mà còn là tuyên ngôn về cá tính và sự tự do trong cách lựa chọn phong cách.">
+
+ <img src="images/product12.jpg" alt="NO BASIC">
+
+ <h3>NO BASIC</h3>
+
+ <p class="description">
+ Not basic, never ordinary. Handmade denim bags for standout personalities.
+ </p>
+
+ <p class="description">
+ Không cơ bản, không bình thường. Balo jean dành cho những cá tính nổi bật.
+ </p>
+
+ <p class="price">409.000₫</p>
+
+ <button class="action-button add-to-cart"
+         data-name="NO BASIC"
+         data-price="409000">
+ THÊM VÀO GIỎ
+ </button>
+
+</article>
+
 
 <!-- PRODUCT 12 -->
-<article class="product-card">
- <img src="images/product12.jpg" alt="No Basic Handmade Backpack">
- <h3>NO BASIC</h3>
- <p class="description">Not basic, never ordinary. Handmade denim bags for standout personalities.</p>
- <p class="description">Không cơ bản, không bình thường. Balo jean dành cho những cá tính nổi bật.</p>
- <p class="price">409.000₫</p>
- <button class="action-button add-to-cart" data-name="NO BASIC" data-price="409000">THÊM VÀO GIỎ</button>
-</article>
 
-<!-- PRODUCT 13 -->
-<article class="product-card">
- <img src="images/product13.jpg" alt="Velour Handmade">
+<article class="product-card"
+
+ data-name="VELOUR"
+ data-price="290000"
+ data-image="images/product13.jpg"
+ data-category="HANDMADE COLLECTION"
+
+ data-description="Những chiếc túi tinh tế với chất liệu đẹp, kỹ thuật thủ công tỉ mỉ và vẻ thanh lịch hiện đại."
+
+ data-detail="VELOUR hướng đến vẻ đẹp tinh tế thông qua chất liệu, kết cấu và kỹ thuật thủ công. Thiết kế kết hợp nét mềm mại với tinh thần hiện đại, dành cho những người yêu thích phụ kiện thanh lịch nhưng vẫn có dấu ấn riêng. Sự chăm chút trong từng chi tiết góp phần tạo nên nét đặc trưng của sản phẩm. VELOUR là lựa chọn dành cho những ai muốn thể hiện phong cách cá nhân một cách nhẹ nhàng và tinh tế.">
+
+ <img src="images/product13.jpg" alt="VELOUR">
+
  <h3>VELOUR</h3>
- <p class="description">Refined handmade bags featuring beautiful textures, delicate craftsmanship, and modern elegance.</p>
- <p class="description">Những chiếc túi tinh tế với chất liệu đẹp, kỹ thuật thủ công tỉ mỉ và vẻ thanh lịch hiện đại.</p>
+
+ <p class="description">
+ Refined handmade bags featuring beautiful textures, delicate craftsmanship, and modern elegance.
+ </p>
+
+ <p class="description">
+ Những chiếc túi tinh tế với chất liệu đẹp, kỹ thuật thủ công tỉ mỉ và vẻ thanh lịch hiện đại.
+ </p>
+
  <p class="price">290.000₫</p>
- <button class="action-button add-to-cart" data-name="VELOUR" data-price="290000">THÊM VÀO GIỎ</button>
+
+ <button class="action-button add-to-cart"
+         data-name="VELOUR"
+         data-price="290000">
+ THÊM VÀO GIỎ
+ </button>
+
 </article>
 
 
 </div>
+
 
 <p class="site-notice">
  Lưu ý: Sản phẩm được thiết kế theo định hướng tái chế và handmade của MUSTY STUDIO.
 </p>
 
 </section>
+
 </main>
 
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
 <footer class="site-footer">
+
 <div class="footer-columns">
 
 <div>
 <h3>MUSTY STUDIO</h3>
-<p>Recycled • Handmade • Independent.<br>
-Những chiếc túi tái chế và thiết kế thủ công mang dấu ấn riêng.</p>
+
+<p>
+Recycled • Handmade • Independent.<br>
+Những chiếc túi tái chế và thiết kế thủ công mang dấu ấn riêng.
+</p>
 </div>
 
 <div>
 <h3>KHÁM PHÁ</h3>
+
 <a href="about.html">Giới thiệu</a>
 <a href="products.html">Sản phẩm</a>
 <a href="collections.html">Bộ sưu tập</a>
@@ -206,9 +858,13 @@ Những chiếc túi tái chế và thiết kế thủ công mang dấu ấn ri�
 
 <div>
 <h3>KẾT NỐI</h3>
+
 <a href="blog.html">Bài viết</a>
 <a href="contact.html">Liên hệ</a>
-<a href="https://www.instagram.com/musty_stu/" target="_blank" rel="noopener">Instagram</a>
+
+<a href="https://www.instagram.com/musty_stu/"
+   target="_blank"
+   rel="noopener">Instagram</a>
 </div>
 
 </div>
@@ -216,13 +872,115 @@ Những chiếc túi tái chế và thiết kế thủ công mang dấu ấn ri�
 <div class="footer-bottom">
 © <span class="current-year"></span> MUSTY STUDIO. Recycled & Handmade.
 </div>
+
 </footer>
 
+
+<!-- =====================================
+     PRODUCT DETAIL MODAL
+===================================== -->
+
+<div class="product-modal"
+     id="productModal"
+     aria-hidden="true">
+
+<div class="product-modal-content"
+     role="dialog"
+     aria-modal="true"
+     aria-label="Chi tiết sản phẩm">
+
+<button class="product-modal-close"
+        type="button"
+        aria-label="Đóng">
+×
+</button>
+
+<div class="product-detail-layout">
+
+<div class="product-detail-image">
+
+<img id="detailImage"
+     src=""
+     alt="">
+
+</div>
+
+
+<div class="product-detail-info">
+
+<span class="product-detail-category"
+      id="detailCategory"></span>
+
+<h2 id="detailName"></h2>
+
+<p class="product-detail-price"
+   id="detailPrice"></p>
+
+<p class="product-detail-description"
+   id="detailDescription"></p>
+
+
+<h3>CÂU CHUYỆN SẢN PHẨM</h3>
+
+<p class="product-detail-description"
+   id="detailContent"></p>
+
+
+<h3>ĐIỂM ĐẶC BIỆT</h3>
+
+<ul>
+<li>Thiết kế mang dấu ấn riêng của MUSTY STUDIO.</li>
+<li>Định hướng handmade và sáng tạo.</li>
+<li>Phù hợp để thể hiện phong cách cá nhân.</li>
+<li>Góp phần lan tỏa tinh thần tái sử dụng và hạn chế lãng phí.</li>
+</ul>
+
+
+<div class="product-detail-note">
+
+<strong>MUSTY STUDIO</strong><br>
+
+Recycled • Handmade • Independent.
+
+<br><br>
+
+Cảm ơn bạn đã lựa chọn và đồng hành cùng những thiết kế sáng tạo của chúng mình.
+
+</div>
+
+
+<button class="product-detail-add"
+        type="button">
+
+THÊM VÀO GIỎ HÀNG
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================
+     CART
+===================================== -->
+
 <div class="cart-drawer" aria-hidden="true">
+
 <aside class="cart-panel" aria-label="Giỏ hàng">
+
 <div class="cart-head">
+
 <h2>GIỎ HÀNG</h2>
-<button class="cart-close" type="button" aria-label="Đóng">✕</button>
+
+<button class="cart-close"
+        type="button"
+        aria-label="Đóng">✕</button>
+
 </div>
 
 <div class="cart-items">
@@ -230,14 +988,195 @@ Những chiếc túi tái chế và thiết kế thủ công mang dấu ấn ri�
 </div>
 
 <div class="cart-total-line">
+
 <span>Tổng cộng</span>
+
 <span class="cart-total">0₫</span>
+
 </div>
 
-<a class="action-button checkout-link" href="contact.html">LIÊN HỆ ĐẶT HÀNG</a>
+<a class="action-button checkout-link"
+   href="contact.html">
+
+LIÊN HỆ ĐẶT HÀNG
+
+</a>
+
 </aside>
+
 </div>
+
+
+<!-- =====================================
+     JAVASCRIPT
+===================================== -->
 
 <script src="script.js"></script>
+
+<script>
+
+/* =====================================
+   PRODUCT DETAIL FUNCTION
+===================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const productCards = document.querySelectorAll(".product-card");
+
+    const modal = document.getElementById("productModal");
+
+    const closeButton = document.querySelector(".product-modal-close");
+
+    const detailImage = document.getElementById("detailImage");
+    const detailName = document.getElementById("detailName");
+    const detailPrice = document.getElementById("detailPrice");
+    const detailCategory = document.getElementById("detailCategory");
+
+    const detailDescription = document.getElementById("detailDescription");
+    const detailContent = document.getElementById("detailContent");
+
+    const detailAddButton = document.querySelector(".product-detail-add");
+
+    let selectedProduct = null;
+    let previousFocus = null;
+
+
+    // ĐỊNH DẠNG GIÁ
+
+    function formatPrice(price) {
+
+        return Number(price).toLocaleString("vi-VN") + "₫";
+
+    }
+
+
+    // MỞ CHI TIẾT SẢN PHẨM
+
+    function openProduct(product) {
+
+        selectedProduct = product;
+
+        previousFocus = document.activeElement;
+
+        detailImage.src = product.dataset.image;
+        detailImage.alt = product.dataset.name;
+
+        detailName.textContent = product.dataset.name;
+
+        detailPrice.textContent = formatPrice(product.dataset.price);
+
+        detailCategory.textContent = product.dataset.category;
+
+        detailDescription.textContent = product.dataset.description;
+
+        detailContent.textContent = product.dataset.detail;
+
+        modal.classList.add("active");
+
+        modal.setAttribute("aria-hidden", "false");
+
+        document.body.style.overflow = "hidden";
+
+        modal.querySelector(".product-modal-content").scrollTop = 0;
+
+        closeButton.focus();
+
+    }
+
+
+    // ĐÓNG CHI TIẾT SẢN PHẨM
+
+    function closeProduct() {
+
+        modal.classList.remove("active");
+
+        modal.setAttribute("aria-hidden", "true");
+
+        document.body.style.overflow = "";
+
+        selectedProduct = null;
+
+        if (previousFocus) {
+            previousFocus.focus();
+        }
+
+    }
+
+
+    // NHẤN VÀO THẺ SẢN PHẨM
+
+    productCards.forEach(function (product) {
+
+        product.addEventListener("click", function (event) {
+
+            // Không mở chi tiết khi nhấn nút thêm giỏ
+
+            if (event.target.closest(".add-to-cart")) {
+                return;
+            }
+
+            openProduct(product);
+
+        });
+
+    });
+
+
+    // THÊM VÀO GIỎ TỪ CHI TIẾT SẢN PHẨM
+
+    detailAddButton.addEventListener("click", function () {
+
+        if (!selectedProduct) return;
+
+        const originalButton = selectedProduct.querySelector(".add-to-cart");
+
+        if (originalButton) {
+
+            originalButton.click();
+
+            closeProduct();
+
+        }
+
+    });
+
+
+    // NÚT ĐÓNG
+
+    closeButton.addEventListener("click", closeProduct);
+
+
+    // NHẤN RA NGOÀI ĐỂ ĐÓNG
+
+    modal.addEventListener("click", function (event) {
+
+        if (event.target === modal) {
+
+            closeProduct();
+
+        }
+
+    });
+
+
+    // PHÍM ESC ĐỂ ĐÓNG
+
+    document.addEventListener("keydown", function (event) {
+
+        if (
+            event.key === "Escape" &&
+            modal.classList.contains("active")
+        ) {
+
+            closeProduct();
+
+        }
+
+    });
+
+});
+
+</script>
+
 </body>
 </html>
