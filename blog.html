@@ -14,9 +14,181 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
+
+<style>
+/* =================================
+   BLOG CARD
+================================= */
+
+.blog-card {
+    cursor: pointer;
+    position: relative;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.09);
+}
+
+.blog-card:focus-visible {
+    outline: 2px solid #13cbd0;
+    outline-offset: 4px;
+}
+
+/* Ẩn nội dung chi tiết khỏi danh sách */
+
+.blog-detail {
+    display: none !important;
+}
+
+/* =================================
+   ARTICLE MODAL
+================================= */
+
+.article-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(0,0,0,.72);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    backdrop-filter: blur(5px);
+}
+
+.article-modal.active {
+    display: flex;
+}
+
+.article-modal-content {
+    position: relative;
+    background: #fff;
+    width: 100%;
+    max-width: 850px;
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: 55px 65px;
+    font-family: 'DM Sans', sans-serif;
+    animation: articleShow .3s ease;
+}
+
+@keyframes articleShow {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.article-close {
+    position: sticky;
+    top: 0;
+    float: right;
+    z-index: 5;
+    margin: -35px -40px 10px 15px;
+    width: 42px;
+    height: 42px;
+    border: none;
+    background: #12cbd0;
+    color: #111;
+    font-size: 25px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.article-close:hover {
+    background: #111;
+    color: white;
+}
+
+.article-category {
+    display: block;
+    color: #13bfc4;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.article-body h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 34px;
+    line-height: 1.25;
+    color: #111;
+    margin: 0 0 25px;
+}
+
+.article-body h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 21px;
+    color: #171717;
+    margin: 30px 0 12px;
+}
+
+.article-body p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #555;
+    margin: 0 0 18px;
+}
+
+.article-body strong {
+    color: #263e28;
+}
+
+.article-ending {
+    border-top: 1px solid #ddd;
+    margin-top: 35px;
+    padding-top: 22px;
+    color: #45633b;
+    font-weight: 700;
+    line-height: 1.8;
+}
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media(max-width: 768px) {
+    .article-modal {
+        padding: 12px;
+    }
+
+    .article-modal-content {
+        padding: 40px 25px;
+        max-height: 92vh;
+    }
+
+    .article-close {
+        margin: -25px -10px 10px 10px;
+    }
+
+    .article-body h2 {
+        font-size: 27px;
+    }
+
+    .article-body h3 {
+        font-size: 19px;
+    }
+
+    .article-body p {
+        font-size: 15px;
+    }
+}
+</style>
+
 </head>
 
 <body>
+
+<!-- =================================
+     HEADER
+================================= -->
 
 <header class="site-header">
  <div class="header-inner">
@@ -44,101 +216,439 @@
  </div>
 </header>
 
+
+<!-- =================================
+     MAIN
+================================= -->
+
 <main>
 
+<!-- HERO -->
+
 <section class="page-hero">
- <div class="eyebrow">MUSTY JOURNAL</div>
+
+ <div class="eyebrow">GÓC CHUYỆN MUSTY</div>
+
  <h1>CÂU CHUYỆN &<br>CẢM HỨNG.</h1>
- <p>Những câu chuyện nhỏ về sáng tạo, handmade, tái chế và phong cách sống.</p>
+
+ <p>
+ Những câu chuyện nhỏ về sáng tạo, handmade, tái chế và phong cách sống.
+ </p>
+
 </section>
+
+
+<!-- =================================
+     BLOG LIST
+================================= -->
 
 <section class="content-section">
 
  <div class="blog-grid">
 
-  <article class="blog-card">
+
+  <!-- BÀI VIẾT 1 -->
+
+  <article class="blog-card"
+           tabindex="0"
+           role="button"
+           aria-label="Đọc bài viết: Từ vật liệu cũ đến một thiết kế mới">
+
    <img src="images/product11.jpg" alt="Câu chuyện về túi tái chế">
 
    <div class="blog-copy">
-    <small>	SỐNG XANH TỪ TÁI CHẾ</small>
+
+    <small>SỐNG XANH TỪ TÁI CHẾ</small>
+
     <h3>Từ vật liệu cũ đến một thiết kế mới</h3>
+
     <p>
      Tái chế không chỉ là sử dụng lại, mà còn là cách nhìn vật liệu bằng một góc nhìn sáng tạo hơn.
     </p>
+
    </div>
+
+   <div class="blog-detail">
+
+    <span class="article-category">SỐNG XANH TỪ TÁI CHẾ</span>
+
+    <h2>Từ vật liệu cũ đến một thiết kế mới</h2>
+
+    <p>
+     Trong thời trang hiện đại, những vật liệu tưởng chừng không còn giá trị vẫn có thể được tái sinh thành những sản phẩm độc đáo. Đó cũng chính là tinh thần mà MUSTY STUDIO luôn muốn lan tỏa.
+    </p>
+
+    <h3>1. Khi vật liệu cũ có một cuộc đời mới</h3>
+
+    <p>
+     Những chiếc quần jeans cũ, vải thừa hay các chất liệu đã qua sử dụng đều có thể trở thành nguồn cảm hứng sáng tạo. Thay vì bị bỏ quên hoặc trở thành rác thải, chúng được chọn lọc, xử lý và kết hợp để tạo nên những chiếc túi mang diện mạo hoàn toàn mới.
+    </p>
+
+    <h3>2. Sáng tạo từ những điều không hoàn hảo</h3>
+
+    <p>
+     Mỗi chất liệu đều có màu sắc, kết cấu và dấu ấn riêng. Chính những khác biệt ấy tạo nên nét độc bản cho từng sản phẩm handmade. Một đường may, một mảng vải phối màu hay một chi tiết nhỏ cũng có thể làm nên cá tính riêng của chiếc túi.
+    </p>
+
+    <h3>3. Thời trang và trách nhiệm với môi trường</h3>
+
+    <p>
+     Sử dụng sản phẩm tái chế là một cách thiết thực để kéo dài vòng đời vật liệu, hạn chế lãng phí và góp phần xây dựng thói quen tiêu dùng bền vững.
+    </p>
+
+    <p>
+     Thay vì liên tục mua mới, chúng ta có thể bắt đầu bằng việc trân trọng những gì đang có và lựa chọn những sản phẩm có giá trị sử dụng lâu dài.
+    </p>
+
+    <div class="article-ending">
+     MUSTY STUDIO tin rằng một vật liệu cũ không phải là thứ bỏ đi, mà có thể là khởi đầu cho một thiết kế đầy cảm hứng.
+    </div>
+
+   </div>
+
   </article>
 
-  <article class="blog-card">
+
+  <!-- BÀI VIẾT 2 -->
+
+  <article class="blog-card"
+           tabindex="0"
+           role="button"
+           aria-label="Đọc bài viết: Vẻ đẹp của những điều thủ công">
+
    <img src="images/product2.jpg" alt="Thiết kế handmade">
 
    <div class="blog-copy">
-    <small>	CÂU CHUYỆN THỦ CÔNG</small>
+
+    <small>CÂU CHUYỆN THỦ CÔNG</small>
+
     <h3>Vẻ đẹp của những điều thủ công</h3>
+
     <p>
      Mỗi đường may, chi tiết và lựa chọn chất liệu đều góp phần tạo nên cá tính của sản phẩm.
     </p>
+
    </div>
+
+   <div class="blog-detail">
+
+    <span class="article-category">CÂU CHUYỆN THỦ CÔNG</span>
+
+    <h2>Vẻ đẹp của những điều thủ công</h2>
+
+    <p>
+     Giữa vô số sản phẩm được sản xuất hàng loạt, đồ handmade mang đến một giá trị rất riêng: sự tỉ mỉ, sáng tạo và dấu ấn của người làm ra chúng.
+    </p>
+
+    <h3>1. Giá trị nằm trong từng đường may</h3>
+
+    <p>
+     Một chiếc túi handmade không đơn giản chỉ là sự kết hợp của những mảnh vải. Đó là kết quả của nhiều công đoạn như lựa chọn chất liệu, lên ý tưởng, cắt vải, phối màu, may ráp và hoàn thiện.
+    </p>
+
+    <p>
+     Mỗi công đoạn đều đòi hỏi sự cẩn thận và kiên nhẫn để tạo nên một sản phẩm vừa có tính thẩm mỹ vừa đáp ứng nhu cầu sử dụng.
+    </p>
+
+    <h3>2. Không có hai sản phẩm hoàn toàn giống nhau</h3>
+
+    <p>
+     Đặc trưng của handmade nằm ở sự khác biệt. Cách phối chất liệu, màu sắc và những chi tiết nhỏ tạo nên cá tính riêng cho mỗi sản phẩm.
+    </p>
+
+    <p>
+     Vì vậy, khi sở hữu một chiếc túi handmade, bạn không chỉ đang chọn một món phụ kiện mà còn đang sở hữu một thiết kế mang dấu ấn riêng.
+    </p>
+
+    <h3>3. Tôn trọng giá trị của lao động sáng tạo</h3>
+
+    <p>
+     Đằng sau một sản phẩm thủ công là thời gian, công sức và tâm huyết. Mỗi đường kim mũi chỉ đều thể hiện sự chăm chút của người tạo ra nó.
+    </p>
+
+    <div class="article-ending">
+     Với MUSTY STUDIO, vẻ đẹp của handmade không nằm ở sự hoàn hảo tuyệt đối, mà nằm ở câu chuyện và cá tính được gửi gắm trong từng sản phẩm.
+    </div>
+
+   </div>
+
   </article>
 
-  <article class="blog-card">
+
+  <!-- BÀI VIẾT 3 -->
+
+  <article class="blog-card"
+           tabindex="0"
+           role="button"
+           aria-label="Đọc bài viết: Chọn món đồ nói lên cá tính">
+
    <img src="images/product3.jpg" alt="Phong cách cá nhân">
 
    <div class="blog-copy">
+
     <small>PHONG CÁCH RIÊNG</small>
+
     <h3>Chọn món đồ nói lên cá tính</h3>
+
     <p>
      Phong cách riêng bắt đầu từ những lựa chọn nhỏ, gần gũi và đúng với bản thân.
     </p>
+
    </div>
+
+   <div class="blog-detail">
+
+    <span class="article-category">PHONG CÁCH RIÊNG</span>
+
+    <h2>Chọn món đồ nói lên cá tính</h2>
+
+    <p>
+     Phong cách cá nhân không nhất thiết phải đến từ những món đồ đắt tiền hay xu hướng thời trang mới nhất. Đôi khi, chỉ một chiếc túi phù hợp cũng đủ tạo nên điểm nhấn cho tổng thể trang phục.
+    </p>
+
+    <h3>1. Hiểu rõ phong cách của bản thân</h3>
+
+    <p>
+     Hãy bắt đầu bằng việc lựa chọn màu sắc, kiểu dáng và chất liệu mà bạn thực sự yêu thích. Sự thoải mái và tự tin luôn là yếu tố quan trọng nhất khi xây dựng phong cách riêng.
+    </p>
+
+    <h3>2. Ưu tiên những món đồ độc đáo</h3>
+
+    <p>
+     Những chiếc túi handmade hoặc túi tái chế với thiết kế khác biệt sẽ giúp bạn tạo điểm nhấn mà không cần quá nhiều phụ kiện cầu kỳ.
+    </p>
+
+    <h3>3. Thời trang phản ánh lối sống</h3>
+
+    <p>
+     Lựa chọn sản phẩm được làm từ vật liệu tái chế không chỉ thể hiện gu thẩm mỹ mà còn truyền tải thông điệp về tiêu dùng có trách nhiệm.
+    </p>
+
+    <p>
+     Một chiếc túi có thể đồng hành cùng bạn trong những buổi đi học, đi làm, dạo phố hay gặp gỡ bạn bè. Quan trọng nhất là sản phẩm ấy phù hợp với nhu cầu và thể hiện được con người bạn.
+    </p>
+
+    <div class="article-ending">
+     Hãy để phong cách của bạn kể câu chuyện riêng. MUSTY STUDIO tin rằng mỗi người đều có thể tạo nên dấu ấn khác biệt thông qua những lựa chọn nhỏ mỗi ngày.
+    </div>
+
+   </div>
+
   </article>
 
-    <article class="blog-card">
+
+  <!-- BÀI VIẾT 4 -->
+
+  <article class="blog-card"
+           tabindex="0"
+           role="button"
+           aria-label="Đọc bài viết: Đừng gọi em là đồ cũ">
+
    <img src="images/blog01.jpg" alt="Chạm đến cảm xúc">
 
    <div class="blog-copy">
+
     <small>CHUYỆN TÁI SINH</small>
+
     <h3>Đừng gọi em là đồ cũ, em chỉ đang chờ một phiên bản mới.</h3>
+
     <p>
-Có những mảnh vải từng được yêu thích, từng đồng hành trong những ngày bình thường rồi bị lãng quên ở một góc tủ. Nhưng liệu chúng có thực sự hết giá trị?
-Musty nghĩ là không!
-Bằng đôi tay thủ công và sự sáng tạo, những chất liệu cũ được tái sinh thành những chiếc túi mang diện mạo mới. Không có sự hoàn hảo công nghiệp, chỉ có nét riêng được tạo nên từ từng đường kim, mũi chỉ.
-Musty – Mỗi chất liệu đều xứng đáng có thêm một câu chuyện.
+     Có những mảnh vải từng được yêu thích, từng đồng hành trong những ngày bình thường rồi bị lãng quên ở một góc tủ. Nhưng liệu chúng có thực sự hết giá trị?
     </p>
+
    </div>
+
+   <div class="blog-detail">
+
+    <span class="article-category">CHUYỆN TÁI SINH</span>
+
+    <h2>Đừng gọi em là đồ cũ, em chỉ đang chờ một phiên bản mới.</h2>
+
+    <p>
+     Có những mảnh vải từng được yêu thích, từng đồng hành trong những ngày bình thường rồi bị lãng quên ở một góc tủ. Theo thời gian, chúng có thể trở nên cũ kỹ, không còn phù hợp với nhu cầu sử dụng ban đầu.
+    </p>
+
+    <p>
+     Nhưng liệu chúng có thực sự hết giá trị? MUSTY STUDIO nghĩ là không!
+    </p>
+
+    <h3>1. Mỗi chất liệu đều có một câu chuyện</h3>
+
+    <p>
+     Một chiếc quần jeans cũ, một mảnh vải thừa hay một chiếc áo không còn sử dụng đều có thể chứa đựng những giá trị riêng. Thay vì vội vàng loại bỏ, chúng ta có thể nhìn nhận chúng dưới một góc độ khác: nguồn nguyên liệu cho những sáng tạo mới.
+    </p>
+
+    <h3>2. Hành trình tái sinh bắt đầu từ đôi tay</h3>
+
+    <p>
+     Bằng đôi tay thủ công và sự sáng tạo, những chất liệu cũ được chọn lọc, cắt ghép và kết hợp để tạo thành những chiếc túi mang diện mạo mới.
+    </p>
+
+    <p>
+     Không có sự hoàn hảo công nghiệp, chỉ có nét riêng được tạo nên từ từng đường kim, mũi chỉ. Mỗi sản phẩm là một cách kể lại câu chuyện của chất liệu bằng một hình thức hoàn toàn khác.
+    </p>
+
+    <h3>3. Giá trị mới từ những điều tưởng chừng cũ kỹ</h3>
+
+    <p>
+     Tái chế không chỉ giúp tận dụng nguyên liệu mà còn khuyến khích chúng ta suy nghĩ nhiều hơn trước khi vứt bỏ một món đồ. Đôi khi, chỉ cần một chút sáng tạo, những thứ tưởng chừng không còn hữu ích lại có thể trở thành món phụ kiện độc đáo.
+    </p>
+
+    <div class="article-ending">
+     MUSTY STUDIO – Mỗi chất liệu đều xứng đáng có thêm một câu chuyện. Đừng vội bỏ đi những điều cũ, bởi biết đâu chúng đang chờ một cơ hội để trở nên đặc biệt hơn.
+    </div>
+
+   </div>
+
   </article>
 
 
-   <article class="blog-card">
-   <img src="images/blog02.jpg" alt="One Bag, One Planet – Một chiếc túi, một hành tinh">
+  <!-- BÀI VIẾT 5 -->
+
+  <article class="blog-card"
+           tabindex="0"
+           role="button"
+           aria-label="Đọc bài viết: Nếu Trái Đất có thể lên tiếng">
+
+   <img src="images/blog02.jpg" alt="One Bag, One Planet">
 
    <div class="blog-copy">
+
     <small>TIẾNG NÓI HÀNH TINH</small>
+
     <h3>Nếu Trái Đất có thể lên tiếng, bạn nghĩ điều gì sẽ được nhắc đến?</h3>
+
     <p>
-Những dòng sông, cánh rừng và đại dương đang phải đối mặt với áp lực từ rác thải và tiêu dùng quá mức.
-Musty tin rằng thời trang có thể trở nên ý nghĩa hơn khi chúng ta biết trân trọng tài nguyên. Mỗi chiếc túi tái chế handmade là một lời nhắc nhở về việc sử dụng chất liệu có trách nhiệm và hạn chế lãng phí.
-Bởi Trái Đất không phải tài nguyên vô tận, và màu xanh cần được gìn giữ từ hôm nay.
-Thông điệp: Một lựa chọn xanh hôm nay, một tương lai tốt đẹp hơn ngày mai.
+     Những dòng sông, cánh rừng và đại dương đang phải đối mặt với áp lực từ rác thải và tiêu dùng quá mức.
     </p>
+
    </div>
+
+   <div class="blog-detail">
+
+    <span class="article-category">TIẾNG NÓI HÀNH TINH</span>
+
+    <h2>Nếu Trái Đất có thể lên tiếng, bạn nghĩ điều gì sẽ được nhắc đến?</h2>
+
+    <p>
+     Nếu Trái Đất có thể lên tiếng, có lẽ điều đầu tiên được nhắc đến sẽ là cách con người đang sử dụng những nguồn tài nguyên quý giá.
+    </p>
+
+    <p>
+     Những dòng sông, cánh rừng và đại dương đang phải đối mặt với áp lực từ rác thải, ô nhiễm và tiêu dùng quá mức. Đây không còn là câu chuyện xa vời mà là vấn đề cần được quan tâm trong cuộc sống hằng ngày.
+    </p>
+
+    <h3>1. Thời trang cũng có trách nhiệm với môi trường</h3>
+
+    <p>
+     Ngành thời trang mang đến nhiều lựa chọn phong phú nhưng cũng đặt ra câu hỏi về lượng tài nguyên được sử dụng và những sản phẩm bị bỏ đi sau thời gian ngắn.
+    </p>
+
+    <p>
+     Vì vậy, việc lựa chọn những sản phẩm có khả năng sử dụng lâu dài, tận dụng vật liệu cũ và hạn chế lãng phí là một hướng đi đáng được khuyến khích.
+    </p>
+
+    <h3>2. Một chiếc túi, một thông điệp xanh</h3>
+
+    <p>
+     Mỗi chiếc túi tái chế handmade không chỉ là một món phụ kiện phục vụ nhu cầu hằng ngày mà còn là lời nhắc nhở về việc sử dụng chất liệu có trách nhiệm.
+    </p>
+
+    <p>
+     Thông qua việc tái sử dụng vải và sáng tạo trong thiết kế, những vật liệu cũ có thể tiếp tục được đồng hành cùng chúng ta thay vì bị bỏ đi.
+    </p>
+
+    <h3>3. Bắt đầu từ những lựa chọn nhỏ</h3>
+
+    <p>
+     Sống xanh không nhất thiết phải bắt đầu bằng những hành động lớn lao. Chúng ta có thể bắt đầu từ việc mang theo túi cá nhân, sử dụng đồ dùng nhiều lần, lựa chọn sản phẩm phù hợp và trân trọng những gì mình đang sở hữu.
+    </p>
+
+    <div class="article-ending">
+     ONE BAG, ONE PLANET – Một chiếc túi, một hành tinh. Một lựa chọn xanh hôm nay, một tương lai tốt đẹp hơn ngày mai.
+    </div>
+
+   </div>
+
   </article>
- 
-  <article class="blog-card">
-   <img src="images/blog03.jpg" alt="Ngày Môi trường Thế giới (5/6)">
+
+
+  <!-- BÀI VIẾT 6 -->
+
+  <article class="blog-card"
+           tabindex="0"
+           role="button"
+           aria-label="Đọc bài viết: Trái Đất không cần món quà đắt tiền">
+
+   <img src="images/blog03.jpg" alt="Ngày Môi trường Thế giới">
 
    <div class="blog-copy">
+
     <small>SỐNG XANH MỖI NGÀY</small>
-    <h3>"Trái Đất không cần món quà đắt tiền, chỉ cần chúng ta biết trân trọng."</h3>
+
+    <h3>Trái Đất không cần món quà đắt tiền, chỉ cần chúng ta biết trân trọng.</h3>
+
     <p>
-Mỗi mảnh vải được tái sử dụng là một cơ hội để giảm bớt sự lãng phí. Musty tin rằng bảo vệ môi trường không nhất thiết phải bắt đầu từ những hành động lớn lao, mà có thể bắt đầu từ lựa chọn chiếc túi bạn mang mỗi ngày.
-Thông điệp: Reuse Today, Save Tomorrow.
+     Mỗi mảnh vải được tái sử dụng là một cơ hội để giảm bớt sự lãng phí.
     </p>
+
    </div>
+
+   <div class="blog-detail">
+
+    <span class="article-category">SỐNG XANH MỖI NGÀY</span>
+
+    <h2>Trái Đất không cần món quà đắt tiền, chỉ cần chúng ta biết trân trọng.</h2>
+
+    <p>
+     Chúng ta thường nghĩ rằng bảo vệ môi trường là điều gì đó thật lớn lao, cần đến những chiến dịch quy mô hay những thay đổi phức tạp. Nhưng đôi khi, điều ý nghĩa nhất lại bắt đầu từ những thói quen rất nhỏ.
+    </p>
+
+    <h3>1. Tái sử dụng thay vì vội vàng bỏ đi</h3>
+
+    <p>
+     Mỗi mảnh vải được tái sử dụng là một cơ hội để giảm bớt sự lãng phí. Những sản phẩm cũ có thể được sửa chữa, sáng tạo hoặc biến đổi thành những món đồ mới có giá trị sử dụng.
+    </p>
+
+    <h3>2. Thay đổi từ những lựa chọn hằng ngày</h3>
+
+    <p>
+     Mang theo túi cá nhân khi mua sắm, sử dụng sản phẩm nhiều lần và hạn chế những món đồ không thực sự cần thiết là những hành động đơn giản mà mỗi người đều có thể thực hiện.
+    </p>
+
+    <p>
+     Khi những lựa chọn nhỏ được duy trì thường xuyên, chúng có thể góp phần hình thành thói quen tiêu dùng có trách nhiệm hơn.
+    </p>
+
+    <h3>3. Sống xanh theo cách của riêng bạn</h3>
+
+    <p>
+     MUSTY STUDIO tin rằng sống xanh không phải là một cuộc chạy đua để trở nên hoàn hảo. Đó là hành trình mỗi người tự điều chỉnh cách tiêu dùng, trân trọng tài nguyên và lựa chọn những sản phẩm phù hợp với lối sống của mình.
+    </p>
+
+    <p>
+     Một chiếc túi tái chế có thể là một lựa chọn nhỏ, nhưng cũng có thể trở thành lời nhắc nhở về giá trị của việc sử dụng lại và sáng tạo.
+    </p>
+
+    <div class="article-ending">
+     REUSE TODAY, SAVE TOMORROW – Tái sử dụng hôm nay, gìn giữ ngày mai. Trái Đất không cần món quà đắt tiền, chỉ cần chúng ta biết trân trọng.
+    </div>
+
+   </div>
+
   </article>
+
+
+ </div>
 
 </section>
 
 </main>
+
+
+<!-- =================================
+     FOOTER
+================================= -->
 
 <footer class="site-footer">
 
@@ -174,6 +684,37 @@ Thông điệp: Reuse Today, Save Tomorrow.
 
 </footer>
 
+
+<!-- =================================
+     ARTICLE MODAL
+================================= -->
+
+<div class="article-modal"
+     id="articleModal"
+     aria-hidden="true">
+
+ <div class="article-modal-content"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Nội dung bài viết">
+
+  <button class="article-close"
+          type="button"
+          aria-label="Đóng bài viết">
+   &times;
+  </button>
+
+  <div class="article-body" id="articleBody"></div>
+
+ </div>
+
+</div>
+
+
+<!-- =================================
+     CART
+================================= -->
+
 <div class="cart-drawer" aria-hidden="true">
 
  <aside class="cart-panel" aria-label="Giỏ hàng">
@@ -200,7 +741,108 @@ Thông điệp: Reuse Today, Save Tomorrow.
 
 </div>
 
+
+<!-- =================================
+     JAVASCRIPT
+================================= -->
+
 <script src="script.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const cards = document.querySelectorAll(".blog-card");
+    const modal = document.getElementById("articleModal");
+    const articleBody = document.getElementById("articleBody");
+    const closeBtn = modal.querySelector(".article-close");
+
+    let previousCard = null;
+
+    // MỞ BÀI VIẾT
+    function openArticle(card) {
+
+        const detail = card.querySelector(".blog-detail");
+
+        if (!detail) return;
+
+        previousCard = card;
+
+        articleBody.innerHTML = detail.innerHTML;
+
+        modal.classList.add("active");
+        modal.setAttribute("aria-hidden", "false");
+
+        document.body.style.overflow = "hidden";
+
+        closeBtn.focus();
+
+        // Đưa nội dung bài viết về đầu trang
+        modal.querySelector(".article-modal-content").scrollTop = 0;
+    }
+
+    // ĐÓNG BÀI VIẾT
+    function closeArticle() {
+
+        modal.classList.remove("active");
+        modal.setAttribute("aria-hidden", "true");
+
+        document.body.style.overflow = "";
+
+        articleBody.innerHTML = "";
+
+        if (previousCard) {
+            previousCard.focus();
+        }
+    }
+
+    // NHẤN VÀO THẺ BÀI VIẾT
+    cards.forEach(function (card) {
+
+        card.addEventListener("click", function () {
+            openArticle(card);
+        });
+
+        // Hỗ trợ bàn phím Enter và Space
+        card.addEventListener("keydown", function (event) {
+
+            if (
+                event.key === "Enter" ||
+                event.key === " "
+            ) {
+                event.preventDefault();
+                openArticle(card);
+            }
+
+        });
+
+    });
+
+    // NÚT ĐÓNG
+    closeBtn.addEventListener("click", closeArticle);
+
+    // NHẤN RA NGOÀI ĐỂ ĐÓNG
+    modal.addEventListener("click", function (event) {
+
+        if (event.target === modal) {
+            closeArticle();
+        }
+
+    });
+
+    // PHÍM ESC ĐỂ ĐÓNG
+    document.addEventListener("keydown", function (event) {
+
+        if (
+            event.key === "Escape" &&
+            modal.classList.contains("active")
+        ) {
+            closeArticle();
+        }
+
+    });
+
+});
+</script>
 
 </body>
 </html>
