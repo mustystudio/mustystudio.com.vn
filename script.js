@@ -1,185 +1,328 @@
+
 document.addEventListener("DOMContentLoaded", () => {
-  // =========================
-  // MOBILE MENU
-  // =========================
-  const menuBtn = document.querySelector(".menu-btn");
-  const nav = document.querySelector(".nav");
+
+  // =====================================
+  // 1. MOBILE MENU
+  // =====================================
+
+  const menuBtn = document.querySelector(".menu-toggle, .menu-btn");
+  const nav = document.querySelector(".site-header nav, .nav");
 
   if (menuBtn && nav) {
     menuBtn.addEventListener("click", () => {
-      nav.classList.toggle("active");
+      const isOpen = nav.classList.toggle(
+        nav.matches(".site-header nav") ? "open" : "active"
+      );
+
+      menuBtn.setAttribute("aria-expanded", isOpen);
     });
 
     nav.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
-        nav.classList.remove("active");
+        nav.classList.remove("open", "active");
+        menuBtn.setAttribute("aria-expanded", "false");
       });
     });
   }
 
-  // =========================
-  // SEARCH
-  // =========================
-  const searchBtn = document.querySelector(".search-btn");
-  const searchBox = document.querySelector(".search-box");
-  const searchInput = document.querySelector(".search-box input");
 
-  if (searchBtn && searchBox) {
-    searchBtn.addEventListener("click", () => {
-      searchBox.classList.toggle("active");
+  // =====================================
+  // 2. PRODUCT SEARCH
+  // =====================================
 
-      if (searchBox.classList.contains("active") && searchInput) {
-        searchInput.focus();
-      }
-    });
-  }
+  const searchInput = document.querySelector(
+    ".product-search, .search-box input"
+  );
 
   if (searchInput) {
-    searchInput.addEventListener("keydown", event => {
-      if (event.key === "Enter") {
-        const keyword = searchInput.value.trim().toLowerCase();
+    searchInput.addEventListener("input", () => {
+      const keyword = searchInput.value
+        .trim()
+        .toLocaleLowerCase("vi");
 
-        if (keyword === "") return;
+      const products = document.querySelectorAll(
+        ".product-card, .product"
+      );
 
-        const products = document.querySelectorAll(".product-card");
+      products.forEach(product => {
+        const productText = product.textContent
+          .toLocaleLowerCase("vi");
 
-        products.forEach(product => {
-          const text = product.textContent.toLowerCase();
-
-          if (text.includes(keyword)) {
-            product.style.display = "";
-          } else {
-            product.style.display = "none";
-          }
-        });
-      }
+        product.style.display =
+          productText.includes(keyword) ? "" : "none";
+      });
     });
   }
 
-  // =========================
-  // CART
-  // =========================
+
+  // =====================================
+  // 3. CART DATA
+  // =====================================
+
   let cart = [];
 
-  const cartBtn = document.querySelector(".cart-btn");
-  const cartOverlay = document.querySelector(".cart-overlay");
-  const cartClose = document.querySelector(".cart-close");
+  const cartBtn = document.querySelector(
+    ".cart-open, .cart-btn"
+  );
+
+  const cartDrawer = document.querySelector(
+    ".cart-drawer, .cart-overlay"
+  );
+
+  const cartClose = document.querySelector(
+    ".cart-close, .close-cart"
+  );
+
   const cartItems = document.querySelector(".cart-items");
+
   const cartCount = document.querySelector(".cart-count");
-  const cartTotal = document.querySelector(".cart-total");
+
+  const cartTotal = document.querySelector(
+    ".cart-total-line .cart-total, .cart-total"
+  );
+
+
+  // Format Vietnamese currency
+  function formatMoney(number) {
+    return number.toLocaleString("vi-VN") + "₫";
+  }
+
+
+  // =====================================
+  // 4. UPDATE CART
+  // =====================================
 
   function updateCart() {
+
+    // Update total quantity
+    const totalQuantity = cart.reduce(
+      (sum, item) => sum + item.quantity,
+      0
+    );
+
     if (cartCount) {
-      cartCount.textContent = cart.length;
+      cartCount.textContent = totalQuantity;
+    }
+
+    // Calculate total price
+    const totalPrice = cart.reduce(
+      (sum, item) => sum + item.price * item.quantity,
+      0
+    );
+
+    if (cartTotal) {
+      cartTotal.textContent = formatMoney(totalPrice);
     }
 
     if (!cartItems) return;
 
+    // Empty cart
     if (cart.length === 0) {
       cartItems.innerHTML = `
-        <p class="empty-cart">Your cart is empty.</p>
+        <p>Giỏ hàng đang trống.</p>
       `;
+      return;
+    }
+
+    // Display products
+    cartItems.innerHTML = cart.map((item, index) => `
+      <div class="cart-item cart-row">
+
+        <div>
+          <strong>${item.name}</strong>
+
+          <p>
+            ${formatMoney(item.price)}
+            × ${item.quantity}
+          </p>
+
+          <p>
+            Thành tiền:
+            ${formatMoney(item.price * item.quantity)}
+          </p>
+        </div>
+
+        <button
+          type="button"
+          class="remove-item"
+          data-index="${index}"
+          aria-label="Xóa sản phẩm"
+        >
+          ✕
+        </button>
+
+      </div>
+    `).join("");
+
+  }
+
+
+  // =====================================
+  // 5. OPEN CART
+  // =====================================
+
+  function openCart() {
+    if (!cartDrawer) return;
+
+    if (cartDrawer.classList.contains("cart-drawer")) {
+      cartDrawer.classList.add("open");
     } else {
-      cartItems.innerHTML = cart
-        .map((item, index) => `
-          <div class="cart-item">
-            <div>
-              <strong>${item.name}</strong>
-              <span>${item.price.toLocaleString("vi-VN")}₫</span>
-            </div>
-
-            <button class="remove-item" data-index="${index}">
-              ×
-            </button>
-          </div>
-        `)
-        .join("");
+      cartDrawer.classList.add("active");
     }
 
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    cartDrawer.setAttribute("aria-hidden", "false");
 
-    if (cartTotal) {
-      cartTotal.textContent = `${total.toLocaleString("vi-VN")}₫`;
-    }
-
-    document.querySelectorAll(".remove-item").forEach(button => {
-      button.addEventListener("click", () => {
-        const index = Number(button.dataset.index);
-
-        cart.splice(index, 1);
-
-        updateCart();
-      });
-    });
+    updateCart();
   }
 
-  if (cartBtn && cartOverlay) {
-    cartBtn.addEventListener("click", () => {
-      cartOverlay.classList.add("active");
-      updateCart();
-    });
+  if (cartBtn) {
+    cartBtn.addEventListener("click", openCart);
   }
 
-  if (cartClose && cartOverlay) {
-    cartClose.addEventListener("click", () => {
-      cartOverlay.classList.remove("active");
-    });
+
+  // =====================================
+  // 6. CLOSE CART
+  // =====================================
+
+  function closeCart() {
+    if (!cartDrawer) return;
+
+    cartDrawer.classList.remove("open", "active");
+
+    cartDrawer.setAttribute("aria-hidden", "true");
   }
 
-  if (cartOverlay) {
-    cartOverlay.addEventListener("click", event => {
-      if (event.target === cartOverlay) {
-        cartOverlay.classList.remove("active");
+  if (cartClose) {
+    cartClose.addEventListener("click", closeCart);
+  }
+
+  if (cartDrawer) {
+    cartDrawer.addEventListener("click", event => {
+      if (event.target === cartDrawer) {
+        closeCart();
       }
     });
   }
 
-  // =========================
-  // ADD TO CART
-  // =========================
-  const addButtons = document.querySelectorAll(".add-to-cart");
-
-  addButtons.forEach(button => {
-    button.addEventListener("click", () => {
-      const product = button.closest(".product-card");
-
-      if (!product) return;
-
-      const nameElement = product.querySelector(".product-name");
-      const priceElement = product.querySelector(".product-price");
-
-      if (!nameElement || !priceElement) return;
-
-      const name = nameElement.textContent.trim();
-
-      const price = parseInt(
-        priceElement.textContent.replace(/[^\d]/g, ""),
-        10
-      );
-
-      cart.push({
-        name,
-        price
-      });
-
-      updateCart();
-
-      button.textContent = "ADDED ✓";
-
-      setTimeout(() => {
-        button.textContent = "ADD TO CART";
-      }, 1200);
-    });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      closeCart();
+    }
   });
 
-  // =========================
-  // SMOOTH SCROLL
-  // =========================
+
+  // =====================================
+  // 7. ADD PRODUCT TO CART
+  // =====================================
+
+  document.addEventListener("click", event => {
+
+    const button = event.target.closest(".add-to-cart");
+
+    if (!button) return;
+
+    const product = button.closest(".product-card, .product");
+
+    if (!product) return;
+
+    // Get product name
+    const name =
+      button.dataset.name ||
+      product.querySelector(".product-name")?.textContent.trim() ||
+      product.querySelector("h3")?.textContent.trim();
+
+    // Get product price
+    let price = Number(button.dataset.price);
+
+    if (!price) {
+      const priceElement = product.querySelector(
+        ".product-price, ".concat(".price, strong")
+      );
+
+      if (priceElement) {
+        price = Number(
+          priceElement.textContent.replace(/[^\d]/g, "")
+        );
+      }
+    }
+
+    // Validate product information
+    if (!name || !Number.isFinite(price) || price <= 0) {
+      alert("Không thể thêm sản phẩm. Vui lòng kiểm tra tên và giá sản phẩm.");
+      return;
+    }
+
+    // Check whether product already exists
+    const existingProduct = cart.find(
+      item => item.name === name
+    );
+
+    if (existingProduct) {
+      existingProduct.quantity += 1;
+    } else {
+      cart.push({
+        name: name,
+        price: price,
+        quantity: 1
+      });
+    }
+
+    // Update cart
+    updateCart();
+
+    // Button notification
+    const originalText = button.textContent;
+
+    button.textContent = "ĐÃ THÊM ✓";
+    button.disabled = true;
+
+    setTimeout(() => {
+      button.textContent = originalText;
+      button.disabled = false;
+    }, 1000);
+
+  });
+
+
+  // =====================================
+  // 8. REMOVE PRODUCT FROM CART
+  // =====================================
+
+  if (cartItems) {
+
+    cartItems.addEventListener("click", event => {
+
+      const button = event.target.closest(".remove-item");
+
+      if (!button) return;
+
+      const index = Number(button.dataset.index);
+
+      if (
+        Number.isInteger(index) &&
+        index >= 0 &&
+        index < cart.length
+      ) {
+        cart.splice(index, 1);
+        updateCart();
+      }
+
+    });
+
+  }
+
+
+  // =====================================
+  // 9. SMOOTH SCROLL
+  // =====================================
+
   document.querySelectorAll('a[href^="#"]').forEach(link => {
+
     link.addEventListener("click", event => {
+
       const targetId = link.getAttribute("href");
 
-      if (targetId === "#") return;
+      if (!targetId || targetId === "#") return;
 
       const target = document.querySelector(targetId);
 
@@ -191,18 +334,25 @@ document.addEventListener("DOMContentLoaded", () => {
           block: "start"
         });
       }
+
     });
+
   });
 
-  // =========================
-  // CURRENT YEAR
-  // =========================
-  const yearElement = document.querySelector(".current-year");
 
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
+  // =====================================
+  // 10. CURRENT YEAR
+  // =====================================
 
-  // Initial cart display
+  document.querySelectorAll(".current-year").forEach(element => {
+    element.textContent = new Date().getFullYear();
+  });
+
+
+  // =====================================
+  // 11. INITIALIZE
+  // =====================================
+
   updateCart();
+
 });
