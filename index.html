@@ -23,7 +23,7 @@
 ===================================== */
 
 .campaign-section {
-    padding: 34px 5%;
+    padding: 35px 5%;
     background: #f1eee7;
 }
 
@@ -33,7 +33,6 @@
     overflow: hidden;
     background: #183d3c;
     border-radius: 5px;
-    position: relative;
     box-shadow: 0 15px 40px rgba(0,0,0,0.10);
 }
 
@@ -72,14 +71,14 @@
     color: #fff;
 }
 
-.campaign-caption .campaign-slogan {
+.campaign-slogan {
     font-size: 17px;
     font-style: italic;
     color: #d8e4d8;
     margin: 0 0 15px;
 }
 
-.campaign-caption .campaign-description {
+.campaign-description {
     max-width: 760px;
     margin: 0 auto 24px;
     color: #e7e9df;
@@ -139,8 +138,10 @@
     letter-spacing: .5px;
 }
 
-/* Responsive */
+/* HIỂN THỊ TRÊN ĐIỆN THOẠI */
+
 @media (max-width: 768px) {
+
     .campaign-section {
         padding: 18px 12px;
     }
@@ -153,11 +154,15 @@
         padding: 27px 18px 30px;
     }
 
-    .campaign-caption .campaign-slogan {
+    .campaign-caption h2 {
+        font-size: 29px;
+    }
+
+    .campaign-slogan {
         font-size: 15px;
     }
 
-    .campaign-caption .campaign-description {
+    .campaign-description {
         font-size: 13px;
     }
 
@@ -214,76 +219,6 @@
 
 <main>
 
-<!-- =====================================
-     CHIẾN DỊCH ĐẶC BIỆT - DỆT TIẾP VÒNG ĐỜI
-     ĐẶT Ở ĐẦU TRANG CHỦ
-===================================== -->
-
-<section class="campaign-section">
-
-    <div class="campaign-container">
-
-        <img
-            class="campaign-image"
-            src="images/chiendichbanner.png"
-            alt="Chiến dịch Dệt Tiếp Vòng Đời của MUSTY STUDIO"
-        >
-
-        <div class="campaign-caption">
-
-            <div class="campaign-label">
-                MUSTY STUDIO PRESENTS • GREEN CAMPAIGN
-            </div>
-
-            <h2>DỆT TIẾP VÒNG ĐỜI</h2>
-
-            <p class="campaign-slogan">
-                “Không có chất liệu nào nên kết thúc câu chuyện của mình.”
-            </p>
-
-            <p class="campaign-description">
-                Một chiếc áo cũ, một mảnh vải thừa hay những chất liệu
-                không còn được sử dụng đều có thể bắt đầu một hành trình mới.
-                MUSTY mong muốn trao cho chúng cơ hội được tái sinh,
-                thay vì bị lãng quên hoặc bỏ đi.
-                <br><br>
-                Hãy mang quần áo cũ hoặc những mảnh vải còn có thể tái sử dụng
-                đến tham gia chiến dịch. Như một lời cảm ơn,
-                MUSTY gửi tặng bạn một chiếc túi vải nhỏ mang tinh thần
-                tái chế và sáng tạo.
-            </p>
-
-            <div class="campaign-steps">
-
-                <div class="campaign-step">
-                    <span>01</span> TRAO CHẤT LIỆU CŨ
-                </div>
-
-                <div class="campaign-step">
-                    <span>02</span> NHẬN TÚI VẢI MỚI
-                </div>
-
-                <div class="campaign-step">
-                    <span>03</span> CÙNG SỐNG XANH
-                </div>
-
-            </div>
-
-            <a class="campaign-button" href="promotion.html">
-                KHÁM PHÁ CHIẾN DỊCH <span>→</span>
-            </a>
-
-            <div class="campaign-note">
-                #DetTiepVongDoi &nbsp; #MustyStudio
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
 <!-- BANNER TRANG CHỦ -->
 <section class="page-hero">
 
@@ -308,6 +243,81 @@
             KHÁM PHÁ SẢN PHẨM →
         </a>
     </p>
+
+</section>
+
+
+<!-- =====================================
+     CHIẾN DỊCH ĐẶC BIỆT
+     DỆT TIẾP VÒNG ĐỜI
+     NẰM SAU BANNER TRANG CHỦ
+===================================== -->
+
+<section class="campaign-section">
+
+    <div class="campaign-container">
+
+        <!-- ẢNH BANNER CHIẾN DỊCH -->
+        <img
+            class="campaign-image"
+            src="images/chiendichbanner.png"
+            alt="Chiến dịch Dệt Tiếp Vòng Đời của MUSTY STUDIO"
+        >
+
+        <!-- NỘI DUNG CHIẾN DỊCH -->
+        <div class="campaign-caption">
+
+            <div class="campaign-label">
+                MUSTY STUDIO PRESENTS • GREEN CAMPAIGN
+            </div>
+
+            <h2>DỆT TIẾP VÒNG ĐỜI</h2>
+
+            <p class="campaign-slogan">
+                “Không có chất liệu nào nên kết thúc câu chuyện của mình.”
+            </p>
+
+            <p class="campaign-description">
+                Một chiếc áo cũ, một mảnh vải thừa hay những chất liệu
+                không còn được sử dụng đều có thể bắt đầu một hành trình mới.
+                MUSTY mong muốn trao cho chúng cơ hội được tái sinh,
+                thay vì bị lãng quên hoặc bỏ đi.
+                <br><br>
+                Hãy mang quần áo cũ hoặc những mảnh vải còn có thể tái sử dụng
+                đến tham gia chiến dịch. Như một lời cảm ơn,
+                MUSTY gửi tặng bạn một chiếc túi vải nhỏ mang tinh thần
+                tái chế và sáng tạo.
+            </p>
+
+            <!-- 3 BƯỚC THAM GIA -->
+            <div class="campaign-steps">
+
+                <div class="campaign-step">
+                    <span>01</span> TRAO CHẤT LIỆU CŨ
+                </div>
+
+                <div class="campaign-step">
+                    <span>02</span> NHẬN TÚI VẢI MỚI
+                </div>
+
+                <div class="campaign-step">
+                    <span>03</span> CÙNG SỐNG XANH
+                </div>
+
+            </div>
+
+            <!-- NÚT KHÁM PHÁ -->
+            <a class="campaign-button" href="promotion.html">
+                KHÁM PHÁ CHIẾN DỊCH <span>→</span>
+            </a>
+
+            <div class="campaign-note">
+                #DetTiepVongDoi &nbsp; #MustyStudio
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
