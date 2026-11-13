@@ -16,6 +16,168 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
+
+<style>
+/* =====================================
+   CHIẾN DỊCH DỆT TIẾP VÒNG ĐỜI
+===================================== */
+
+.campaign-section {
+    padding: 34px 5%;
+    background: #f1eee7;
+}
+
+.campaign-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    overflow: hidden;
+    background: #183d3c;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.10);
+}
+
+.campaign-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.campaign-caption {
+    padding: 34px 30px 38px;
+    text-align: center;
+    color: #f7f3e9;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.07), transparent 25%),
+        #183d3c;
+}
+
+.campaign-label {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #b9d5c8;
+    margin-bottom: 13px;
+}
+
+.campaign-caption h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(27px, 4vw, 43px);
+    line-height: 1.15;
+    letter-spacing: 1px;
+    margin: 0 0 13px;
+    color: #fff;
+}
+
+.campaign-caption .campaign-slogan {
+    font-size: 17px;
+    font-style: italic;
+    color: #d8e4d8;
+    margin: 0 0 15px;
+}
+
+.campaign-caption .campaign-description {
+    max-width: 760px;
+    margin: 0 auto 24px;
+    color: #e7e9df;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.campaign-steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0 auto 27px;
+}
+
+.campaign-step {
+    padding: 10px 17px;
+    border: 1px solid rgba(255,255,255,0.28);
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .4px;
+    color: #f7f3e9;
+}
+
+.campaign-step span {
+    color: #a9d4c5;
+    margin-right: 6px;
+}
+
+.campaign-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 30px;
+    background: #a9d4c5;
+    color: #153a39;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    transition: .3s ease;
+}
+
+.campaign-button:hover {
+    background: #fff;
+    transform: translateY(-3px);
+}
+
+.campaign-note {
+    margin-top: 17px;
+    font-size: 11px;
+    color: #b9c9bd;
+    letter-spacing: .5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .campaign-section {
+        padding: 18px 12px;
+    }
+
+    .campaign-container {
+        border-radius: 4px;
+    }
+
+    .campaign-caption {
+        padding: 27px 18px 30px;
+    }
+
+    .campaign-caption .campaign-slogan {
+        font-size: 15px;
+    }
+
+    .campaign-caption .campaign-description {
+        font-size: 13px;
+    }
+
+    .campaign-steps {
+        gap: 8px;
+    }
+
+    .campaign-step {
+        font-size: 10px;
+        padding: 9px 12px;
+    }
+
+    .campaign-button {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 14px 18px;
+    }
+}
+</style>
+
 </head>
 
 <body>
@@ -23,59 +185,129 @@
 <!-- THANH ĐIỀU HƯỚNG -->
 <header class="site-header">
 
- <div class="header-inner">
+    <div class="header-inner">
 
-  <a class="brand" href="index.html">
-   <img src="images/musty-hero.jpg" alt="Logo MUSTY STUDIO">
-   MUSTY STUDIO
-  </a>
+        <a class="brand" href="index.html">
+            <img src="images/musty-hero.jpg" alt="Logo MUSTY STUDIO">
+            MUSTY STUDIO
+        </a>
 
-  <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false">☰</button>
+        <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false">☰</button>
 
-  <nav aria-label="Điều hướng chính">
-   <a href="index.html" aria-current="page">Trang chủ</a>
-   <a href="about.html">Giới thiệu</a>
-   <a href="products.html">Sản phẩm</a>
-   <a href="blog.html">Bài viết</a>
-   <a href="contact.html">Liên hệ</a>
-   <a href="collections.html">Bộ sưu tập</a>
-  </nav>
+        <nav aria-label="Điều hướng chính">
+            <a href="index.html" aria-current="page">Trang chủ</a>
+            <a href="about.html">Giới thiệu</a>
+            <a href="products.html">Sản phẩm</a>
+            <a href="blog.html">Bài viết</a>
+            <a href="contact.html">Liên hệ</a>
+            <a href="collections.html">Bộ sưu tập</a>
+        </nav>
 
-  <button class="action-button cart-open" type="button">
-   GIỎ HÀNG (<span class="cart-count">0</span>)
-  </button>
+        <button class="action-button cart-open" type="button">
+            GIỎ HÀNG (<span class="cart-count">0</span>)
+        </button>
 
- </div>
+    </div>
 
 </header>
 
 
 <main>
 
+<!-- =====================================
+     CHIẾN DỊCH ĐẶC BIỆT - DỆT TIẾP VÒNG ĐỜI
+     ĐẶT Ở ĐẦU TRANG CHỦ
+===================================== -->
+
+<section class="campaign-section">
+
+    <div class="campaign-container">
+
+        <img
+            class="campaign-image"
+            src="images/chiendichbanner.png"
+            alt="Chiến dịch Dệt Tiếp Vòng Đời của MUSTY STUDIO"
+        >
+
+        <div class="campaign-caption">
+
+            <div class="campaign-label">
+                MUSTY STUDIO PRESENTS • GREEN CAMPAIGN
+            </div>
+
+            <h2>DỆT TIẾP VÒNG ĐỜI</h2>
+
+            <p class="campaign-slogan">
+                “Không có chất liệu nào nên kết thúc câu chuyện của mình.”
+            </p>
+
+            <p class="campaign-description">
+                Một chiếc áo cũ, một mảnh vải thừa hay những chất liệu
+                không còn được sử dụng đều có thể bắt đầu một hành trình mới.
+                MUSTY mong muốn trao cho chúng cơ hội được tái sinh,
+                thay vì bị lãng quên hoặc bỏ đi.
+                <br><br>
+                Hãy mang quần áo cũ hoặc những mảnh vải còn có thể tái sử dụng
+                đến tham gia chiến dịch. Như một lời cảm ơn,
+                MUSTY gửi tặng bạn một chiếc túi vải nhỏ mang tinh thần
+                tái chế và sáng tạo.
+            </p>
+
+            <div class="campaign-steps">
+
+                <div class="campaign-step">
+                    <span>01</span> TRAO CHẤT LIỆU CŨ
+                </div>
+
+                <div class="campaign-step">
+                    <span>02</span> NHẬN TÚI VẢI MỚI
+                </div>
+
+                <div class="campaign-step">
+                    <span>03</span> CÙNG SỐNG XANH
+                </div>
+
+            </div>
+
+            <a class="campaign-button" href="promotion.html">
+                KHÁM PHÁ CHIẾN DỊCH <span>→</span>
+            </a>
+
+            <div class="campaign-note">
+                #DetTiepVongDoi &nbsp; #MustyStudio
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
 <!-- BANNER TRANG CHỦ -->
 <section class="page-hero">
 
- <div class="eyebrow">
-  TÁI CHẾ • THỦ CÔNG • ĐỘC BẢN
- </div>
+    <div class="eyebrow">
+        TÁI CHẾ • THỦ CÔNG • ĐỘC BẢN
+    </div>
 
- <h1>
-  KHÁC BIỆT<br>
-  TỪ NHỮNG ĐIỀU CŨ.
- </h1>
+    <h1>
+        KHÁC BIỆT<br>
+        TỪ NHỮNG ĐIỀU CŨ.
+    </h1>
 
- <p>
-  MUSTY STUDIO mang đến những chiếc túi tái chế,
-  sản phẩm thủ công và thiết kế độc bản.
-  Chúng tôi tin rằng những chất liệu tưởng chừng đã cũ
-  vẫn có thể bắt đầu một hành trình mới đầy sáng tạo.
- </p>
+    <p>
+        MUSTY STUDIO mang đến những chiếc túi tái chế,
+        sản phẩm thủ công và thiết kế độc bản.
+        Chúng tôi tin rằng những chất liệu tưởng chừng đã cũ
+        vẫn có thể bắt đầu một hành trình mới đầy sáng tạo.
+    </p>
 
- <p>
-  <a class="action-button" href="products.html">
-   KHÁM PHÁ SẢN PHẨM →
-  </a>
- </p>
+    <p>
+        <a class="action-button" href="products.html">
+            KHÁM PHÁ SẢN PHẨM →
+        </a>
+    </p>
 
 </section>
 
@@ -83,40 +315,40 @@
 <!-- CÂU CHUYỆN THƯƠNG HIỆU -->
 <section class="content-section split-layout">
 
- <div>
+    <div>
 
-  <div class="eyebrow">
-   CÂU CHUYỆN THƯƠNG HIỆU
-  </div>
+        <div class="eyebrow">
+            CÂU CHUYỆN THƯƠNG HIỆU
+        </div>
 
-  <h2>
-   Không chạy theo số đông.
-  </h2>
+        <h2>
+            Không chạy theo số đông.
+        </h2>
 
-  <p>
-   MUSTY tin rằng một món đồ đẹp không nhất thiết phải
-   hoàn hảo hay được sản xuất hàng loạt.
-   Vẻ đẹp đôi khi đến từ những chất liệu cũ,
-   những đường may thủ công và những dấu ấn không thể lặp lại.
-  </p>
+        <p>
+            MUSTY tin rằng một món đồ đẹp không nhất thiết phải
+            hoàn hảo hay được sản xuất hàng loạt.
+            Vẻ đẹp đôi khi đến từ những chất liệu cũ,
+            những đường may thủ công và những dấu ấn không thể lặp lại.
+        </p>
 
-  <p>
-   Chúng tôi lựa chọn tái sử dụng chất liệu,
-   kết hợp sự sáng tạo và kỹ thuật thủ công
-   để tạo nên những chiếc túi mang diện mạo mới.
-   Với MUSTY, mỗi sản phẩm không chỉ là một món phụ kiện
-   mà còn là câu chuyện về sự tái sinh và cá tính riêng.
-  </p>
+        <p>
+            Chúng tôi lựa chọn tái sử dụng chất liệu,
+            kết hợp sự sáng tạo và kỹ thuật thủ công
+            để tạo nên những chiếc túi mang diện mạo mới.
+            Với MUSTY, mỗi sản phẩm không chỉ là một món phụ kiện
+            mà còn là câu chuyện về sự tái sinh và cá tính riêng.
+        </p>
 
-  <p style="margin-top:24px">
-   <a class="action-button" href="about.html">
-    TÌM HIỂU VỀ MUSTY →
-   </a>
-  </p>
+        <p style="margin-top:24px">
+            <a class="action-button" href="about.html">
+                TÌM HIỂU VỀ MUSTY →
+            </a>
+        </p>
 
- </div>
+    </div>
 
- <img src="images/musty-hero.jpg" alt="Tinh thần sáng tạo và tái chế của MUSTY STUDIO">
+    <img src="images/musty-hero.jpg" alt="Tinh thần sáng tạo và tái chế của MUSTY STUDIO">
 
 </section>
 
@@ -124,112 +356,112 @@
 <!-- VÌ SAO CHỌN MUSTY -->
 <section class="content-section why-musty">
 
- <div class="why-heading">
+    <div class="why-heading">
 
-  <div class="eyebrow">
-   GIÁ TRỊ CỦA MUSTY
-  </div>
+        <div class="eyebrow">
+            GIÁ TRỊ CỦA MUSTY
+        </div>
 
-  <h2>
-   VÌ SAO CHỌN MUSTY?
-  </h2>
+        <h2>
+            VÌ SAO CHỌN MUSTY?
+        </h2>
 
-  <p>
-   Không chỉ là một chiếc túi, mà còn là một câu chuyện
-   được tái sinh từ những chất liệu tưởng chừng đã cũ.
-   Mỗi sản phẩm mang một dấu ấn riêng và một giá trị khác biệt.
-  </p>
+        <p>
+            Không chỉ là một chiếc túi, mà còn là một câu chuyện
+            được tái sinh từ những chất liệu tưởng chừng đã cũ.
+            Mỗi sản phẩm mang một dấu ấn riêng và một giá trị khác biệt.
+        </p>
 
- </div>
-
-
- <div class="why-grid">
-
-  <!-- LÝ DO 1 -->
-  <article class="why-card">
-
-   <div class="why-number">01</div>
-
-   <div class="why-icon">♻</div>
-
-   <h3>TÁI CHẾ SÁNG TẠO</h3>
-
-   <p>
-    Tận dụng những chất liệu đã qua sử dụng,
-    biến chúng thành sản phẩm mới với diện mạo
-    và giá trị riêng, góp phần hạn chế lãng phí tài nguyên.
-   </p>
-
-  </article>
+    </div>
 
 
-  <!-- LÝ DO 2 -->
-  <article class="why-card">
+    <div class="why-grid">
 
-   <div class="why-number">02</div>
+        <!-- LÝ DO 1 -->
+        <article class="why-card">
 
-   <div class="why-icon">✂</div>
+            <div class="why-number">01</div>
 
-   <h3>CHẾ TÁC THỦ CÔNG</h3>
+            <div class="why-icon">♻</div>
 
-   <p>
-    Mỗi sản phẩm được chăm chút qua từng công đoạn.
-    Từng đường kim, mũi chỉ thể hiện sự sáng tạo,
-    tỉ mỉ và tâm huyết của người làm ra sản phẩm.
-   </p>
+            <h3>TÁI CHẾ SÁNG TẠO</h3>
 
-  </article>
+            <p>
+                Tận dụng những chất liệu đã qua sử dụng,
+                biến chúng thành sản phẩm mới với diện mạo
+                và giá trị riêng, góp phần hạn chế lãng phí tài nguyên.
+            </p>
 
-
-  <!-- LÝ DO 3 -->
-  <article class="why-card">
-
-   <div class="why-number">03</div>
-
-   <div class="why-icon">✦</div>
-
-   <h3>PHONG CÁCH ĐỘC BẢN</h3>
-
-   <p>
-    Không chạy theo sự đại trà, MUSTY hướng đến
-    những thiết kế mang cá tính riêng, để mỗi chiếc túi
-    trở thành một dấu ấn khác biệt của người sở hữu.
-   </p>
-
-  </article>
+        </article>
 
 
-  <!-- LÝ DO 4 -->
-  <article class="why-card">
+        <!-- LÝ DO 2 -->
+        <article class="why-card">
 
-   <div class="why-number">04</div>
+            <div class="why-number">02</div>
 
-   <div class="why-icon">🌱</div>
+            <div class="why-icon">✂</div>
 
-   <h3>THỜI TRANG BỀN VỮNG</h3>
+            <h3>CHẾ TÁC THỦ CÔNG</h3>
 
-   <p>
-    Khuyến khích lựa chọn và tiêu dùng có trách nhiệm.
-    Mỗi chiếc túi tái chế là một cách nhỏ để cùng lan tỏa
-    lối sống xanh và trân trọng tài nguyên.
-   </p>
+            <p>
+                Mỗi sản phẩm được chăm chút qua từng công đoạn.
+                Từng đường kim, mũi chỉ thể hiện sự sáng tạo,
+                tỉ mỉ và tâm huyết của người làm ra sản phẩm.
+            </p>
 
-  </article>
-
- </div>
+        </article>
 
 
- <div class="why-message">
+        <!-- LÝ DO 3 -->
+        <article class="why-card">
 
-  <p>
-   TÁI SỬ DỤNG HÔM NAY, GÌN GIỮ NGÀY MAI.
-  </p>
+            <div class="why-number">03</div>
 
-  <span>
-   Mỗi lựa chọn nhỏ hôm nay góp phần tạo nên một tương lai xanh hơn.
-  </span>
+            <div class="why-icon">✦</div>
 
- </div>
+            <h3>PHONG CÁCH ĐỘC BẢN</h3>
+
+            <p>
+                Không chạy theo sự đại trà, MUSTY hướng đến
+                những thiết kế mang cá tính riêng, để mỗi chiếc túi
+                trở thành một dấu ấn khác biệt của người sở hữu.
+            </p>
+
+        </article>
+
+
+        <!-- LÝ DO 4 -->
+        <article class="why-card">
+
+            <div class="why-number">04</div>
+
+            <div class="why-icon">🌱</div>
+
+            <h3>THỜI TRANG BỀN VỮNG</h3>
+
+            <p>
+                Khuyến khích lựa chọn và tiêu dùng có trách nhiệm.
+                Mỗi chiếc túi tái chế là một cách nhỏ để cùng lan tỏa
+                lối sống xanh và trân trọng tài nguyên.
+            </p>
+
+        </article>
+
+    </div>
+
+
+    <div class="why-message">
+
+        <p>
+            TÁI SỬ DỤNG HÔM NAY, GÌN GIỮ NGÀY MAI.
+        </p>
+
+        <span>
+            Mỗi lựa chọn nhỏ hôm nay góp phần tạo nên một tương lai xanh hơn.
+        </span>
+
+    </div>
 
 </section>
 
@@ -237,102 +469,102 @@
 <!-- SẢN PHẨM NỔI BẬT -->
 <section class="content-section" style="background:var(--light)">
 
- <div class="eyebrow">
-  SẢN PHẨM TIÊU BIỂU
- </div>
+    <div class="eyebrow">
+        SẢN PHẨM TIÊU BIỂU
+    </div>
 
- <h2>
-  Những thiết kế nổi bật
- </h2>
+    <h2>
+        Những thiết kế nổi bật
+    </h2>
 
- <p>
-  Khám phá những sản phẩm mang dấu ấn riêng của MUSTY,
-  được tạo nên từ cảm hứng sáng tạo,
-  sự tỉ mỉ và tinh thần tái sử dụng.
- </p>
-
-
- <div class="product-grid">
-
-  <!-- SẢN PHẨM 1 -->
-  <article class="product-card">
-
-   <img src="images/product11.jpg" alt="Túi MUSTY số 01">
-
-   <h3>TÚI MUSTY 01</h3>
-
-   <p class="price">350.000₫</p>
-
-   <button class="action-button add-to-cart"
-    data-name="TÚI MUSTY 01"
-    data-price="350000">
-    THÊM VÀO GIỎ
-   </button>
-
-  </article>
+    <p>
+        Khám phá những sản phẩm mang dấu ấn riêng của MUSTY,
+        được tạo nên từ cảm hứng sáng tạo,
+        sự tỉ mỉ và tinh thần tái sử dụng.
+    </p>
 
 
-  <!-- SẢN PHẨM 2 -->
-  <article class="product-card">
+    <div class="product-grid">
 
-   <img src="images/product2.jpg" alt="Túi MUSTY số 02">
+        <!-- SẢN PHẨM 1 -->
+        <article class="product-card">
 
-   <h3>TÚI MUSTY 02</h3>
+            <img src="images/product11.jpg" alt="Túi MUSTY số 01">
 
-   <p class="price">390.000₫</p>
+            <h3>TÚI MUSTY 01</h3>
 
-   <button class="action-button add-to-cart"
-    data-name="TÚI MUSTY 02"
-    data-price="390000">
-    THÊM VÀO GIỎ
-   </button>
+            <p class="price">350.000₫</p>
 
-  </article>
+            <button class="action-button add-to-cart"
+                data-name="TÚI MUSTY 01"
+                data-price="350000">
+                THÊM VÀO GIỎ
+            </button>
 
-
-  <!-- SẢN PHẨM 3 -->
-  <article class="product-card">
-
-   <img src="images/product3.jpg" alt="Túi MUSTY ghép vải">
-
-   <h3>TÚI GHÉP VẢI MUSTY</h3>
-
-   <p class="price">450.000₫</p>
-
-   <button class="action-button add-to-cart"
-    data-name="TÚI GHÉP VẢI MUSTY"
-    data-price="450000">
-    THÊM VÀO GIỎ
-   </button>
-
-  </article>
+        </article>
 
 
-  <!-- SẢN PHẨM 4 -->
-  <article class="product-card">
+        <!-- SẢN PHẨM 2 -->
+        <article class="product-card">
 
-   <img src="images/product4.jpg" alt="Túi MUSTY phiên bản đặc biệt">
+            <img src="images/product2.jpg" alt="Túi MUSTY số 02">
 
-   <h3>TÚI PHIÊN BẢN ĐẶC BIỆT</h3>
+            <h3>TÚI MUSTY 02</h3>
 
-   <p class="price">520.000₫</p>
+            <p class="price">390.000₫</p>
 
-   <button class="action-button add-to-cart"
-    data-name="TÚI PHIÊN BẢN ĐẶC BIỆT"
-    data-price="520000">
-    THÊM VÀO GIỎ
-   </button>
+            <button class="action-button add-to-cart"
+                data-name="TÚI MUSTY 02"
+                data-price="390000">
+                THÊM VÀO GIỎ
+            </button>
 
-  </article>
-
- </div>
+        </article>
 
 
- <p style="margin-top:30px">
-  <a class="action-button" href="products.html">
-   XEM TẤT CẢ SẢN PHẨM →
-  </a>
- </p>
+        <!-- SẢN PHẨM 3 -->
+        <article class="product-card">
+
+            <img src="images/product3.jpg" alt="Túi MUSTY ghép vải">
+
+            <h3>TÚI GHÉP VẢI MUSTY</h3>
+
+            <p class="price">450.000₫</p>
+
+            <button class="action-button add-to-cart"
+                data-name="TÚI GHÉP VẢI MUSTY"
+                data-price="450000">
+                THÊM VÀO GIỎ
+            </button>
+
+        </article>
+
+
+        <!-- SẢN PHẨM 4 -->
+        <article class="product-card">
+
+            <img src="images/product4.jpg" alt="Túi MUSTY phiên bản đặc biệt">
+
+            <h3>TÚI PHIÊN BẢN ĐẶC BIỆT</h3>
+
+            <p class="price">520.000₫</p>
+
+            <button class="action-button add-to-cart"
+                data-name="TÚI PHIÊN BẢN ĐẶC BIỆT"
+                data-price="520000">
+                THÊM VÀO GIỎ
+            </button>
+
+        </article>
+
+    </div>
+
+
+    <p style="margin-top:30px">
+        <a class="action-button" href="products.html">
+            XEM TẤT CẢ SẢN PHẨM →
+        </a>
+    </p>
 
 </section>
 
@@ -340,77 +572,77 @@
 <!-- KHÁM PHÁ MUSTY -->
 <section class="content-section">
 
- <div class="eyebrow">
-  KHÁM PHÁ MUSTY
- </div>
+    <div class="eyebrow">
+        KHÁM PHÁ MUSTY
+    </div>
 
- <h2>
-  Khám phá thế giới MUSTY
- </h2>
+    <h2>
+        Khám phá thế giới MUSTY
+    </h2>
 
- <p>
-  Mỗi chất liệu đều có một câu chuyện.
-  Cùng MUSTY khám phá những thiết kế,
-  nguồn cảm hứng và góc nhìn về thời trang tái chế.
- </p>
-
-
- <div class="info-grid">
-
-  <!-- GIỚI THIỆU -->
-  <div class="info-card">
-
-   <h3>01 / Giới thiệu</h3>
-
-   <p>
-    Tìm hiểu câu chuyện thương hiệu,
-    giá trị theo đuổi và hành trình tạo nên
-    những sản phẩm mang dấu ấn MUSTY.
-   </p>
-
-   <a href="about.html">
-    TÌM HIỂU THÊM →
-   </a>
-
-  </div>
+    <p>
+        Mỗi chất liệu đều có một câu chuyện.
+        Cùng MUSTY khám phá những thiết kế,
+        nguồn cảm hứng và góc nhìn về thời trang tái chế.
+    </p>
 
 
-  <!-- BỘ SƯU TẬP -->
-  <div class="info-card">
+    <div class="info-grid">
 
-   <h3>02 / Bộ sưu tập</h3>
+        <!-- GIỚI THIỆU -->
+        <div class="info-card">
 
-   <p>
-    Khám phá những nhóm thiết kế độc đáo,
-    được sáng tạo từ chất liệu tái sử dụng
-    với cá tính và phong cách riêng.
-   </p>
+            <h3>01 / Giới thiệu</h3>
 
-   <a href="collections.html">
-    KHÁM PHÁ NGAY →
-   </a>
+            <p>
+                Tìm hiểu câu chuyện thương hiệu,
+                giá trị theo đuổi và hành trình tạo nên
+                những sản phẩm mang dấu ấn MUSTY.
+            </p>
 
-  </div>
+            <a href="about.html">
+                TÌM HIỂU THÊM →
+            </a>
+
+        </div>
 
 
-  <!-- BÀI VIẾT -->
-  <div class="info-card">
+        <!-- BỘ SƯU TẬP -->
+        <div class="info-card">
 
-   <h3>03 / Bài viết</h3>
+            <h3>02 / Bộ sưu tập</h3>
 
-   <p>
-    Những câu chuyện về sản phẩm thủ công,
-    tái chế, bảo vệ môi trường
-    và phong cách sống xanh.
-   </p>
+            <p>
+                Khám phá những nhóm thiết kế độc đáo,
+                được sáng tạo từ chất liệu tái sử dụng
+                với cá tính và phong cách riêng.
+            </p>
 
-   <a href="blog.html">
-    ĐỌC BÀI VIẾT →
-   </a>
+            <a href="collections.html">
+                KHÁM PHÁ NGAY →
+            </a>
 
-  </div>
+        </div>
 
- </div>
+
+        <!-- BÀI VIẾT -->
+        <div class="info-card">
+
+            <h3>03 / Bài viết</h3>
+
+            <p>
+                Những câu chuyện về sản phẩm thủ công,
+                tái chế, bảo vệ môi trường
+                và phong cách sống xanh.
+            </p>
+
+            <a href="blog.html">
+                ĐỌC BÀI VIẾT →
+            </a>
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -418,25 +650,25 @@
 <!-- THÔNG ĐIỆP CUỐI TRANG -->
 <section class="musty-ending">
 
- <div class="eyebrow">
-  THỜI TRANG THEO CÁCH BỀN VỮNG
- </div>
+    <div class="eyebrow">
+        THỜI TRANG THEO CÁCH BỀN VỮNG
+    </div>
 
- <h2>
-  CHẤT LIỆU CŨ.<br>
-  CÂU CHUYỆN MỚI.
- </h2>
+    <h2>
+        CHẤT LIỆU CŨ.<br>
+        CÂU CHUYỆN MỚI.
+    </h2>
 
- <p>
-  Đừng bỏ đi những điều cũ kỹ, bởi đôi khi chúng chỉ đang
-  chờ một cơ hội để trở thành điều đặc biệt.
-  Hãy cùng MUSTY trao cho vật liệu cũ một hành trình mới,
-  để mỗi sản phẩm không chỉ đẹp mà còn mang ý nghĩa riêng.
- </p>
+    <p>
+        Đừng bỏ đi những điều cũ kỹ, bởi đôi khi chúng chỉ đang
+        chờ một cơ hội để trở thành điều đặc biệt.
+        Hãy cùng MUSTY trao cho vật liệu cũ một hành trình mới,
+        để mỗi sản phẩm không chỉ đẹp mà còn mang ý nghĩa riêng.
+    </p>
 
- <a class="action-button" href="products.html">
-  CHỌN THIẾT KẾ CỦA BẠN →
- </a>
+    <a class="action-button" href="products.html">
+        CHỌN THIẾT KẾ CỦA BẠN →
+    </a>
 
 </section>
 
@@ -446,61 +678,61 @@
 <!-- CHÂN TRANG -->
 <footer class="site-footer">
 
- <div class="footer-columns">
+    <div class="footer-columns">
 
-  <!-- THÔNG TIN THƯƠNG HIỆU -->
-  <div>
+        <!-- THÔNG TIN THƯƠNG HIỆU -->
+        <div>
 
-   <h3>MUSTY STUDIO</h3>
+            <h3>MUSTY STUDIO</h3>
 
-   <p>
-    Tái chế • Thủ công • Độc bản.<br>
-    Những chiếc túi tái chế và thiết kế thủ công
-    mang dấu ấn riêng, góp phần lan tỏa lối sống bền vững.
-   </p>
+            <p>
+                Tái chế • Thủ công • Độc bản.<br>
+                Những chiếc túi tái chế và thiết kế thủ công
+                mang dấu ấn riêng, góp phần lan tỏa lối sống bền vững.
+            </p>
 
-  </div>
-
-
-  <!-- KHÁM PHÁ -->
-  <div>
-
-   <h3>KHÁM PHÁ</h3>
-
-   <a href="about.html">Giới thiệu</a>
-
-   <a href="products.html">Sản phẩm</a>
-
-   <a href="collections.html">Bộ sưu tập</a>
-
-  </div>
+        </div>
 
 
-  <!-- KẾT NỐI -->
-  <div>
+        <!-- KHÁM PHÁ -->
+        <div>
 
-   <h3>KẾT NỐI VỚI MUSTY</h3>
+            <h3>KHÁM PHÁ</h3>
 
-   <a href="blog.html">Bài viết</a>
+            <a href="about.html">Giới thiệu</a>
 
-   <a href="contact.html">Liên hệ</a>
+            <a href="products.html">Sản phẩm</a>
 
-   <a href="https://www.instagram.com/musty_stu/"
-    target="_blank" rel="noopener">
-    Instagram
-   </a>
+            <a href="collections.html">Bộ sưu tập</a>
 
-  </div>
-
- </div>
+        </div>
 
 
- <div class="footer-bottom">
+        <!-- KẾT NỐI -->
+        <div>
 
-  © <span class="current-year"></span>
-  MUSTY STUDIO. Bản quyền thuộc về MUSTY STUDIO.
+            <h3>KẾT NỐI VỚI MUSTY</h3>
 
- </div>
+            <a href="blog.html">Bài viết</a>
+
+            <a href="contact.html">Liên hệ</a>
+
+            <a href="https://www.instagram.com/musty_stu/"
+                target="_blank" rel="noopener">
+                Instagram
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © <span class="current-year"></span>
+        MUSTY STUDIO. Bản quyền thuộc về MUSTY STUDIO.
+
+    </div>
 
 </footer>
 
@@ -508,38 +740,38 @@
 <!-- GIỎ HÀNG -->
 <div class="cart-drawer" aria-hidden="true">
 
- <aside class="cart-panel" aria-label="Giỏ hàng">
+    <aside class="cart-panel" aria-label="Giỏ hàng">
 
-  <div class="cart-head">
+        <div class="cart-head">
 
-   <h2>GIỎ HÀNG CỦA BẠN</h2>
+            <h2>GIỎ HÀNG CỦA BẠN</h2>
 
-   <button class="cart-close" type="button" aria-label="Đóng giỏ hàng">
-    ✕
-   </button>
+            <button class="cart-close" type="button" aria-label="Đóng giỏ hàng">
+                ✕
+            </button>
 
-  </div>
-
-
-  <div class="cart-items">
-   <p>Giỏ hàng của bạn hiện đang trống.</p>
-  </div>
+        </div>
 
 
-  <div class="cart-total-line">
-
-   <span>Tổng cộng</span>
-
-   <span class="cart-total">0₫</span>
-
-  </div>
+        <div class="cart-items">
+            <p>Giỏ hàng của bạn hiện đang trống.</p>
+        </div>
 
 
-  <a class="action-button checkout-link" href="contact.html">
-   LIÊN HỆ ĐẶT HÀNG
-  </a>
+        <div class="cart-total-line">
 
- </aside>
+            <span>Tổng cộng</span>
+
+            <span class="cart-total">0₫</span>
+
+        </div>
+
+
+        <a class="action-button checkout-link" href="contact.html">
+            LIÊN HỆ ĐẶT HÀNG
+        </a>
+
+    </aside>
 
 </div>
 
