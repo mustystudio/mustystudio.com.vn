@@ -1,23 +1,904 @@
+
 <!doctype html>
-<html lang="vi"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Giới thiệu | MUSTY STUDIO</title><meta name="description" content="Tìm hiểu câu chuyện và tinh thần Recycled & Handmade của MUSTY STUDIO.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<html lang="vi">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Giới thiệu | MUSTY STUDIO</title>
+
+<meta name="description" content="Khám phá câu chuyện, sứ mệnh, tầm nhìn và hành trình sáng tạo những sản phẩm tái chế thủ công của MUSTY STUDIO.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css"></head><body>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* BỐ CỤC RIÊNG TRANG GIỚI THIỆU */
+
+.about-hero {
+    min-height: 430px;
+    padding: 90px 24px;
+    background: #111;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.about-hero .eyebrow {
+    color: #12d5de;
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.about-hero h1 {
+    max-width: 900px;
+    margin: 25px auto;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(38px, 7vw, 76px);
+    line-height: 1.08;
+    color: white;
+}
+
+.about-hero p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #ccc;
+    line-height: 1.9;
+    font-size: 16px;
+}
+
+.about-section {
+    padding: 85px 24px;
+}
+
+.about-container {
+    max-width: 1180px;
+    margin: auto;
+}
+
+.about-eyebrow {
+    color: #08aeb7;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    margin-bottom: 14px;
+}
+
+.about-story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.about-story h2,
+.about-section h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(30px, 4vw, 44px);
+    line-height: 1.2;
+    margin: 0 0 22px;
+}
+
+.about-story p,
+.about-description {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 16px;
+}
+
+.about-story img {
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+.about-mission {
+    background: #f5f7f7;
+}
+
+.about-mission-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.mission-card {
+    padding: 38px;
+    background: white;
+    border-radius: 15px;
+    border: 1px solid #e9eeee;
+    box-shadow: 0 5px 22px rgba(0,0,0,.035);
+}
+
+.mission-card .mission-icon {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #08aeb7;
+}
+
+.mission-card h3 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 21px;
+    margin: 0 0 14px;
+}
+
+.mission-card p {
+    color: #777;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* QUY TRÌNH */
+
+.process-section {
+    text-align: center;
+}
+
+.process-intro {
+    max-width: 700px;
+    margin: 0 auto 45px;
+    color: #777;
+    line-height: 1.8;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: left;
+}
+
+.process-card {
+    background: #f7f8f8;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+.process-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+}
+
+.process-content {
+    padding: 24px;
+}
+
+.process-number {
+    color: #08aeb7;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.process-content h3 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 17px;
+    margin: 12px 0;
+}
+
+.process-content p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* GIÁ TRỊ THƯƠNG HIỆU */
+
+.values-section {
+    background: #f5f7f7;
+    text-align: center;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 42px;
+}
+
+.value-card {
+    background: white;
+    border: 1px solid #eee;
+    padding: 32px 22px;
+    border-radius: 14px;
+    transition: .3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-7px);
+    border-color: #12d5de;
+    box-shadow: 0 10px 25px rgba(0,0,0,.06);
+}
+
+.value-icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #e4fbfc;
+    color: #08aeb7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.value-card h3 {
+    font-size: 16px;
+    margin: 0 0 12px;
+}
+
+.value-card p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* ĐIỂM KHÁC BIỆT */
+
+.about-difference {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.about-difference img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+.about-difference p {
+    color: #777;
+    line-height: 1.9;
+    font-size: 15px;
+}
+
+.difference-list {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0 0;
+}
+
+.difference-list li {
+    padding: 13px 0;
+    border-bottom: 1px solid #eee;
+    font-weight: 600;
+}
+
+.difference-list li::before {
+    content: "✓";
+    color: #08aeb7;
+    font-weight: bold;
+    margin-right: 12px;
+}
+
+/* LỜI NHẮN CUỐI */
+
+.about-ending {
+    max-width: 1180px;
+    margin: 20px auto 80px;
+    padding: 85px 25px;
+    background: #111;
+    color: white;
+    border-radius: 18px;
+    text-align: center;
+}
+
+.about-ending .eyebrow {
+    color: #12d5de;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.about-ending h2 {
+    color: white;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(32px, 5vw, 54px);
+    line-height: 1.2;
+    margin: 22px auto;
+}
+
+.about-ending p {
+    max-width: 650px;
+    margin: 0 auto 28px;
+    color: #ccc;
+    line-height: 1.9;
+}
+
+.about-ending .action-button {
+    display: inline-block;
+    background: #12d5de;
+    color: #111;
+    padding: 15px 28px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .about-story,
+    .about-difference {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .process-grid,
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-story img {
+        height: 380px;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-section {
+        padding: 60px 18px;
+    }
+
+    .about-mission-grid,
+    .process-grid,
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mission-card {
+        padding: 27px;
+    }
+
+    .process-card img {
+        height: 220px;
+    }
+
+    .about-ending {
+        margin: 10px 14px 45px;
+        padding: 60px 20px;
+    }
+
+    .about-difference img {
+        height: 300px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- THANH ĐIỀU HƯỚNG -->
 <header class="site-header">
+
  <div class="header-inner">
-  <a class="brand" href="index.html"><img src="images/musty-hero.jpg" alt="MUSTY STUDIO">MUSTY STUDIO</a>
+
+  <a class="brand" href="index.html">
+   <img src="images/musty-hero.jpg" alt="Logo MUSTY STUDIO">
+   MUSTY STUDIO
+  </a>
+
   <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false">☰</button>
-  <nav aria-label="Điều hướng chính"><a href="index.html">Trang chủ</a><a href="about.html" aria-current="page">Giới thiệu</a><a href="products.html">Sản phẩm</a><a href="blog.html">Bài viết</a><a href="contact.html">Liên hệ</a><a href="collections.html">Bộ sưu tập</a></nav>
-  <button class="action-button cart-open" type="button">GIỎ HÀNG (<span class="cart-count">0</span>)</button>
+
+  <nav aria-label="Điều hướng chính">
+   <a href="index.html">Trang chủ</a>
+   <a href="about.html" aria-current="page">Giới thiệu</a>
+   <a href="products.html">Sản phẩm</a>
+   <a href="blog.html">Bài viết</a>
+   <a href="contact.html">Liên hệ</a>
+   <a href="collections.html">Bộ sưu tập</a>
+  </nav>
+
+  <button class="action-button cart-open" type="button">
+   GIỎ HÀNG (<span class="cart-count">0</span>)
+  </button>
+
  </div>
+
 </header>
+
+
 <main>
-<section class="page-hero"><div class="eyebrow">ABOUT MUSTY</div><h1>OUR STORY.<br>OUR WAY.</h1><p>Một studio nhỏ dành cho những thiết kế thủ công, tái chế và không đại trà.</p></section>
-<section class="content-section split-layout"><div><h2>Chúng tôi là MUSTY STUDIO</h2><p>MUSTY STUDIO theo đuổi tinh thần Recycled & Handmade — tận dụng chất liệu, làm mới những điều quen thuộc và biến chúng thành sản phẩm có cá tính riêng. Musty hướng đến những người yêu sự khác biệt, quan tâm đến cách sản phẩm được tạo ra và muốn lựa chọn món đồ có câu chuyện.</p><p style="margin-top:16px">Thay vì chạy theo xu hướng ngắn hạn, Musty tập trung vào thiết kế có dấu ấn, tính ứng dụng và cảm giác độc bản trong từng sản phẩm.</p></div><img src="images/musty-hero.jpg" alt="MUSTY STUDIO Recycled Handmade"></section>
-<section class="content-section" style="background:var(--light)"><h2>Điều Musty theo đuổi</h2><div class="info-grid"><div class="info-card"><h3>REUSE</h3><p>Trân trọng vật liệu và khuyến khích tái sử dụng theo cách sáng tạo.</p></div><div class="info-card"><h3>HANDMADE</h3><p>Đề cao sự tỉ mỉ, thủ công và dấu ấn trong từng sản phẩm.</p></div><div class="info-card"><h3>INDIVIDUALITY</h3><p>Tôn vinh cá tính riêng, không cần giống bất kỳ ai.</p></div></div></section>
+
+<!-- BANNER GIỚI THIỆU -->
+<section class="about-hero">
+
+ <div class="eyebrow">CÂU CHUYỆN CỦA CHÚNG TÔI</div>
+
+ <h1>
+  MỖI CHẤT LIỆU CŨ,<br>
+  MỘT CÂU CHUYỆN MỚI.
+ </h1>
+
+ <p>
+  MUSTY STUDIO tin rằng những điều cũ kỹ vẫn có thể
+  trở nên đặc biệt. Bằng sự sáng tạo và tinh thần thủ công,
+  chúng tôi trao cho chất liệu cũ một hành trình mới.
+ </p>
+
+</section>
+
+
+<!-- CÂU CHUYỆN THƯƠNG HIỆU -->
+<section class="about-section">
+
+ <div class="about-container about-story">
+
+  <div>
+
+   <div class="about-eyebrow">HÀNH TRÌNH HÌNH THÀNH</div>
+
+   <h2>
+    MUSTY bắt đầu từ mong muốn tạo nên điều khác biệt.
+   </h2>
+
+   <p>
+    Trong cuộc sống hiện đại, nhiều chất liệu và món đồ cũ
+    thường bị bỏ đi khi không còn được sử dụng.
+    Tuy nhiên, chúng tôi tin rằng những vật liệu ấy vẫn
+    có thể mang một giá trị mới nếu được nhìn nhận bằng
+    sự sáng tạo.
+   </p>
+
+   <p>
+    Từ ý tưởng đó, MUSTY STUDIO hướng đến việc tận dụng
+    những chất liệu đã qua sử dụng để tạo nên các sản phẩm
+    túi thủ công có thiết kế riêng biệt.
+   </p>
+
+   <p>
+    Mỗi sản phẩm là sự kết hợp giữa cảm hứng sáng tạo,
+    tinh thần tái chế và sự chăm chút trong từng công đoạn.
+    MUSTY mong muốn mang đến những lựa chọn thời trang
+    vừa có tính ứng dụng, vừa thể hiện cá tính riêng.
+   </p>
+
+  </div>
+
+  <img
+   src="images/musty-hero.jpg"
+   alt="Không gian sáng tạo và sản phẩm MUSTY STUDIO">
+
+ </div>
+
+</section>
+
+
+<!-- SỨ MỆNH VÀ TẦM NHÌN -->
+<section class="about-section about-mission">
+
+ <div class="about-container">
+
+  <div class="about-eyebrow">ĐỊNH HƯỚNG THƯƠNG HIỆU</div>
+
+  <h2 style="text-align:center">
+   Điều MUSTY hướng đến
+  </h2>
+
+  <p class="about-description" style="text-align:center;max-width:700px;margin:0 auto">
+   Không chỉ tạo ra sản phẩm, MUSTY còn mong muốn
+   lan tỏa một cách nhìn mới về chất liệu, thời trang
+   và những lựa chọn tiêu dùng hằng ngày.
+  </p>
+
+  <div class="about-mission-grid">
+
+   <article class="mission-card">
+
+    <div class="mission-icon">✦</div>
+
+    <h3>SỨ MỆNH</h3>
+
+    <p>
+     Tái sử dụng những chất liệu có thể tiếp tục tạo ra giá trị,
+     biến chúng thành các sản phẩm thủ công sáng tạo,
+     đồng thời khuyến khích lối sống tiết kiệm và có trách nhiệm
+     hơn với môi trường.
+    </p>
+
+   </article>
+
+   <article class="mission-card">
+
+    <div class="mission-icon">◎</div>
+
+    <h3>TẦM NHÌN</h3>
+
+    <p>
+     Từng bước phát triển MUSTY trở thành thương hiệu
+     thời trang tái chế mang dấu ấn riêng,
+     được yêu thích bởi những thiết kế độc đáo,
+     tính ứng dụng và tinh thần bền vững.
+    </p>
+
+   </article>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- QUY TRÌNH SẢN XUẤT -->
+<section class="about-section process-section">
+
+ <div class="about-container">
+
+  <div class="about-eyebrow">TỪ CHẤT LIỆU ĐẾN SẢN PHẨM</div>
+
+  <h2>Hành trình tạo nên một chiếc túi</h2>
+
+  <p class="process-intro">
+   Mỗi sản phẩm của MUSTY đều bắt đầu từ việc lựa chọn
+   chất liệu và trải qua quá trình sáng tạo, hoàn thiện
+   để trở thành một món phụ kiện mang giá trị riêng.
+  </p>
+
+  <div class="process-grid">
+
+   <article class="process-card">
+
+    <img src="images/musty-hero.jpg" alt="Lựa chọn chất liệu tái sử dụng">
+
+    <div class="process-content">
+
+     <div class="process-number">BƯỚC 01</div>
+
+     <h3>Lựa chọn chất liệu</h3>
+
+     <p>
+      Tìm kiếm và lựa chọn những chất liệu phù hợp,
+      có khả năng tái sử dụng và đáp ứng yêu cầu
+      về kiểu dáng, chất lượng sản phẩm.
+     </p>
+
+    </div>
+
+   </article>
+
+
+   <article class="process-card">
+
+    <img src="images/product11.jpg" alt="Lên ý tưởng thiết kế túi">
+
+    <div class="process-content">
+
+     <div class="process-number">BƯỚC 02</div>
+
+     <h3>Lên ý tưởng thiết kế</h3>
+
+     <p>
+      Xác định kiểu dáng, màu sắc, cách phối hợp
+      chất liệu và những chi tiết tạo nên dấu ấn
+      riêng cho từng thiết kế.
+     </p>
+
+    </div>
+
+   </article>
+
+
+   <article class="process-card">
+
+    <img src="images/product2.jpg" alt="Chế tác sản phẩm thủ công">
+
+    <div class="process-content">
+
+     <div class="process-number">BƯỚC 03</div>
+
+     <h3>Chế tác thủ công</h3>
+
+     <p>
+      Tiến hành cắt, ghép và may các chi tiết
+      theo thiết kế, chú trọng sự tỉ mỉ
+      trong từng công đoạn thực hiện.
+     </p>
+
+    </div>
+
+   </article>
+
+
+   <article class="process-card">
+
+    <img src="images/product3.jpg" alt="Sản phẩm túi MUSTY sau hoàn thiện">
+
+    <div class="process-content">
+
+     <div class="process-number">BƯỚC 04</div>
+
+     <h3>Hoàn thiện sản phẩm</h3>
+
+     <p>
+      Kiểm tra kiểu dáng, đường may và các chi tiết
+      trước khi hoàn thiện một sản phẩm
+      sẵn sàng đồng hành cùng khách hàng.
+     </p>
+
+    </div>
+
+   </article>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- GIÁ TRỊ THƯƠNG HIỆU -->
+<section class="about-section values-section">
+
+ <div class="about-container">
+
+  <div class="about-eyebrow">NHỮNG GIÁ TRỊ CỐT LÕI</div>
+
+  <h2>Điều làm nên tinh thần MUSTY</h2>
+
+  <p class="about-description" style="max-width:700px;margin:0 auto">
+   Bốn giá trị định hình cách MUSTY sáng tạo,
+   phát triển sản phẩm và kết nối với khách hàng.
+  </p>
+
+  <div class="values-grid">
+
+   <article class="value-card">
+
+    <div class="value-icon">♻</div>
+
+    <h3>TÁI CHẾ SÁNG TẠO</h3>
+
+    <p>
+     Mang đến diện mạo mới cho những chất liệu đã qua sử dụng,
+     góp phần hạn chế lãng phí tài nguyên.
+    </p>
+
+   </article>
+
+
+   <article class="value-card">
+
+    <div class="value-icon">✂</div>
+
+    <h3>THỦ CÔNG TỈ MỈ</h3>
+
+    <p>
+     Chú trọng từng đường may và chi tiết,
+     thể hiện sự chăm chút trong quá trình tạo sản phẩm.
+    </p>
+
+   </article>
+
+
+   <article class="value-card">
+
+    <div class="value-icon">✦</div>
+
+    <h3>THIẾT KẾ ĐỘC BẢN</h3>
+
+    <p>
+     Tôn trọng cá tính riêng, tạo nên những sản phẩm
+     có phong cách và dấu ấn khác biệt.
+    </p>
+
+   </article>
+
+
+   <article class="value-card">
+
+    <div class="value-icon">🌱</div>
+
+    <h3>HƯỚNG ĐẾN BỀN VỮNG</h3>
+
+    <p>
+     Khuyến khích lựa chọn tiêu dùng có trách nhiệm
+     và lan tỏa lối sống xanh trong cộng đồng.
+    </p>
+
+   </article>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- ĐIỂM KHÁC BIỆT -->
+<section class="about-section">
+
+ <div class="about-container about-difference">
+
+  <img
+   src="images/product3.jpg"
+   alt="Thiết kế túi tái chế mang dấu ấn MUSTY">
+
+  <div>
+
+   <div class="about-eyebrow">ĐIỀU LÀM NÊN SỰ KHÁC BIỆT</div>
+
+   <h2>
+    Không chỉ là một chiếc túi.
+   </h2>
+
+   <p>
+    MUSTY hướng đến việc tạo ra những sản phẩm
+    không đơn thuần đáp ứng nhu cầu sử dụng,
+    mà còn thể hiện cá tính và góc nhìn riêng
+    của người sở hữu.
+   </p>
+
+   <p>
+    Từ việc lựa chọn chất liệu đến cách phối hợp
+    màu sắc và kiểu dáng, mỗi thiết kế đều mang
+    một câu chuyện riêng.
+   </p>
+
+   <ul class="difference-list">
+
+    <li>Chất liệu được lựa chọn và tái sử dụng sáng tạo.</li>
+
+    <li>Thiết kế mang phong cách riêng biệt.</li>
+
+    <li>Chú trọng tính ứng dụng trong đời sống.</li>
+
+    <li>Đề cao giá trị thủ công và tinh thần bền vững.</li>
+
+   </ul>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- LỜI NHẮN KHÁCH HÀNG -->
+<section class="about-ending">
+
+ <div class="eyebrow">LỜI NHẮN TỪ MUSTY</div>
+
+ <h2>
+  CẢM ƠN BẠN ĐÃ<br>
+  CHỌN MUSTY.
+ </h2>
+
+ <p>
+  Mỗi lựa chọn của bạn là một phần trong hành trình
+  trao cho những chất liệu cũ một cuộc sống mới.
+  MUSTY hy vọng sẽ đồng hành cùng bạn
+  trong những phong cách riêng và những giá trị tích cực.
+ </p>
+
+ <a class="action-button" href="products.html">
+  KHÁM PHÁ SẢN PHẨM →
+ </a>
+
+</section>
+
 </main>
-<footer class="site-footer"><div class="footer-columns"><div><h3>MUSTY STUDIO</h3><p>Recycled • Handmade • Independent.<br>Những chiếc túi tái chế và thiết kế thủ công mang dấu ấn riêng.</p></div><div><h3>KHÁM PHÁ</h3><a href="about.html">Giới thiệu</a><a href="products.html">Sản phẩm</a><a href="collections.html">Bộ sưu tập</a></div><div><h3>KẾT NỐI</h3><a href="blog.html">Bài viết</a><a href="contact.html">Liên hệ</a><a href="https://www.instagram.com/musty_stu/" target="_blank" rel="noopener">Instagram</a></div></div><div class="footer-bottom">© <span class="current-year"></span> MUSTY STUDIO. Recycled & Handmade.</div></footer>
-<div class="cart-drawer" aria-hidden="true"><aside class="cart-panel" aria-label="Giỏ hàng"><div class="cart-head"><h2>GIỎ HÀNG</h2><button class="cart-close" type="button" aria-label="Đóng">✕</button></div><div class="cart-items"><p>Giỏ hàng đang trống.</p></div><div class="cart-total-line"><span>Tổng cộng</span><span class="cart-total">0₫</span></div><a class="action-button checkout-link" href="contact.html">LIÊN HỆ ĐẶT HÀNG</a></aside></div>
-<script src="script.js"></script></body></html>
+
+
+<!-- CHÂN TRANG -->
+<footer class="site-footer">
+
+ <div class="footer-columns">
+
+  <div>
+
+   <h3>MUSTY STUDIO</h3>
+
+   <p>
+    Tái chế • Thủ công • Độc bản.<br>
+    Những chiếc túi tái chế và thiết kế thủ công
+    mang dấu ấn riêng, góp phần lan tỏa lối sống bền vững.
+   </p>
+
+  </div>
+
+
+  <div>
+
+   <h3>KHÁM PHÁ</h3>
+
+   <a href="about.html">Giới thiệu</a>
+
+   <a href="products.html">Sản phẩm</a>
+
+   <a href="collections.html">Bộ sưu tập</a>
+
+  </div>
+
+
+  <div>
+
+   <h3>KẾT NỐI VỚI MUSTY</h3>
+
+   <a href="blog.html">Bài viết</a>
+
+   <a href="contact.html">Liên hệ</a>
+
+   <a href="https://www.instagram.com/musty_stu/"
+    target="_blank" rel="noopener">
+    Instagram
+   </a>
+
+  </div>
+
+ </div>
+
+
+ <div class="footer-bottom">
+
+  © <span class="current-year"></span>
+  MUSTY STUDIO. Bản quyền thuộc về MUSTY STUDIO.
+
+ </div>
+
+</footer>
+
+
+<!-- GIỎ HÀNG -->
+<div class="cart-drawer" aria-hidden="true">
+
+ <aside class="cart-panel" aria-label="Giỏ hàng">
+
+  <div class="cart-head">
+
+   <h2>GIỎ HÀNG CỦA BẠN</h2>
+
+   <button class="cart-close" type="button" aria-label="Đóng giỏ hàng">
+    ✕
+   </button>
+
+  </div>
+
+  <div class="cart-items">
+   <p>Giỏ hàng của bạn hiện đang trống.</p>
+  </div>
+
+  <div class="cart-total-line">
+
+   <span>Tổng cộng</span>
+
+   <span class="cart-total">0₫</span>
+
+  </div>
+
+  <a class="action-button checkout-link" href="contact.html">
+   LIÊN HỆ ĐẶT HÀNG
+  </a>
+
+ </aside>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
