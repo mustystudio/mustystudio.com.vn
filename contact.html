@@ -1,66 +1,829 @@
-```html
+
 <!doctype html>
-<html lang="vi"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Liên hệ | MUSTY STUDIO</title><meta name="description" content="Liên hệ MUSTY STUDIO để được tư vấn sản phẩm và đơn hàng.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<html lang="vi">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Liên hệ | MUSTY STUDIO</title>
+
+<meta name="description" content="Kết nối với MUSTY STUDIO để được tư vấn sản phẩm, đặt hàng và hợp tác.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css"></head><body>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* =================================
+   CÀI ĐẶT CHUNG
+================================= */
+
+.contact-page {
+  overflow: hidden;
+  color: var(--black);
+}
+
+.contact-container {
+  width: min(1150px, 90%);
+  margin: auto;
+}
+
+.contact-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.contact-section {
+  padding: 90px 0;
+}
+
+/* =================================
+   01. BANNER LIÊN HỆ
+================================= */
+
+.contact-hero {
+  background: var(--musty);
+  padding: 95px 0 105px;
+}
+
+.contact-hero-inner {
+  width: min(1150px, 90%);
+  margin: auto;
+}
+
+.contact-hero h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(55px, 10vw, 105px);
+  font-weight: 700;
+  line-height: .98;
+  letter-spacing: -5px;
+  margin: 25px 0 30px;
+  color: var(--black);
+}
+
+.contact-hero p {
+  max-width: 750px;
+  font-size: clamp(15px, 2vw, 19px);
+  line-height: 1.8;
+  margin: 0;
+  color: var(--black);
+}
+
+/* =================================
+   02. KHU VỰC LIÊN HỆ
+================================= */
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 75px;
+  align-items: start;
+}
+
+.contact-intro h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin: 15px 0 20px;
+}
+
+.contact-intro > p {
+  color: var(--gray);
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 30px;
+}
+
+.contact-info-list {
+  display: grid;
+  gap: 14px;
+}
+
+.contact-info-card {
+  padding: 23px;
+  border: 1px solid var(--border);
+  transition: .3s ease;
+}
+
+.contact-info-card:hover {
+  border-color: var(--musty-dark);
+  transform: translateY(-3px);
+}
+
+.contact-info-card h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin: 0 0 10px;
+}
+
+.contact-info-card p {
+  color: var(--gray);
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0 0 12px;
+}
+
+.contact-info-card a {
+  color: var(--black);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid var(--musty-dark);
+  padding-bottom: 4px;
+}
+
+.contact-info-card a:hover {
+  color: var(--musty-dark);
+}
+
+/* =================================
+   03. BIỂU MẪU
+================================= */
+
+.contact-form-wrap {
+  padding: 38px;
+  background: var(--light);
+}
+
+.contact-form-heading {
+  margin-bottom: 28px;
+}
+
+.contact-form-heading h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 28px;
+  margin: 0 0 10px;
+}
+
+.contact-form-heading p {
+  color: var(--gray);
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.contact-form {
+  display: grid;
+  gap: 18px;
+}
+
+.contact-field {
+  display: grid;
+  gap: 8px;
+}
+
+.contact-field label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px 16px;
+  border: 1px solid #dddddd;
+  outline: none;
+  border-radius: 0;
+  background: white;
+  color: var(--black);
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  transition: border-color .2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  border-color: var(--musty-dark);
+}
+
+.contact-form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #999999;
+}
+
+.contact-submit {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  padding: 17px 22px;
+  background: var(--musty);
+  color: var(--black);
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: .3s ease;
+}
+
+.contact-submit:hover {
+  background: var(--musty-dark);
+  color: white;
+}
+
+.contact-submit:disabled {
+  opacity: .6;
+  cursor: wait;
+}
+
+.contact-note {
+  color: var(--gray);
+  font-size: 11px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.contact-feedback {
+  display: none;
+  padding: 13px;
+  font-size: 13px;
+  line-height: 1.7;
+  background: white;
+  border-left: 3px solid var(--musty-dark);
+}
+
+.contact-feedback.show {
+  display: block;
+}
+
+/* =================================
+   04. LỜI NHẮN THƯƠNG HIỆU
+================================= */
+
+.contact-message {
+  background: var(--light);
+  text-align: center;
+  padding: 85px 20px;
+}
+
+.contact-message h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(30px, 5vw, 55px);
+  letter-spacing: -2px;
+  line-height: 1.15;
+  max-width: 850px;
+  margin: 18px auto;
+}
+
+.contact-message p {
+  max-width: 650px;
+  margin: auto;
+  color: var(--gray);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 850px) {
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .contact-hero {
+    padding: 75px 0;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .contact-section {
+    padding: 60px 0;
+  }
+
+  .contact-hero {
+    padding: 65px 0 75px;
+  }
+
+  .contact-hero h1 {
+    letter-spacing: -3px;
+    font-size: clamp(48px, 13vw, 70px);
+  }
+
+  .contact-hero p {
+    font-size: 14px;
+  }
+
+  .contact-form-wrap {
+    padding: 23px 18px;
+  }
+
+  .contact-form-heading h2 {
+    font-size: 24px;
+  }
+
+  .contact-info-card {
+    padding: 20px;
+  }
+
+  .contact-message {
+    padding: 65px 20px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- =================================
+     HEADER
+================================= -->
+
 <header class="site-header">
+
  <div class="header-inner">
-  <a class="brand" href="index.html"><img src="images/musty-hero.jpg" alt="MUSTY STUDIO">MUSTY STUDIO</a>
-  <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false">☰</button>
-  <nav aria-label="Điều hướng chính"><a href="index.html">Trang chủ</a><a href="about.html">Giới thiệu</a><a href="products.html">Sản phẩm</a><a href="blog.html">Bài viết</a><a href="contact.html" aria-current="page">Liên hệ</a><a href="collections.html">Bộ sưu tập</a></nav>
-  <button class="action-button cart-open" type="button">GIỎ HÀNG (<span class="cart-count">0</span>)</button>
+
+  <a class="brand" href="index.html">
+   <img src="images/musty-hero.jpg" alt="MUSTY STUDIO">
+   MUSTY STUDIO
+  </a>
+
+  <button class="menu-toggle"
+          type="button"
+          aria-label="Mở menu"
+          aria-expanded="false">
+   ☰
+  </button>
+
+  <nav aria-label="Điều hướng chính">
+   <a href="index.html">Trang chủ</a>
+   <a href="about.html">Giới thiệu</a>
+   <a href="products.html">Sản phẩm</a>
+   <a href="blog.html">Bài viết</a>
+   <a href="contact.html" aria-current="page">Liên hệ</a>
+   <a href="collections.html">Bộ sưu tập</a>
+  </nav>
+
+  <button class="action-button cart-open" type="button">
+   GIỎ HÀNG (<span class="cart-count">0</span>)
+  </button>
+
  </div>
+
 </header>
-<main>
-<section class="page-hero"><div class="eyebrow">GET IN TOUCH</div><h1>LET'S TALK.</h1><p>Có câu hỏi về sản phẩm, hợp tác hoặc đơn hàng? Hãy gửi lời nhắn cho Musty.</p></section>
-<section class="content-section contact-layout"><div><h2>Liên hệ với chúng tôi</h2><p>MUSTY STUDIO luôn chào đón những câu hỏi, góp ý và cơ hội hợp tác. Bạn có thể gửi tin nhắn qua biểu mẫu hoặc kết nối qua Instagram.</p>
 
-<div class="info-card" style="margin-top:25px">
-  <h3>INSTAGRAM</h3>
-  <p>@musty_stu</p>
-  <a href="https://www.instagram.com/musty_stu/" target="_blank" rel="noopener">Truy cập Instagram →</a>
-</div>
 
-<div class="info-card" style="margin-top:15px">
-  <h3>HOTLINE</h3>
-  <p>📞 0397123380</p>
-  <a href="SĐT: 0397123380">Gọi cho MUSTY STUDIO →</a>
-</div>
+<main class="contact-page">
 
-<div class="info-card" style="margin-top:15px">
-  <h3>ĐẶT HÀNG</h3>
-  <p>Thêm sản phẩm vào giỏ hàng và liên hệ Musty để xác nhận đơn.</p>
-</div>
-</div>
+<!-- =================================
+     01. BANNER
+================================= -->
 
-<form class="contact-form" id="contactForm">
-  <input name="name" placeholder="Họ và tên" required>
-  <input name="email" type="email" placeholder="Email của bạn" required>
-  <input name="subject" placeholder="Sản phẩm">
-  <textarea name="message" placeholder="Ghi chú..." required></textarea>
-  <button class="action-button" type="submit">GỬI TIN NHẮN</button>
-  <p class="form-feedback" aria-live="polite"></p>
-</form>
-</section>
-</main>
-<footer class="site-footer">
- <div class="footer-columns">
-  <div><h3>MUSTY STUDIO</h3><p>Recycled • Handmade • Independent.<br>Những chiếc túi tái chế và thiết kế thủ công mang dấu ấn riêng.</p></div>
-  <div><h3>KHÁM PHÁ</h3><a href="about.html">Giới thiệu</a><a href="products.html">Sản phẩm</a><a href="collections.html">Bộ sưu tập</a></div>
-  <div><h3>KẾT NỐI</h3><a href="blog.html">Bài viết</a><a href="contact.html">Liên hệ</a><a href="https://www.instagram.com/musty_stu/" target="_blank" rel="noopener">Instagram</a></div>
+<section class="contact-hero">
+
+ <div class="contact-hero-inner">
+
+  <span class="contact-label">KẾT NỐI VỚI MUSTY</span>
+
+  <h1>HÃY KẾT NỐI.</h1>
+
+  <p>
+   Bạn có thắc mắc về sản phẩm, muốn hợp tác hay đặt hàng?
+   MUSTY luôn sẵn sàng lắng nghe và đồng hành cùng bạn.
+  </p>
+
  </div>
- <div class="footer-bottom">© <span class="current-year"></span> MUSTY STUDIO. Recycled & Handmade.</div>
+
+</section>
+
+
+<!-- =================================
+     02. THÔNG TIN VÀ BIỂU MẪU
+================================= -->
+
+<section class="contact-section">
+
+ <div class="contact-container contact-layout">
+
+
+  <!-- THÔNG TIN LIÊN HỆ -->
+
+  <div class="contact-intro">
+
+   <span class="contact-label">CHÚNG MÌNH Ở ĐÂY</span>
+
+   <h2>RẤT VUI KHI ĐƯỢC KẾT NỐI VỚI BẠN.</h2>
+
+   <p>
+    MUSTY STUDIO luôn chào đón những câu hỏi,
+    góp ý và cơ hội hợp tác. Hãy lựa chọn cách
+    liên hệ thuận tiện nhất với bạn nhé!
+   </p>
+
+
+   <div class="contact-info-list">
+
+
+    <!-- INSTAGRAM -->
+
+    <div class="contact-info-card">
+
+     <h3>INSTAGRAM</h3>
+
+     <p>
+      Theo dõi MUSTY để cập nhật những thiết kế,
+      sản phẩm và hoạt động mới nhất.
+     </p>
+
+     <a href="https://www.instagram.com/musty_stu/"
+        target="_blank"
+        rel="noopener">
+      @musty_stu →
+     </a>
+
+    </div>
+
+
+    <!-- HOTLINE -->
+
+    <div class="contact-info-card">
+
+     <h3>ĐIỆN THOẠI</h3>
+
+     <p>
+      Liên hệ trực tiếp để được hỗ trợ
+      về sản phẩm và đơn hàng.
+     </p>
+
+     <a href="tel:+84397123380">
+      0397 123 380 →
+     </a>
+
+    </div>
+
+
+    <!-- ZALO -->
+
+    <div class="contact-info-card">
+
+     <h3>ZALO</h3>
+
+     <p>
+      Kết nối với MUSTY qua Zalo để trao đổi
+      và tư vấn đơn hàng.
+     </p>
+
+     <a href="https://zalo.me/0397123380"
+        target="_blank"
+        rel="noopener">
+      NHẮN TIN QUA ZALO →
+     </a>
+
+    </div>
+
+
+    <!-- ĐẶT HÀNG -->
+
+    <div class="contact-info-card">
+
+     <h3>ĐẶT HÀNG VÀ HỢP TÁC</h3>
+
+     <p>
+      Bạn có thể gửi yêu cầu đặt hàng,
+      tư vấn sản phẩm hoặc đề xuất hợp tác
+      thông qua biểu mẫu bên cạnh.
+     </p>
+
+    </div>
+
+
+   </div>
+
+  </div>
+
+
+  <!-- BIỂU MẪU LIÊN HỆ -->
+
+  <div class="contact-form-wrap">
+
+   <div class="contact-form-heading">
+
+    <h2>GỬI LỜI NHẮN</h2>
+
+    <p>
+     Điền thông tin bên dưới, MUSTY sẽ nhận được
+     nội dung tin nhắn của bạn qua WhatsApp.
+    </p>
+
+   </div>
+
+
+   <form class="contact-form" id="contactForm">
+
+
+    <div class="contact-field">
+
+     <label for="contactName">HỌ VÀ TÊN *</label>
+
+     <input
+      id="contactName"
+      name="name"
+      type="text"
+      placeholder="Nhập họ và tên của bạn"
+      autocomplete="name"
+      required>
+
+    </div>
+
+
+    <div class="contact-field">
+
+     <label for="contactEmail">EMAIL</label>
+
+     <input
+      id="contactEmail"
+      name="email"
+      type="email"
+      placeholder="Nhập địa chỉ email"
+      autocomplete="email">
+
+    </div>
+
+
+    <div class="contact-field">
+
+     <label for="contactSubject">BẠN MUỐN TRAO ĐỔI VỀ?</label>
+
+     <select id="contactSubject" name="subject" required>
+
+      <option value="">Chọn nội dung liên hệ</option>
+
+      <option value="Tư vấn sản phẩm">Tư vấn sản phẩm</option>
+
+      <option value="Đặt hàng">Đặt hàng</option>
+
+      <option value="Hợp tác">Hợp tác</option>
+
+      <option value="Góp ý">Góp ý</option>
+
+      <option value="Khác">Nội dung khác</option>
+
+     </select>
+
+    </div>
+
+
+    <div class="contact-field">
+
+     <label for="contactMessage">NỘI DUNG TIN NHẮN *</label>
+
+     <textarea
+      id="contactMessage"
+      name="message"
+      placeholder="Hãy chia sẻ điều bạn muốn nhắn với MUSTY..."
+      required></textarea>
+
+    </div>
+
+
+    <button class="contact-submit" type="submit">
+     GỬI TIN NHẮN QUA WHATSAPP →
+    </button>
+
+
+    <p class="contact-note">
+     Sau khi nhấn gửi, WhatsApp sẽ mở với nội dung
+     tin nhắn đã được điền sẵn. Bạn cần nhấn gửi
+     thêm một lần trong WhatsApp để hoàn tất.
+    </p>
+
+
+    <p class="contact-feedback"
+       id="contactFeedback"
+       aria-live="polite">
+    </p>
+
+
+   </form>
+
+  </div>
+
+
+ </div>
+
+</section>
+
+
+<!-- =================================
+     03. LỜI KẾT
+================================= -->
+
+<section class="contact-message">
+
+ <span class="contact-label">MUSTY STUDIO</span>
+
+ <h2>MỖI KẾT NỐI ĐỀU MỞ RA MỘT CÂU CHUYỆN MỚI.</h2>
+
+ <p>
+  Cảm ơn bạn đã quan tâm và lựa chọn MUSTY.
+  Chúng mình rất mong được lắng nghe câu chuyện
+  và đồng hành cùng bạn trên hành trình sáng tạo.
+ </p>
+
+</section>
+
+</main>
+
+
+<!-- =================================
+     FOOTER
+================================= -->
+
+<footer class="site-footer">
+
+ <div class="footer-columns">
+
+
+  <div>
+
+   <h3>MUSTY STUDIO</h3>
+
+   <p>
+    Tái chế • Thủ công • Độc bản.<br>
+    Những chiếc túi tái chế và thiết kế thủ công
+    mang dấu ấn riêng.
+   </p>
+
+  </div>
+
+
+  <div>
+
+   <h3>KHÁM PHÁ</h3>
+
+   <a href="about.html">Giới thiệu</a>
+
+   <a href="products.html">Sản phẩm</a>
+
+   <a href="collections.html">Bộ sưu tập</a>
+
+  </div>
+
+
+  <div>
+
+   <h3>KẾT NỐI</h3>
+
+   <a href="blog.html">Bài viết</a>
+
+   <a href="contact.html">Liên hệ</a>
+
+   <a href="https://www.instagram.com/musty_stu/"
+      target="_blank"
+      rel="noopener">
+    Instagram
+   </a>
+
+  </div>
+
+
+ </div>
+
+
+ <div class="footer-bottom">
+  © <span class="current-year"></span> MUSTY STUDIO. Tái chế & Thủ công.
+ </div>
+
 </footer>
+
+
+<!-- =================================
+     GIỎ HÀNG
+================================= -->
+
 <div class="cart-drawer" aria-hidden="true">
+
  <aside class="cart-panel" aria-label="Giỏ hàng">
-  <div class="cart-head"><h2>GIỎ HÀNG</h2><button class="cart-close" type="button" aria-label="Đóng">✕</button></div>
-  <div class="cart-items"><p>Giỏ hàng đang trống.</p></div>
-  <div class="cart-total-line"><span>Tổng cộng</span><span class="cart-total">0₫</span></div>
-  <a class="action-button checkout-link" href="contact.html">LIÊN HỆ ĐẶT HÀNG</a>
+
+
+  <div class="cart-head">
+
+   <h2>GIỎ HÀNG</h2>
+
+   <button class="cart-close"
+           type="button"
+           aria-label="Đóng">
+    ✕
+   </button>
+
+  </div>
+
+
+  <div class="cart-items">
+   <p>Giỏ hàng đang trống.</p>
+  </div>
+
+
+  <div class="cart-total-line">
+
+   <span>Tổng cộng</span>
+
+   <span class="cart-total">0₫</span>
+
+  </div>
+
+
+  <a class="action-button checkout-link" href="contact.html">
+   LIÊN HỆ ĐẶT HÀNG
+  </a>
+
+
  </aside>
+
 </div>
-<script src="script.js"></script></body></html>
-```
+
+
+<!-- =================================
+     JAVASCRIPT LIÊN HỆ
+================================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const contactForm = document.getElementById("contactForm");
+
+  const feedback = document.getElementById("contactFeedback");
+
+  if (!contactForm || !feedback) return;
+
+  contactForm.addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+    if (!contactForm.reportValidity()) return;
+
+    const name = document.getElementById("contactName").value.trim();
+
+    const email = document.getElementById("contactEmail").value.trim();
+
+    const subject = document.getElementById("contactSubject").value;
+
+    const message = document.getElementById("contactMessage").value.trim();
+
+    if (!name || !subject || !message) {
+      feedback.textContent = "Vui lòng điền đầy đủ các thông tin bắt buộc.";
+      feedback.classList.add("show");
+      return;
+    }
+
+    const phoneNumber = "84397123380";
+
+    const content =
+      "XIN CHÀO MUSTY STUDIO!" + "\n\n" +
+      "Họ và tên: " + name + "\n" +
+      "Email: " + (email || "Chưa cung cấp") + "\n" +
+      "Nội dung liên hệ: " + subject + "\n\n" +
+      "Tin nhắn: " + message;
+
+    const whatsappURL =
+      "https://wa.me/" + phoneNumber +
+      "?text=" + encodeURIComponent(content);
+
+    feedback.textContent =
+      "Đang mở WhatsApp. Bạn hãy kiểm tra và nhấn gửi tin nhắn để hoàn tất nhé.";
+
+    feedback.classList.add("show");
+
+    window.open(whatsappURL, "_blank", "noopener");
+
+  });
+
+});
+
+</script>
+
+
+<!-- JAVASCRIPT CHUNG -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
