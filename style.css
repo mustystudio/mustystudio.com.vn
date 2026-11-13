@@ -1603,6 +1603,298 @@ footer .copyright {
     }
 }
 
+/* ==========================================
+   MUSTY STUDIO - CENTERED PREMIUM LAYOUT
+========================================== */
+
+.why-musty,
+.why-musty *,
+.musty-ending,
+.musty-ending * {
+    box-sizing: border-box;
+}
+
+/* KHU VỰC VÌ SAO CHỌN MUSTY */
+
+.why-musty {
+    width: 100% !important;
+    padding: 90px 24px !important;
+    background: #f8f9f9 !important;
+    text-align: center !important;
+}
+
+.why-heading {
+    width: 100% !important;
+    max-width: 760px !important;
+    margin: 0 auto 48px !important;
+    text-align: center !important;
+}
+
+.why-heading .eyebrow {
+    color: #08aeb7 !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px !important;
+    margin-bottom: 14px !important;
+}
+
+.why-heading h2 {
+    font-family: "Space Grotesk", sans-serif !important;
+    font-size: clamp(32px, 5vw, 52px) !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+    margin: 0 0 18px !important;
+    text-align: center !important;
+}
+
+.why-heading p {
+    max-width: 680px !important;
+    margin: 0 auto !important;
+    color: #777 !important;
+    font-size: 16px !important;
+    line-height: 1.8 !important;
+    text-align: center !important;
+}
+
+/* 4 KHUNG LÝ DO */
+
+.why-grid {
+    width: 100% !important;
+    max-width: 1180px !important;
+    margin: 0 auto !important;
+
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 22px !important;
+
+    align-items: stretch !important;
+}
+
+.why-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 330px !important;
+
+    padding: 32px 24px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+
+    background: #ffffff !important;
+    border: 1px solid #eeeeee !important;
+    border-radius: 16px !important;
+
+    box-shadow: 0 5px 22px rgba(0,0,0,0.035) !important;
+
+    transition: transform .3s ease,
+                box-shadow .3s ease,
+                border-color .3s ease !important;
+}
+
+.why-card:hover {
+    transform: translateY(-8px) !important;
+    border-color: #12d5de !important;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.08) !important;
+}
+
+.why-number {
+    align-self: flex-start !important;
+    color: #999 !important;
+    font-family: "Space Grotesk", sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+}
+
+.why-icon {
+    width: 58px !important;
+    height: 58px !important;
+    flex-shrink: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    margin: 22px auto !important;
+
+    border-radius: 50% !important;
+    background: #e4fbfc !important;
+    color: #08aeb7 !important;
+
+    font-size: 25px !important;
+}
+
+.why-card h3 {
+    width: 100% !important;
+    margin: 0 0 14px !important;
+
+    font-family: "Space Grotesk", sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    line-height: 1.5 !important;
+    text-align: center !important;
+}
+
+.why-card p {
+    margin: 0 !important;
+    color: #777 !important;
+    font-size: 14px !important;
+    line-height: 1.85 !important;
+    text-align: center !important;
+}
+
+/* THÔNG ĐIỆP XANH */
+
+.why-message {
+    max-width: 1180px !important;
+    margin: 42px auto 0 !important;
+    padding: 24px !important;
+
+    text-align: center !important;
+    border-top: 1px solid #e5e5e5 !important;
+}
+
+.why-message p {
+    margin: 0 !important;
+    color: #111 !important;
+
+    font-family: "Space Grotesk", sans-serif !important;
+    font-size: clamp(20px, 3vw, 27px) !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+}
+
+.why-message span {
+    display: block !important;
+    margin-top: 9px !important;
+    color: #888 !important;
+    font-size: 14px !important;
+}
+
+/* KHUNG THÔNG ĐIỆP CUỐI TRANG */
+
+.musty-ending {
+    width: calc(100% - 48px) !important;
+    max-width: 1180px !important;
+    margin: 70px auto !important;
+    padding: 90px 30px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    text-align: center !important;
+
+    background: #111111 !important;
+    color: #ffffff !important;
+
+    border-radius: 20px !important;
+    overflow: hidden !important;
+}
+
+.musty-ending .eyebrow {
+    color: #12d5de !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px !important;
+    text-align: center !important;
+}
+
+.musty-ending h2 {
+    margin: 25px 0 !important;
+
+    color: #ffffff !important;
+    font-family: "Space Grotesk", sans-serif !important;
+    font-size: clamp(42px, 7vw, 76px) !important;
+    font-weight: 700 !important;
+    line-height: 1.05 !important;
+    letter-spacing: -2px !important;
+    text-align: center !important;
+}
+
+.musty-ending p {
+    width: 100% !important;
+    max-width: 620px !important;
+    margin: 0 auto 30px !important;
+
+    color: #cccccc !important;
+    font-size: 15px !important;
+    line-height: 1.9 !important;
+    text-align: center !important;
+}
+
+.musty-ending .action-button {
+    display: inline-block !important;
+    padding: 15px 28px !important;
+
+    background: #12d5de !important;
+    color: #111111 !important;
+
+    border: none !important;
+    border-radius: 4px !important;
+
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    transition: .3s ease !important;
+}
+
+.musty-ending .action-button:hover {
+    background: #ffffff !important;
+    transform: translateY(-3px) !important;
+}
+
+/* TABLET */
+
+@media (max-width: 950px) {
+    .why-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .why-card {
+        min-height: 300px !important;
+    }
+}
+
+/* ĐIỆN THOẠI */
+
+@media (max-width: 600px) {
+    .why-musty {
+        padding: 65px 18px !important;
+    }
+
+    .why-heading {
+        margin-bottom: 32px !important;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+
+    .why-card {
+        min-height: auto !important;
+        padding: 28px 22px !important;
+    }
+
+    .why-card p {
+        max-width: 340px !important;
+    }
+
+    .musty-ending {
+        width: calc(100% - 28px) !important;
+        margin: 45px auto !important;
+        padding: 65px 20px !important;
+        border-radius: 14px !important;
+    }
+
+    .musty-ending h2 {
+        font-size: 42px !important;
+    }
+}
+
         font-size: 9px;
         letter-spacing: 1.5px;
     }
