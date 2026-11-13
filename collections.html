@@ -1,33 +1,37 @@
 
 <!doctype html>
 <html lang="vi">
+
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Bộ sưu tập | MUSTY STUDIO</title>
+
 <meta name="description" content="Khám phá các bộ sưu tập túi tái chế và thiết kế thủ công độc bản của MUSTY STUDIO.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 
 <style>
-/* ================================
-   COLLECTIONS PAGE
-================================ */
+
+/* =================================
+   CÀI ĐẶT CHUNG
+================================= */
 
 .collections-page {
   color: var(--black);
+  overflow: hidden;
 }
 
 .collections-page img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 
 .col-container {
@@ -36,6 +40,7 @@
 }
 
 .col-label {
+  display: inline-block;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -43,41 +48,57 @@
   text-transform: uppercase;
 }
 
-.col-heading {
+.col-section {
+  padding: 85px 0;
+}
+
+.col-section-heading {
+  margin-bottom: 40px;
+}
+
+.col-section-heading h2 {
   font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(30px, 5vw, 55px);
-  line-height: 1.08;
-  font-weight: 700;
-  margin: 12px 0 18px;
-  letter-spacing: -2px;
+  font-size: clamp(28px, 4vw, 43px);
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  margin: 12px 0;
+}
+
+.col-section-heading p {
+  color: var(--gray);
+  line-height: 1.8;
+  font-size: 14px;
+  max-width: 650px;
 }
 
 .col-description {
   color: var(--gray);
-  line-height: 1.8;
-  max-width: 620px;
-  font-size: 15px;
+  line-height: 1.9;
+  font-size: 14px;
 }
 
-/* HERO */
+/* =================================
+   01. BANNER
+================================= */
 
 .col-hero {
-  padding: 95px 20px 75px;
+  padding: 65px 0 75px;
   text-align: center;
   background: var(--light);
 }
 
-.col-hero .col-label {
-  display: block;
+.col-hero-content {
+  width: min(850px, 90%);
+  margin: auto;
 }
 
 .col-hero h1 {
   font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(42px, 8vw, 88px);
-  line-height: 1;
-  letter-spacing: -4px;
-  margin: 20px 0;
+  font-size: clamp(42px, 8vw, 85px);
   font-weight: 700;
+  letter-spacing: -4px;
+  line-height: 1;
+  margin: 20px 0;
 }
 
 .col-hero p {
@@ -89,47 +110,29 @@
 }
 
 .col-hero-image {
-  width: min(1180px, 90%);
+  width: min(1180px, 94%);
   height: 430px;
-  margin: 55px auto 0;
+  margin: 45px auto 0;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 5px;
+  background: var(--musty);
 }
 
 .col-hero-image img {
-  transition: transform .7s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 
-.col-hero-image:hover img {
-  transform: scale(1.035);
-}
-
-/* COLLECTIONS */
-
-.col-section {
-  padding: 90px 0;
-}
-
-.col-section-heading {
-  margin-bottom: 42px;
-}
-
-.col-section-heading h2 {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(28px, 4vw, 42px);
-  letter-spacing: -1.5px;
-  margin: 12px 0;
-}
-
-.col-section-heading p {
-  color: var(--gray);
-  line-height: 1.8;
-}
+/* =================================
+   02. BỘ SƯU TẬP
+================================= */
 
 .col-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 38px 25px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px 25px;
 }
 
 .col-card {
@@ -137,12 +140,15 @@
 }
 
 .col-card-image {
+  width: 100%;
   height: 430px;
   overflow: hidden;
   background: var(--light);
 }
 
 .col-card-image img {
+  object-fit: cover;
+  object-position: center;
   transition: transform .65s ease;
 }
 
@@ -151,24 +157,27 @@
 }
 
 .col-card-content {
-  padding: 22px 0 0;
+  padding-top: 20px;
 }
 
 .col-card-content h3 {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 25px;
+  font-size: clamp(20px, 2.5vw, 27px);
+  line-height: 1.3;
   margin: 12px 0;
-  letter-spacing: -.7px;
 }
 
 .col-card-content p {
   color: var(--gray);
-  line-height: 1.8;
   font-size: 14px;
-  max-width: 470px;
+  line-height: 1.9;
+  max-width: 480px;
+  margin: 0;
 }
 
-/* FEATURED PRODUCTS */
+/* =================================
+   03. SẢN PHẨM NỔI BẬT
+================================= */
 
 .col-featured {
   background: var(--light);
@@ -176,30 +185,33 @@
 
 .col-product-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
 }
 
 .col-product-card {
   min-width: 0;
+  background: var(--white);
 }
 
 .col-product-image {
   height: 300px;
   overflow: hidden;
-  background: #e9e9e9;
+  background: #eeeeee;
 }
 
 .col-product-image img {
+  object-fit: cover;
+  object-position: center;
   transition: transform .6s ease;
 }
 
-.col-product-card:hover img {
+.col-product-card:hover .col-product-image img {
   transform: scale(1.05);
 }
 
 .col-product-info {
-  padding-top: 16px;
+  padding: 16px 14px 20px;
 }
 
 .col-product-info h3 {
@@ -209,24 +221,31 @@
 }
 
 .col-product-info p {
-  font-size: 14px;
   color: var(--gray);
+  font-size: 14px;
   margin: 0;
 }
 
 .col-product-link {
   display: inline-block;
-  margin-top: 13px;
+  margin-top: 14px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--musty-dark);
+  color: var(--black);
+  text-decoration: none;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1px;
-  text-decoration: none;
-  color: var(--black);
-  border-bottom: 1px solid var(--musty-dark);
-  padding-bottom: 5px;
 }
 
-/* BRAND STORY */
+.col-center-button {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* =================================
+   04. CÂU CHUYỆN THƯƠNG HIỆU
+================================= */
 
 .col-story {
   display: grid;
@@ -238,15 +257,17 @@
 .col-story-image {
   height: 510px;
   overflow: hidden;
+  background: var(--light);
 }
 
-.col-story-content {
-  padding: 25px 0;
+.col-story-image img {
+  object-fit: cover;
+  object-position: center;
 }
 
 .col-story-content h2 {
   font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(30px, 4vw, 47px);
+  font-size: clamp(30px, 4vw, 48px);
   line-height: 1.15;
   letter-spacing: -1.5px;
   margin: 18px 0;
@@ -259,10 +280,27 @@
   margin-bottom: 15px;
 }
 
-/* STYLE GALLERY */
+.col-story-button {
+  display: inline-block;
+  margin-top: 12px;
+  text-decoration: none;
+}
+
+/* =================================
+   05. PHONG CÁCH MUSTY
+================================= */
 
 .col-style {
   background: var(--light);
+}
+
+.col-style-heading {
+  text-align: center;
+  margin-bottom: 38px;
+}
+
+.col-style-heading p {
+  margin: auto;
 }
 
 .col-style-grid {
@@ -272,11 +310,13 @@
 }
 
 .col-style-item {
-  height: 350px;
+  height: 360px;
   overflow: hidden;
+  background: #e9e9e9;
 }
 
 .col-style-item img {
+  object-fit: cover;
   transition: transform .6s ease;
 }
 
@@ -292,7 +332,9 @@
   line-height: 1.8;
 }
 
-/* ENDING */
+/* =================================
+   06. LỜI KẾT
+================================= */
 
 .col-ending {
   padding: 100px 20px;
@@ -310,28 +352,26 @@
   font-size: clamp(35px, 6vw, 65px);
   line-height: 1.1;
   letter-spacing: -2px;
-  margin: 20px auto;
   max-width: 850px;
+  margin: 20px auto;
 }
 
 .col-ending p {
-  color: #c7c7c7;
+  color: #cccccc;
   max-width: 600px;
   margin: 0 auto 30px;
   line-height: 1.9;
   font-size: 14px;
 }
 
-.col-ending .action-button {
-  display: inline-block;
-  text-decoration: none;
-}
-
-/* RESPONSIVE */
+/* =================================
+   RESPONSIVE - TABLET
+================================= */
 
 @media (max-width: 900px) {
+
   .col-product-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .col-product-image {
@@ -345,24 +385,35 @@
   .col-style-item {
     height: 280px;
   }
+
 }
 
+/* =================================
+   RESPONSIVE - MOBILE
+================================= */
+
 @media (max-width: 600px) {
+
+  .col-section {
+    padding: 60px 0;
+  }
+
   .col-hero {
-    padding: 65px 15px 45px;
+    padding: 55px 0 45px;
   }
 
   .col-hero h1 {
     letter-spacing: -2px;
   }
 
-  .col-hero-image {
-    height: 260px;
-    margin-top: 35px;
+  .col-hero p {
+    font-size: 14px;
   }
 
-  .col-section {
-    padding: 60px 0;
+  .col-hero-image {
+    width: 92%;
+    height: 230px;
+    margin-top: 30px;
   }
 
   .col-grid {
@@ -371,20 +422,28 @@
   }
 
   .col-card-image {
-    height: 340px;
+    height: 350px;
   }
 
   .col-product-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px 12px;
+    gap: 18px 12px;
   }
 
   .col-product-image {
     height: 210px;
   }
 
+  .col-product-info {
+    padding: 13px 10px 16px;
+  }
+
   .col-product-info h3 {
-    font-size: 14px;
+    font-size: 13px;
+  }
+
+  .col-product-info p {
+    font-size: 13px;
   }
 
   .col-story {
@@ -394,10 +453,6 @@
 
   .col-story-image {
     height: 350px;
-  }
-
-  .col-story-content {
-    padding: 0;
   }
 
   .col-style-grid {
@@ -417,14 +472,20 @@
   .col-ending {
     padding: 70px 20px;
   }
+
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
+<!-- =================================
+     HEADER
+================================= -->
+
 <header class="site-header">
+
  <div class="header-inner">
 
   <a class="brand" href="index.html">
@@ -432,7 +493,12 @@
    MUSTY STUDIO
   </a>
 
-  <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false">☰</button>
+  <button class="menu-toggle"
+          type="button"
+          aria-label="Mở menu"
+          aria-expanded="false">
+   ☰
+  </button>
 
   <nav aria-label="Điều hướng chính">
    <a href="index.html">Trang chủ</a>
@@ -448,12 +514,19 @@
   </button>
 
  </div>
+
 </header>
+
 
 <main class="collections-page">
 
- <!-- 01. BANNER -->
- <section class="col-hero">
+<!-- =================================
+     01. BANNER BỘ SƯU TẬP
+================================= -->
+
+<section class="col-hero">
+
+ <div class="col-hero-content">
 
   <span class="col-label">THẾ GIỚI MUSTY</span>
 
@@ -465,300 +538,471 @@
    MUSTY tạo nên những thiết kế mang dấu ấn riêng.
   </p>
 
-  <div class="col-hero-image">
-   <img src="images/musty banner.png" alt="Không gian sáng tạo của MUSTY STUDIO">
-  </div>
+ </div>
 
- </section>
+ <div class="col-hero-image">
+  <img
+   src="images/musty%20banner.png"
+   alt="Hình ảnh thương hiệu MUSTY STUDIO">
+ </div>
 
-
- <!-- 02. CÁC BỘ SƯU TẬP -->
- <section class="col-section">
-
-  <div class="col-container">
-
-   <div class="col-section-heading">
-    <span class="col-label">KHÁM PHÁ MUSTY</span>
-    <h2>NHỮNG CÂU CHUYỆN KHÁC NHAU</h2>
-    <p>
-     Khám phá những thiết kế được tạo nên từ cảm hứng,
-     chất liệu và tinh thần sáng tạo của MUSTY.
-    </p>
-   </div>
-
-   <div class="col-grid">
-
-    <article class="col-card">
-     <div class="col-card-image">
-      <img src="images/.jpg" alt="Bộ sưu tập túi dùng hằng ngày">
-     </div>
-
-     <div class="col-card-content">
-      <span class="col-label">01 / HẰNG NGÀY</span>
-      <h3>Túi dùng hằng ngày</h3>
-      <p>
-       Những thiết kế tiện dụng, linh hoạt và dễ kết hợp,
-       đồng hành cùng bạn trong nhịp sống thường ngày.
-      </p>
-     </div>
-    </article>
-
-    <article class="col-card">
-     <div class="col-card-image">
-      <img src="images/.jpg" alt="Bộ sưu tập túi ghép vải">
-     </div>
-
-     <div class="col-card-content">
-      <span class="col-label">02 / GHÉP VẢI</span>
-      <h3>Câu chuyện từ những mảnh ghép</h3>
-      <p>
-       Sự kết hợp giữa những mảnh vải và chất liệu khác nhau,
-       tạo nên những thiết kế độc đáo mang cá tính riêng.
-      </p>
-     </div>
-    </article>
-
-    <article class="col-card">
-     <div class="col-card-image">
-      <img src="images/.jpg" alt="Bộ sưu tập thiết kế độc bản">
-     </div>
-
-     <div class="col-card-content">
-      <span class="col-label">03 / PHIÊN BẢN GIỚI HẠN</span>
-      <h3>Thiết kế độc bản</h3>
-      <p>
-       Những sản phẩm đặc biệt được sáng tạo với số lượng
-       giới hạn, dành cho những ai yêu thích sự khác biệt.
-      </p>
-     </div>
-    </article>
-
-    <article class="col-card">
-     <div class="col-card-image">
-      <img src="images/vongdoimoi.jpg" alt="Bộ sưu tập chất liệu tái sinh">
-     </div>
-
-     <div class="col-card-content">
-      <span class="col-label">04 / CHẤT LIỆU TÁI SINH</span>
-      <h3>Vòng đời mới của chất liệu</h3>
-      <p>
-       Từ những chất liệu tưởng chừng đã cũ,
-       MUSTY mở ra một hành trình mới bằng sự sáng tạo
-       và tinh thần trân trọng tài nguyên.
-      </p>
-     </div>
-    </article>
-
-   </div>
-
-  </div>
- </section>
+</section>
 
 
- <!-- 03. SẢN PHẨM NỔI BẬT -->
- <section class="col-section col-featured">
+<!-- =================================
+     02. CÁC BỘ SƯU TẬP
+================================= -->
 
-  <div class="col-container">
+<section class="col-section">
 
-   <div class="col-section-heading">
-    <span class="col-label">ĐƯỢC YÊU THÍCH</span>
-    <h2>NHỮNG THIẾT KẾ NỔI BẬT</h2>
-    <p>
-     Một vài thiết kế tiêu biểu mang tinh thần
-     tái chế và thủ công của MUSTY STUDIO.
-    </p>
-   </div>
+ <div class="col-container">
 
-   <div class="col-product-grid">
+  <div class="col-section-heading">
 
-    <article class="col-product-card">
-     <div class="col-product-image">
-      <img src="images/product11.jpg" alt="MUSTY BAG 01">
-     </div>
-     <div class="col-product-info">
-      <h3>MUSTY BAG 01</h3>
-      <p>350.000₫</p>
-      <a class="col-product-link" href="products.html">XEM SẢN PHẨM →</a>
-     </div>
-    </article>
+   <span class="col-label">KHÁM PHÁ MUSTY</span>
 
-    <article class="col-product-card">
-     <div class="col-product-image">
-      <img src="images/product2.jpg" alt="MUSTY BAG 02">
-     </div>
-     <div class="col-product-info">
-      <h3>MUSTY BAG 02</h3>
-      <p>390.000₫</p>
-      <a class="col-product-link" href="products.html">XEM SẢN PHẨM →</a>
-     </div>
-    </article>
+   <h2>NHỮNG CÂU CHUYỆN KHÁC NHAU</h2>
 
-    <article class="col-product-card">
-     <div class="col-product-image">
-      <img src="images/product3.jpg" alt="MUSTY PATCH BAG">
-     </div>
-     <div class="col-product-info">
-      <h3>MUSTY PATCH BAG</h3>
-      <p>450.000₫</p>
-      <a class="col-product-link" href="products.html">XEM SẢN PHẨM →</a>
-     </div>
-    </article>
-
-    <article class="col-product-card">
-     <div class="col-product-image">
-      <img src="images/product4.jpg" alt="MUSTY SPECIAL">
-     </div>
-     <div class="col-product-info">
-      <h3>MUSTY SPECIAL</h3>
-      <p>520.000₫</p>
-      <a class="col-product-link" href="products.html">XEM SẢN PHẨM →</a>
-     </div>
-    </article>
-
-   </div>
-
-   <div style="text-align:center;margin-top:45px">
-    <a class="action-button" href="products.html">
-     XEM TẤT CẢ SẢN PHẨM →
-    </a>
-   </div>
-
-  </div>
- </section>
-
-
- <!-- 04. CÂU CHUYỆN CHẤT LIỆU -->
- <section class="col-section">
-
-  <div class="col-container col-story">
-
-   <div class="col-story-image">
-    <img src="images/musty-hero.jpg" alt="Câu chuyện sáng tạo của MUSTY STUDIO">
-   </div>
-
-   <div class="col-story-content">
-
-    <span class="col-label">CÂU CHUYỆN PHÍA SAU</span>
-
-    <h2>KHÔNG CHỈ LÀ MỘT CHIẾC TÚI.</h2>
-
-    <p>
-     Đằng sau mỗi thiết kế là quá trình lựa chọn chất liệu,
-     kết hợp màu sắc và hoàn thiện bằng sự tỉ mỉ.
-    </p>
-
-    <p>
-     MUSTY tin rằng những chất liệu cũ vẫn có thể tiếp tục
-     kể những câu chuyện mới. Thay vì bỏ đi những gì đã qua,
-     chúng mình lựa chọn sáng tạo và trao cho chúng một
-     hình hài khác.
-    </p>
-
-    <p>
-     Mỗi sản phẩm không chỉ là một món phụ kiện,
-     mà còn là dấu ấn của sự sáng tạo và cá tính riêng.
-    </p>
-
-    <a class="action-button" href="about.html">
-     TÌM HIỂU VỀ MUSTY →
-    </a>
-
-   </div>
-
-  </div>
- </section>
-
-
- <!-- 05. PHONG CÁCH -->
- <section class="col-section col-style">
-
-  <div class="col-container">
-
-   <div class="col-section-heading" style="text-align:center">
-    <span class="col-label">MUSTY TRONG ĐỜI SỐNG</span>
-    <h2>MANG MUSTY THEO CÁCH CỦA BẠN</h2>
-    <p style="margin:auto">
-     Một chiếc túi không chỉ để đựng đồ,
-     mà còn là cách bạn thể hiện cá tính mỗi ngày.
-    </p>
-   </div>
-
-   <div class="col-style-grid">
-
-    <div class="col-style-item">
-     <img src="images/product11.jpg" alt="Thiết kế túi MUSTY BAG 01">
-    </div>
-
-    <div class="col-style-item">
-     <img src="images/product2.jpg" alt="Thiết kế túi MUSTY BAG 02">
-    </div>
-
-    <div class="col-style-item">
-     <img src="images/product3.jpg" alt="Thiết kế túi MUSTY PATCH BAG">
-    </div>
-
-   </div>
-
-   <p class="col-style-caption">
-    Mỗi thiết kế mang một cá tính riêng.
-    Hãy chọn chiếc túi phù hợp với câu chuyện của bạn.
+   <p>
+    Khám phá những thiết kế được tạo nên từ cảm hứng,
+    chất liệu và tinh thần sáng tạo của MUSTY.
    </p>
 
   </div>
- </section>
 
 
- <!-- 06. LỜI KẾT -->
- <section class="col-ending">
+  <div class="col-grid">
 
-  <span class="col-label">MUSTY STUDIO</span>
+   <!-- BỘ SƯU TẬP 01 -->
 
-  <h2>CŨ KHÔNG CÓ NGHĨA LÀ HẾT GIÁ TRỊ.</h2>
+   <article class="col-card">
 
-  <p>
-   Mỗi chất liệu đều xứng đáng có thêm một cơ hội
-   để trở nên đặc biệt. Cùng MUSTY viết tiếp những
-   câu chuyện mới từ những điều tưởng chừng đã cũ.
+    <div class="col-card-image">
+     <img
+      src="images/product11.jpg"
+      alt="Bộ sưu tập túi dùng hằng ngày">
+    </div>
+
+    <div class="col-card-content">
+
+     <span class="col-label">01 / HẰNG NGÀY</span>
+
+     <h3>Túi dùng hằng ngày</h3>
+
+     <p>
+      Những thiết kế tiện dụng, linh hoạt và dễ kết hợp,
+      đồng hành cùng bạn trong nhịp sống thường ngày.
+     </p>
+
+    </div>
+
+   </article>
+
+
+   <!-- BỘ SƯU TẬP 02 -->
+
+   <article class="col-card">
+
+    <div class="col-card-image">
+     <img
+      src="images/ghepvai.jpg"
+      alt="Bộ sưu tập túi ghép vải">
+    </div>
+
+    <div class="col-card-content">
+
+     <span class="col-label">02 / GHÉP VẢI</span>
+
+     <h3>Câu chuyện từ những mảnh ghép</h3>
+
+     <p>
+      Sự kết hợp giữa những mảnh vải và chất liệu khác nhau,
+      tạo nên những thiết kế độc đáo mang cá tính riêng.
+     </p>
+
+    </div>
+
+   </article>
+
+
+   <!-- BỘ SƯU TẬP 03 -->
+
+   <article class="col-card">
+
+    <div class="col-card-image">
+     <img
+      src="images/docban.jpg"
+      alt="Bộ sưu tập thiết kế độc bản">
+    </div>
+
+    <div class="col-card-content">
+
+     <span class="col-label">03 / PHIÊN BẢN GIỚI HẠN</span>
+
+     <h3>Thiết kế độc bản</h3>
+
+     <p>
+      Những sản phẩm đặc biệt được sáng tạo với số lượng
+      giới hạn, dành cho những ai yêu thích sự khác biệt.
+     </p>
+
+    </div>
+
+   </article>
+
+
+   <!-- BỘ SƯU TẬP 04 -->
+
+   <article class="col-card">
+
+    <div class="col-card-image">
+     <img
+      src="images/vongdoimoi.jpg"
+      alt="Bộ sưu tập chất liệu tái sinh">
+    </div>
+
+    <div class="col-card-content">
+
+     <span class="col-label">04 / CHẤT LIỆU TÁI SINH</span>
+
+     <h3>Vòng đời mới của chất liệu</h3>
+
+     <p>
+      Từ những chất liệu tưởng chừng đã cũ,
+      MUSTY mở ra một hành trình mới bằng sự sáng tạo
+      và tinh thần trân trọng tài nguyên.
+     </p>
+
+    </div>
+
+   </article>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- =================================
+     03. SẢN PHẨM NỔI BẬT
+================================= -->
+
+<section class="col-section col-featured">
+
+ <div class="col-container">
+
+  <div class="col-section-heading">
+
+   <span class="col-label">ĐƯỢC YÊU THÍCH</span>
+
+   <h2>NHỮNG THIẾT KẾ NỔI BẬT</h2>
+
+   <p>
+    Một vài thiết kế tiêu biểu mang tinh thần
+    tái chế và thủ công của MUSTY STUDIO.
+   </p>
+
+  </div>
+
+
+  <div class="col-product-grid">
+
+   <!-- SẢN PHẨM 01 -->
+
+   <article class="col-product-card">
+
+    <div class="col-product-image">
+     <img
+      src="images/product11.jpg"
+      alt="MUSTY BAG 01">
+    </div>
+
+    <div class="col-product-info">
+
+     <h3>MUSTY BAG 01</h3>
+
+     <p>350.000₫</p>
+
+     <a class="col-product-link" href="products.html">
+      XEM SẢN PHẨM →
+     </a>
+
+    </div>
+
+   </article>
+
+
+   <!-- SẢN PHẨM 02 -->
+
+   <article class="col-product-card">
+
+    <div class="col-product-image">
+     <img
+      src="images/product2.jpg"
+      alt="MUSTY BAG 02">
+    </div>
+
+    <div class="col-product-info">
+
+     <h3>MUSTY BAG 02</h3>
+
+     <p>390.000₫</p>
+
+     <a class="col-product-link" href="products.html">
+      XEM SẢN PHẨM →
+     </a>
+
+    </div>
+
+   </article>
+
+
+   <!-- SẢN PHẨM 03 -->
+
+   <article class="col-product-card">
+
+    <div class="col-product-image">
+     <img
+      src="images/product3.jpg"
+      alt="MUSTY PATCH BAG">
+    </div>
+
+    <div class="col-product-info">
+
+     <h3>MUSTY PATCH BAG</h3>
+
+     <p>450.000₫</p>
+
+     <a class="col-product-link" href="products.html">
+      XEM SẢN PHẨM →
+     </a>
+
+    </div>
+
+   </article>
+
+
+   <!-- SẢN PHẨM 04 -->
+
+   <article class="col-product-card">
+
+    <div class="col-product-image">
+     <img
+      src="images/product4.jpg"
+      alt="MUSTY SPECIAL">
+    </div>
+
+    <div class="col-product-info">
+
+     <h3>MUSTY SPECIAL</h3>
+
+     <p>520.000₫</p>
+
+     <a class="col-product-link" href="products.html">
+      XEM SẢN PHẨM →
+     </a>
+
+    </div>
+
+   </article>
+
+  </div>
+
+
+  <div class="col-center-button">
+
+   <a class="action-button" href="products.html">
+    XEM TẤT CẢ SẢN PHẨM →
+   </a>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- =================================
+     04. CÂU CHUYỆN CHẤT LIỆU
+================================= -->
+
+<section class="col-section">
+
+ <div class="col-container col-story">
+
+  <div class="col-story-image">
+
+   <img
+    src="images/vongdoimoi.jpg"
+    alt="Câu chuyện về chất liệu tái sinh của MUSTY">
+
+  </div>
+
+
+  <div class="col-story-content">
+
+   <span class="col-label">CÂU CHUYỆN PHÍA SAU</span>
+
+   <h2>KHÔNG CHỈ LÀ MỘT CHIẾC TÚI.</h2>
+
+   <p>
+    Đằng sau mỗi thiết kế là quá trình lựa chọn chất liệu,
+    kết hợp màu sắc và hoàn thiện bằng sự tỉ mỉ.
+   </p>
+
+   <p>
+    MUSTY tin rằng những chất liệu cũ vẫn có thể tiếp tục
+    kể những câu chuyện mới. Thay vì bỏ đi những gì đã qua,
+    chúng mình lựa chọn sáng tạo và trao cho chúng một
+    hình hài khác.
+   </p>
+
+   <p>
+    Mỗi sản phẩm không chỉ là một món phụ kiện,
+    mà còn là dấu ấn của sự sáng tạo và cá tính riêng.
+   </p>
+
+   <a class="action-button col-story-button" href="about.html">
+    TÌM HIỂU VỀ MUSTY →
+   </a>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- =================================
+     05. PHONG CÁCH MUSTY
+================================= -->
+
+<section class="col-section col-style">
+
+ <div class="col-container">
+
+  <div class="col-section-heading col-style-heading">
+
+   <span class="col-label">MUSTY TRONG ĐỜI SỐNG</span>
+
+   <h2>MANG MUSTY THEO CÁCH CỦA BẠN</h2>
+
+   <p>
+    Một chiếc túi không chỉ để đựng đồ,
+    mà còn là cách bạn thể hiện cá tính mỗi ngày.
+   </p>
+
+  </div>
+
+
+  <div class="col-style-grid">
+
+   <div class="col-style-item">
+    <img
+     src="images/product05.jpg"
+     alt="Thiết kế túi MUSTY">
+   </div>
+
+   <div class="col-style-item">
+    <img
+     src="images/product06.jpg"
+     alt="Sản phẩm thủ công MUSTY">
+   </div>
+
+   <div class="col-style-item">
+    <img
+     src="images/product07.jpg"
+     alt="Thiết kế tái chế MUSTY">
+   </div>
+
+  </div>
+
+
+  <p class="col-style-caption">
+   Mỗi thiết kế mang một cá tính riêng.
+   Hãy chọn chiếc túi phù hợp với câu chuyện của bạn.
   </p>
 
-  <a class="action-button" href="products.html">
-   KHÁM PHÁ SẢN PHẨM →
-  </a>
+ </div>
 
- </section>
+</section>
+
+
+<!-- =================================
+     06. LỜI KẾT THƯƠNG HIỆU
+================================= -->
+
+<section class="col-ending">
+
+ <span class="col-label">MUSTY STUDIO</span>
+
+ <h2>CŨ KHÔNG CÓ NGHĨA LÀ HẾT GIÁ TRỊ.</h2>
+
+ <p>
+  Mỗi chất liệu đều xứng đáng có thêm một cơ hội
+  để trở nên đặc biệt. Cùng MUSTY viết tiếp những
+  câu chuyện mới từ những điều tưởng chừng đã cũ.
+ </p>
+
+ <a class="action-button" href="products.html">
+  KHÁM PHÁ SẢN PHẨM →
+ </a>
+
+</section>
 
 </main>
 
 
-<!-- FOOTER -->
+<!-- =================================
+     FOOTER
+================================= -->
+
 <footer class="site-footer">
 
  <div class="footer-columns">
 
   <div>
+
    <h3>MUSTY STUDIO</h3>
+
    <p>
     Tái chế • Thủ công • Độc bản.<br>
     Những chiếc túi tái chế và thiết kế thủ công
     mang dấu ấn riêng.
    </p>
+
   </div>
 
+
   <div>
+
    <h3>KHÁM PHÁ</h3>
+
    <a href="about.html">Giới thiệu</a>
    <a href="products.html">Sản phẩm</a>
    <a href="collections.html">Bộ sưu tập</a>
+
   </div>
 
+
   <div>
+
    <h3>KẾT NỐI</h3>
+
    <a href="blog.html">Bài viết</a>
    <a href="contact.html">Liên hệ</a>
-   <a href="https://www.instagram.com/musty_stu/" target="_blank" rel="noopener">Instagram</a>
+
+   <a href="https://www.instagram.com/musty_stu/"
+      target="_blank"
+      rel="noopener">
+    Instagram
+   </a>
+
   </div>
 
  </div>
+
 
  <div class="footer-bottom">
   © <span class="current-year"></span> MUSTY STUDIO. Tái chế & Thủ công.
@@ -767,32 +1011,51 @@
 </footer>
 
 
-<!-- GIỎ HÀNG -->
+<!-- =================================
+     GIỎ HÀNG
+================================= -->
+
 <div class="cart-drawer" aria-hidden="true">
 
  <aside class="cart-panel" aria-label="Giỏ hàng">
 
   <div class="cart-head">
+
    <h2>GIỎ HÀNG</h2>
-   <button class="cart-close" type="button" aria-label="Đóng">✕</button>
+
+   <button class="cart-close"
+           type="button"
+           aria-label="Đóng">
+    ✕
+   </button>
+
   </div>
+
 
   <div class="cart-items">
    <p>Giỏ hàng đang trống.</p>
   </div>
 
+
   <div class="cart-total-line">
+
    <span>Tổng cộng</span>
+
    <span class="cart-total">0₫</span>
+
   </div>
+
 
   <a class="action-button checkout-link" href="contact.html">
    LIÊN HỆ ĐẶT HÀNG
   </a>
 
  </aside>
+
 </div>
 
+
+<!-- JAVASCRIPT -->
 <script src="script.js"></script>
 
 </body>
