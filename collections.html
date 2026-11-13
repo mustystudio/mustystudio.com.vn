@@ -1,1062 +1,1145 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
-
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Bộ sưu tập | MUSTY STUDIO</title>
-
-<meta name="description" content="Khám phá các bộ sưu tập túi tái chế và thiết kế thủ công độc bản của MUSTY STUDIO.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
-
-<style>
-
-/* =================================
-   CÀI ĐẶT CHUNG
-================================= */
-
-.collections-page {
-  color: var(--black);
-  overflow: hidden;
-}
-
-.collections-page img {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.col-container {
-  width: min(1180px, 90%);
-  margin: auto;
-}
-
-.col-label {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--musty-dark);
-  text-transform: uppercase;
-}
-
-.col-section {
-  padding: 85px 0;
-}
-
-.col-section-heading {
-  margin-bottom: 40px;
-}
-
-.col-section-heading h2 {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(28px, 4vw, 43px);
-  line-height: 1.15;
-  letter-spacing: -1.5px;
-  margin: 12px 0;
-}
-
-.col-section-heading p {
-  color: var(--gray);
-  line-height: 1.8;
-  font-size: 14px;
-  max-width: 650px;
-}
-
-.col-description {
-  color: var(--gray);
-  line-height: 1.9;
-  font-size: 14px;
-}
-
-/* =================================
-   01. BANNER
-================================= */
-
-.col-hero {
-  padding: 65px 0 75px;
-  text-align: center;
-  background: var(--light);
-}
-
-.col-hero-content {
-  width: min(850px, 90%);
-  margin: auto;
-}
-
-.col-hero h1 {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(42px, 8vw, 85px);
-  font-weight: 700;
-  letter-spacing: -4px;
-  line-height: 1;
-  margin: 20px 0;
-}
-
-.col-hero p {
-  max-width: 650px;
-  margin: auto;
-  color: var(--gray);
-  font-size: 15px;
-  line-height: 1.9;
-}
-
-.col-hero-image {
-  width: min(1180px, 94%);
-  height: 430px;
-  margin: 45px auto 0;
-  overflow: hidden;
-  border-radius: 5px;
-  background: var(--musty);
-}
-
-.col-hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-}
-
-/* =================================
-   02. BỘ SƯU TẬP
-================================= */
-
-.col-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 40px 25px;
-}
-
-.col-card {
-  min-width: 0;
-}
-
-.col-card-image {
-  width: 100%;
-  height: 430px;
-  overflow: hidden;
-  background: var(--light);
-}
-
-.col-card-image img {
-  object-fit: cover;
-  object-position: center;
-  transition: transform .65s ease;
-}
-
-.col-card:hover .col-card-image img {
-  transform: scale(1.045);
-}
-
-.col-card-content {
-  padding-top: 20px;
-}
-
-.col-card-content h3 {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(20px, 2.5vw, 27px);
-  line-height: 1.3;
-  margin: 12px 0;
-}
-
-.col-card-content p {
-  color: var(--gray);
-  font-size: 14px;
-  line-height: 1.9;
-  max-width: 480px;
-  margin: 0;
-}
-
-/* =================================
-   03. SẢN PHẨM NỔI BẬT
-================================= */
-
-.col-featured {
-  background: var(--light);
-}
-
-.col-product-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.col-product-card {
-  min-width: 0;
-  background: var(--white);
-}
-
-.col-product-image {
-  height: 300px;
-  overflow: hidden;
-  background: #eeeeee;
-}
-
-.col-product-image img {
-  object-fit: cover;
-  object-position: center;
-  transition: transform .6s ease;
-}
-
-.col-product-card:hover .col-product-image img {
-  transform: scale(1.05);
-}
-
-.col-product-info {
-  padding: 16px 14px 20px;
-}
-
-.col-product-info h3 {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 16px;
-  margin: 0 0 8px;
-}
-
-.col-product-info p {
-  color: var(--gray);
-  font-size: 14px;
-  margin: 0;
-}
-
-.col-product-link {
-  display: inline-block;
-  margin-top: 14px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid var(--musty-dark);
-  color: var(--black);
-  text-decoration: none;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-.col-center-button {
-  text-align: center;
-  margin-top: 40px;
-}
-
-/* =================================
-   04. CÂU CHUYỆN THƯƠNG HIỆU
-================================= */
-
-.col-story {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 65px;
-}
-
-.col-story-image {
-  height: 510px;
-  overflow: hidden;
-  background: var(--light);
-}
-
-.col-story-image img {
-  object-fit: cover;
-  object-position: center;
-}
-
-.col-story-content h2 {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(30px, 4vw, 48px);
-  line-height: 1.15;
-  letter-spacing: -1.5px;
-  margin: 18px 0;
-}
-
-.col-story-content p {
-  color: var(--gray);
-  font-size: 14px;
-  line-height: 2;
-  margin-bottom: 15px;
-}
-
-.col-story-button {
-  display: inline-block;
-  margin-top: 12px;
-  text-decoration: none;
-}
-
-/* =================================
-   05. PHONG CÁCH MUSTY
-================================= */
-
-.col-style {
-  background: var(--light);
-}
-
-.col-style-heading {
-  text-align: center;
-  margin-bottom: 38px;
-}
-
-.col-style-heading p {
-  margin: auto;
-}
-
-.col-style-grid {
-  display: grid;
-  grid-template-columns: 1.1fr .9fr 1.1fr;
-  gap: 18px;
-}
-
-.col-style-item {
-  height: 360px;
-  overflow: hidden;
-  background: #e9e9e9;
-}
-
-.col-style-item img {
-  object-fit: cover;
-  transition: transform .6s ease;
-}
-
-.col-style-item:hover img {
-  transform: scale(1.05);
-}
-
-.col-style-caption {
-  margin-top: 22px;
-  text-align: center;
-  color: var(--gray);
-  font-size: 13px;
-  line-height: 1.8;
-}
-
-/* =================================
-   06. LỜI KẾT
-================================= */
-
-.col-ending {
-  padding: 100px 20px;
-  text-align: center;
-  background: var(--black);
-  color: var(--white);
-}
-
-.col-ending .col-label {
-  color: var(--musty);
-}
-
-.col-ending h2 {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(35px, 6vw, 65px);
-  line-height: 1.1;
-  letter-spacing: -2px;
-  max-width: 850px;
-  margin: 20px auto;
-}
-
-.col-ending p {
-  color: #cccccc;
-  max-width: 600px;
-  margin: 0 auto 30px;
-  line-height: 1.9;
-  font-size: 14px;
-}
-
-/* =================================
-   RESPONSIVE - TABLET
-================================= */
-
-@media (max-width: 900px) {
-
-  .col-product-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .col-product-image {
-    height: 280px;
-  }
-
-  .col-story {
-    gap: 35px;
-  }
-
-  .col-style-item {
-    height: 280px;
-  }
-
-}
-
-/* =================================
-   RESPONSIVE - MOBILE
-================================= */
-
-@media (max-width: 600px) {
-
-  .col-section {
-    padding: 60px 0;
-  }
-
-  .col-hero {
-    padding: 55px 0 45px;
-  }
-
-  .col-hero h1 {
-    letter-spacing: -2px;
-  }
-
-  .col-hero p {
-    font-size: 14px;
-  }
-
-  .col-hero-image {
-    width: 92%;
-    height: 230px;
-    margin-top: 30px;
-  }
-
-  .col-grid {
-    grid-template-columns: 1fr;
-    gap: 35px;
-  }
-
-  .col-card-image {
-    height: 350px;
-  }
-
-  .col-product-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px 12px;
-  }
-
-  .col-product-image {
-    height: 210px;
-  }
-
-  .col-product-info {
-    padding: 13px 10px 16px;
-  }
-
-  .col-product-info h3 {
-    font-size: 13px;
-  }
-
-  .col-product-info p {
-    font-size: 13px;
-  }
-
-  .col-story {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-  .col-story-image {
-    height: 350px;
-  }
-
-  .col-style-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  .col-style-item {
-    height: 220px;
-  }
-
-  .col-style-item:last-child {
-    grid-column: 1 / -1;
-    height: 260px;
-  }
-
-  .col-ending {
-    padding: 70px 20px;
-  }
-
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Bộ sưu tập | MUSTY STUDIO</title>
+  <meta name="description" content="Khám phá những bộ sưu tập túi tái chế và thiết kế thủ công độc bản từ MUSTY STUDIO.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --musty: #12d5de;
+      --musty-dark: #08aeb7;
+      --black: #111;
+      --white: #fff;
+      --light: #f4f5f5;
+      --gray: #777;
+      --border: #ddd;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--black);
+      background: var(--white);
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* THANH ĐIỀU HƯỚNG */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 1400px;
+      margin: auto;
+      padding: 17px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 25px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      white-space: nowrap;
+    }
+
+    .brand span {
+      color: var(--musty-dark);
+    }
+
+    .site-header nav {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+    }
+
+    .site-header nav a {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: .25s;
+    }
+
+    .site-header nav a:hover,
+    .site-header nav a.active {
+      color: var(--musty-dark);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .cart-open {
+      border: 1px solid var(--black);
+      background: var(--white);
+      padding: 10px 15px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .cart-count {
+      color: var(--musty-dark);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: none;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    /* BANNER ĐẦU TRANG */
+
+    .collections-hero {
+      background: #e9eeee;
+      padding: 90px 7%;
+      text-align: center;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--musty-dark);
+      text-transform: uppercase;
+    }
+
+    .collections-hero h1 {
+      margin: 18px 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(42px, 7vw, 85px);
+      line-height: 1;
+      letter-spacing: -4px;
+    }
+
+    .collections-hero p {
+      max-width: 620px;
+      margin: 20px auto 0;
+      color: #555;
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    /* GIỚI THIỆU BỘ SƯU TẬP */
+
+    .collections-intro {
+      max-width: 1400px;
+      margin: auto;
+      padding: 75px 5% 35px;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 25px;
+    }
+
+    .collections-intro span {
+      color: var(--musty-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+
+    .collections-intro h2 {
+      margin: 12px 0 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(30px, 4vw, 48px);
+      letter-spacing: -2px;
+    }
+
+    .collections-intro p {
+      max-width: 380px;
+      color: var(--gray);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* DANH SÁCH BỘ SƯU TẬP */
+
+    .collections-grid {
+      max-width: 1400px;
+      margin: auto;
+      padding: 20px 5% 100px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 65px 35px;
+    }
+
+    .collection-card {
+      min-width: 0;
+    }
+
+    .collection-number {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .collection-number span:last-child {
+      color: var(--musty-dark);
+    }
+
+    .collection-gallery {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      grid-template-rows: repeat(2, minmax(120px, 1fr));
+      gap: 9px;
+      height: 390px;
+      overflow: hidden;
+      background: var(--light);
+    }
+
+    .collection-gallery a {
+      display: block;
+      overflow: hidden;
+      min-width: 0;
+      min-height: 0;
+      background: #e8e8e8;
+    }
+
+    .collection-gallery a:first-child {
+      grid-row: 1 / 3;
+    }
+
+    .collection-gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s ease;
+    }
+
+    .collection-gallery a:hover img {
+      transform: scale(1.07);
+    }
+
+    .collection-info {
+      padding: 20px 0 0;
+    }
+
+    .collection-info h3 {
+      margin: 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(22px, 3vw, 32px);
+      letter-spacing: -1px;
+    }
+
+    .collection-subtitle {
+      display: block;
+      margin-top: 5px;
+      color: var(--musty-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .collection-info p {
+      max-width: 500px;
+      margin: 13px 0;
+      color: var(--gray);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .collection-link {
+      display: inline-block;
+      margin-top: 5px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--black);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      transition: .25s;
+    }
+
+    .collection-link:hover {
+      color: var(--musty-dark);
+      border-color: var(--musty-dark);
+    }
+
+    /* KHÁM PHÁ SẢN PHẨM */
+
+    .discover-section {
+      padding: 85px 7%;
+      text-align: center;
+      background: #f0f3f3;
+    }
+
+    .discover-section span {
+      color: var(--musty-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+
+    .discover-section h2 {
+      margin: 15px 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(30px, 5vw, 55px);
+      letter-spacing: -2px;
+    }
+
+    .discover-section p {
+      max-width: 550px;
+      margin: 0 auto 25px;
+      color: var(--gray);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .discover-button {
+      display: inline-block;
+      padding: 15px 27px;
+      background: var(--black);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      transition: .25s;
+    }
+
+    .discover-button:hover {
+      background: var(--musty-dark);
+    }
+
+    /* CHÂN TRANG */
+
+    .site-footer {
+      padding: 60px 5% 25px;
+      background: #111;
+      color: #fff;
+    }
+
+    .footer-columns {
+      max-width: 1400px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 50px;
+    }
+
+    .footer-columns h3 {
+      margin-top: 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 25px;
+    }
+
+    .footer-columns h3 span {
+      color: var(--musty);
+    }
+
+    .footer-columns h4 {
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .footer-columns p,
+    .footer-columns a {
+      color: #aaa;
+      font-size: 12px;
+      line-height: 2;
+    }
+
+    .footer-columns a {
+      display: block;
+      transition: .2s;
+    }
+
+    .footer-columns a:hover {
+      color: var(--musty);
+    }
+
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 40px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #333;
+      color: #888;
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* GIỎ HÀNG */
+
+    .cart-drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .cart-drawer.active {
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .cart-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.5);
+      opacity: 0;
+      transition: .3s;
+    }
+
+    .cart-drawer.active .cart-overlay {
+      opacity: 1;
+    }
+
+    .cart-panel {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: min(420px, 100%);
+      height: 100%;
+      padding: 25px;
+      background: white;
+      transform: translateX(100%);
+      transition: .3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer.active .cart-panel {
+      transform: translateX(0);
+    }
+
+    .cart-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 15px;
+    }
+
+    .cart-head h3 {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .cart-close {
+      border: 0;
+      background: none;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 0;
+    }
+
+    .cart-total-line {
+      display: flex;
+      justify-content: space-between;
+      padding: 18px 0;
+      border-top: 1px solid var(--border);
+      font-weight: 700;
+    }
+
+    .checkout-link {
+      display: block;
+      padding: 15px;
+      background: var(--black);
+      color: white;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* XEM ẢNH LỚN */
+
+    .image-viewer {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      background: rgba(0,0,0,.93);
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .image-viewer.active {
+      display: flex;
+    }
+
+    .image-viewer img {
+      max-width: 90%;
+      max-height: 85vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .viewer-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      background: none;
+      border: 0;
+      font-size: 35px;
+      cursor: pointer;
+    }
+
+    /* GIAO DIỆN ĐIỆN THOẠI */
+
+    @media (max-width: 900px) {
+      .site-header nav {
+        gap: 13px;
+      }
+
+      .site-header nav a {
+        font-size: 11px;
+      }
+
+      .collection-gallery {
+        height: 320px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .header-inner {
+        padding: 15px 5%;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .site-header nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 20px 5%;
+        background: white;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .site-header nav.active {
+        display: flex;
+      }
+
+      .brand {
+        font-size: 21px;
+      }
+
+      .cart-open {
+        padding: 8px 10px;
+        font-size: 10px;
+      }
+
+      .collections-hero {
+        padding: 70px 6%;
+      }
+
+      .collections-hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .collections-intro {
+        padding: 55px 6% 25px;
+        display: block;
+      }
+
+      .collections-intro p {
+        margin-top: 15px;
+      }
+
+      .collections-grid {
+        grid-template-columns: 1fr;
+        padding: 15px 6% 70px;
+        gap: 50px;
+      }
+
+      .collection-gallery {
+        height: 350px;
+      }
+
+      .footer-columns {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+
+      .footer-columns > div:first-child {
+        grid-column: 1 / -1;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .collection-gallery {
+        height: 280px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- =================================
-     HEADER
-================================= -->
+  <!-- THANH ĐIỀU HƯỚNG -->
 
-<header class="site-header">
+  <header class="site-header">
+    <div class="header-inner">
 
- <div class="header-inner">
+      <a href="index.html" class="brand">
+        MUSTY<span>.</span>STUDIO
+      </a>
 
-  <a class="brand" href="index.html">
-   <img src="images/musty-hero.jpg" alt="MUSTY STUDIO">
-   MUSTY STUDIO
-  </a>
+      <button class="menu-toggle" aria-label="Mở danh mục">
+        ☰
+      </button>
 
-  <button class="menu-toggle"
-          type="button"
-          aria-label="Mở menu"
-          aria-expanded="false">
-   ☰
-  </button>
+      <nav>
+        <a href="index.html">Trang chủ</a>
+        <a href="about.html">Giới thiệu</a>
+        <a href="products.html">Sản phẩm</a>
+        <a href="collections.html" class="active">Bộ sưu tập</a>
+        <a href="promotion.html">Khuyến mãi</a>
+        <a href="blog.html">Bài viết</a>
+        <a href="contact.html">Liên hệ</a>
+      </nav>
 
-  <nav aria-label="Điều hướng chính">
-   <a href="index.html">Trang chủ</a>
-   <a href="about.html">Giới thiệu</a>
-   <a href="products.html">Sản phẩm</a>
-   <a href="blog.html">Bài viết</a>
-   <a href="contact.html">Liên hệ</a>
-   <a href="collections.html" aria-current="page">Bộ sưu tập</a>
-  </nav>
+      <div class="header-actions">
+        <button class="cart-open">
+          GIỎ HÀNG
+          <span class="cart-count">0</span>
+        </button>
+      </div>
 
-  <button class="action-button cart-open" type="button">
-   GIỎ HÀNG (<span class="cart-count">0</span>)
-  </button>
-
- </div>
-
-</header>
+    </div>
+  </header>
 
 
-<main class="collections-page">
+  <!-- BANNER ĐẦU TRANG -->
 
-<!-- =================================
-     01. BANNER BỘ SƯU TẬP
-================================= -->
+  <section class="collections-hero">
 
-<section class="col-hero">
+    <span class="hero-label">MUSTY STUDIO GIỚI THIỆU</span>
 
- <div class="col-hero-content">
+    <h1>BỘ SƯU TẬP MUSTY</h1>
 
-  <span class="col-label">THẾ GIỚI MUSTY</span>
+    <p>
+      Mỗi bộ sưu tập là một cách kể chuyện bằng chất liệu,
+      màu sắc và kiểu dáng. Khám phá những ý tưởng sáng tạo
+      được MUSTY gửi gắm trong từng thiết kế.
+    </p>
 
-  <h1>BỘ SƯU TẬP.</h1>
-
-  <p>
-   Mỗi bộ sưu tập là một cách kể chuyện bằng chất liệu,
-   màu sắc và phom dáng. Từ những chất liệu quen thuộc,
-   MUSTY tạo nên những thiết kế mang dấu ấn riêng.
-  </p>
-
- </div>
-
- <div class="col-hero-image">
-  <img
-   src="images/musty%20banner.png"
-   alt="Hình ảnh thương hiệu MUSTY STUDIO">
- </div>
-
-</section>
+  </section>
 
 
-<!-- =================================
-     02. CÁC BỘ SƯU TẬP
-================================= -->
+  <!-- GIỚI THIỆU -->
 
-<section class="col-section">
+  <section class="collections-intro">
 
- <div class="col-container">
+    <div>
+      <span>BỘ SƯU TẬP / 2026</span>
+      <h2>Những câu chuyện từ chất liệu</h2>
+    </div>
 
-  <div class="col-section-heading">
+    <p>
+      Không chỉ là những chiếc túi, mỗi bộ sưu tập là một
+      hành trình sáng tạo riêng. Từ những điều quen thuộc,
+      MUSTY tạo nên những thiết kế mang dấu ấn khác biệt.
+    </p>
 
-   <span class="col-label">KHÁM PHÁ MUSTY</span>
+  </section>
 
-   <h2>NHỮNG CÂU CHUYỆN KHÁC NHAU</h2>
 
-   <p>
-    Khám phá những thiết kế được tạo nên từ cảm hứng,
-    chất liệu và tinh thần sáng tạo của MUSTY.
-   </p>
+  <!-- DANH SÁCH BỘ SƯU TẬP -->
+
+  <main class="collections-grid">
+
+
+    <!-- 01 HẰNG NGÀY -->
+
+    <article class="collection-card">
+
+      <div class="collection-number">
+        <span>01 / HẰNG NGÀY</span>
+        <span>01 — 03</span>
+      </div>
+
+      <div class="collection-gallery">
+
+        <a href="javascript:void(0)" class="gallery-image">
+          <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=900" alt="Túi vải phong cách thường ngày">
+        </a>
+
+        <a href="javascript:void(0)" class="gallery-image">
+          <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=700" alt="Túi thời trang">
+        </a>
+
+        <a href="javascript:void(0)" class="gallery-image">
+          <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=700" alt="Túi thiết kế tối giản">
+        </a>
+
+      </div>
+
+      <div class="collection-info">
+        <h3>Túi đồng hành mỗi ngày</h3>
+        <span class="collection-subtitle">Những người bạn mỗi ngày</span>
+        <p>
+          Những thiết kế đồng hành cùng nhịp sống thường ngày.
+          Đơn giản, tiện dụng nhưng vẫn mang nét cá tính riêng
+          trong từng đường nét.
+        </p>
+        <a href="products.html" class="collection-link">KHÁM PHÁ SẢN PHẨM →</a>
+      </div>
+
+    </article>
+
+
+    <!-- 02 GHÉP VẢI -->
+
+    <article class="collection-card">
+
+      <div class="collection-number">
+        <span>02 / GHÉP VẢI</span>
+        <span>01 — 03</span>
+      </div>
+
+      <div class="collection-gallery">
+
+        <a href="javascript:void(0)" class="gallery-image">
+          <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?w=900" alt="Túi ghép vải nhiều màu">
+        </a>
+
+        <a href="javascript:void(0)" class="gallery-image">
+          <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=700" alt="Chất liệu vải sáng tạo">
+        </a>
+
+        <a href="javascript:void(0)" class="gallery-image">
+          <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=700" alt="Túi vải thủ công">
+        </a>
+
+      </div>
+
+      <div class="collection-info">
+        <h3>Câu chuyện từ những mảnh ghép</h3>
+        <span class="collection-subtitle">Sắc màu từ những mảnh vải</span>
+        <p>
+          Sự kết hợp giữa nhiều chất liệu, màu sắc và mảng ghép
+          tạo nên những sản phẩm độc đáo. Mỗi chiếc túi mang
+          một cá tính và câu chuyện riêng.
+        </p>
+        <a href="products.html" class="collection-link">KHÁM PHÁ SẢN PHẨM →</a>
+      </div>
+
+    </article>
+
+
+    <!-- 03 PHIÊN BẢN GIỚI HẠN -->
+
+    <article class="collection-card">
+
+      <div class="collection-number">
+        <span>03 / PHIÊN BẢN GIỚI HẠN</span>
+        <span>01 — 03</span>
+      </div>
+
+      <div class="collection-gallery">
+
+        <a href="javascript:void(0)" class="gallery-image">
+          <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=900" alt="Túi phiên bản giới hạn">
+        </a>
+
+        <a href="javascript:void(0)" class="gallery-image">
+          <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=700" alt="Thiết kế túi độc bản">
+        </a>
+
+        <a href="javascript:void(0)" class="gallery-image">
+          <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=700" alt="Phụ kiện thời trang độc đáo">
+        </a>
+
+      </div>
+
+      <div class="collection-info">
+        <h3>Dấu ấn độc bản</h3>
+        <span class="collection-subtitle">Những thiết kế đặc biệt</span>
+        <p>
+          Những sản phẩm đặc biệt được sáng tạo với số lượng
+          giới hạn. Không chạy theo sự đại trà, mỗi thiết kế
+          là một dấu ấn riêng của MUSTY.
+        </p>
+        <a href="products.html" class="collection-link">KHÁM PHÁ SẢN PHẨM →</a>
+      </div>
+
+    </article>
+
+
+    <!-- 04 TÁI SINH -->
+
+    <article class="collection-card">
+
+      <div class="collection-number">
+        <span>04 / TÁI SINH</span>
+        <span>01 — 03</span>
+      </div>
+
+      <div class="collection-gallery">
+
+        <a href="javascript:void(0)" class="gallery-image">
+          <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=900" alt="Túi tái chế từ chất liệu cũ">
+        </a>
+
+        <a href="javascript:void(0)" class="gallery-image">
+          <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?w=700" alt="Vải tái sử dụng">
+        </a>
+
+        <a href="javascript:void(0)" class="gallery-image">
+          <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=700" alt="Chất liệu thân thiện môi trường">
+        </a>
+
+      </div>
+
+      <div class="collection-info">
+        <h3>Tái sinh từ những điều cũ</h3>
+        <span class="collection-subtitle">Trao vòng đời mới cho chất liệu</span>
+        <p>
+          Những chất liệu tưởng chừng đã kết thúc vòng đời
+          được trao cơ hội mới. MUSTY biến những điều cũ
+          thành sản phẩm hữu ích và đầy cá tính.
+        </p>
+        <a href="products.html" class="collection-link">KHÁM PHÁ SẢN PHẨM →</a>
+      </div>
+
+    </article>
+
+
+    <!-- 05 HOA -->
+
+    <article class="collection-card">
+
+      <div class="collection-number">
+        <span>05 / HOA</span>
+        <span>01 — 03</span>
+      </div>
+
+      <div class="collection-gallery">
+
+        <a href="javascript:void(0)" class="gallery-image">
+          <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=900" alt="Hoa và màu sắc thiên nhiên">
+        </a>
+
+        <a href="javascript:void(0)" class="gallery-image">
+          <img src="https://images.unsplash.com/photo-1494972308805-463bc619d34e?w=700" alt="Họa tiết hoa">
+        </a>
+
+        <a href="javascript:void(0)" class="gallery-image">
+          <img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=700" alt="Hoa trang trí">
+        </a>
+
+      </div>
+
+      <div class="collection-info">
+        <h3>Những câu chuyện nở hoa</h3>
+        <span class="collection-subtitle">Vẻ đẹp từ thiên nhiên</span>
+        <p>
+          Lấy cảm hứng từ vẻ đẹp của thiên nhiên và những
+          cánh hoa đầy màu sắc. Bộ sưu tập mang đến cảm giác
+          nhẹ nhàng, tươi mới và giàu cảm xúc.
+        </p>
+        <a href="products.html" class="collection-link">KHÁM PHÁ SẢN PHẨM →</a>
+      </div>
+
+    </article>
+
+
+    <!-- 06 GUITAR -->
+
+    <article class="collection-card">
+
+      <div class="collection-number">
+        <span>06 / ĐÀN GUITAR</span>
+        <span>01 — 03</span>
+      </div>
+
+      <div class="collection-gallery">
+
+        <a href="javascript:void(0)" class="gallery-image">
+          <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=900" alt="Đàn guitar">
+        </a>
+
+        <a href="javascript:void(0)" class="gallery-image">
+          <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=700" alt="Không gian âm nhạc">
+        </a>
+
+        <a href="javascript:void(0)" class="gallery-image">
+          <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=700" alt="Nhạc cụ và sáng tạo âm nhạc">
+        </a>
+
+      </div>
+
+      <div class="collection-info">
+        <h3>Giai điệu cá tính</h3>
+        <span class="collection-subtitle">Cảm hứng từ âm nhạc</span>
+        <p>
+          Lấy cảm hứng từ hình dáng đàn guitar và thế giới
+          âm nhạc. Bộ sưu tập dành cho những tâm hồn yêu
+          giai điệu, sự tự do và sáng tạo.
+        </p>
+        <a href="products.html" class="collection-link">KHÁM PHÁ SẢN PHẨM →</a>
+      </div>
+
+    </article>
+
+
+    <!-- 07 ĐAN -->
+
+    <article class="collection-card">
+
+      <div class="collection-number">
+        <span>07 / ĐAN</span>
+        <span>01 — 03</span>
+      </div>
+
+      <div class="collection-gallery">
+
+        <a href="javascript:void(0)" class="gallery-image">
+          <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=900" alt="Chất liệu đan thủ công">
+        </a>
+
+        <a href="javascript:void(0)" class="gallery-image">
+          <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=700" alt="Sản phẩm thủ công đan">
+        </a>
+
+        <a href="javascript:void(0)" class="gallery-image">
+          <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=700" alt="Kết cấu vải thủ công">
+        </a>
+
+      </div>
+
+      <div class="collection-info">
+        <h3>Tâm hồn từ những đường đan</h3>
+        <span class="collection-subtitle">Vẻ đẹp của sự thủ công</span>
+        <p>
+          Tôn vinh vẻ đẹp của kỹ thuật đan thủ công,
+          những đường nét đan xen và sự kết hợp chất liệu.
+          Mỗi sản phẩm mang dấu ấn riêng từ sự tỉ mỉ và sáng tạo.
+        </p>
+        <a href="products.html" class="collection-link">KHÁM PHÁ SẢN PHẨM →</a>
+      </div>
+
+    </article>
+
+  </main>
+
+
+  <!-- KHÁM PHÁ SẢN PHẨM -->
+
+  <section class="discover-section">
+
+    <span>KHÁM PHÁ MUSTY</span>
+
+    <h2>Tìm câu chuyện của riêng bạn</h2>
+
+    <p>
+      Mỗi chiếc túi đều có một câu chuyện. Hãy khám phá
+      những thiết kế được tạo nên từ sự sáng tạo,
+      chất liệu tái sử dụng và tinh thần thủ công.
+    </p>
+
+    <a href="products.html" class="discover-button">
+      KHÁM PHÁ SẢN PHẨM →
+    </a>
+
+  </section>
+
+
+  <!-- CHÂN TRANG -->
+
+  <footer class="site-footer">
+
+    <div class="footer-columns">
+
+      <div>
+        <h3>MUSTY<span>.</span>STUDIO</h3>
+        <p>
+          Tái chế & Thủ công.<br>
+          Những chất liệu cũ, những câu chuyện mới.
+        </p>
+        <a href="https://www.instagram.com/musty_stu/" target="_blank" rel="noopener">
+          Instagram: @musty_stu
+        </a>
+      </div>
+
+      <div>
+        <h4>KHÁM PHÁ</h4>
+        <a href="index.html">Trang chủ</a>
+        <a href="about.html">Giới thiệu</a>
+        <a href="products.html">Sản phẩm</a>
+        <a href="collections.html">Bộ sưu tập</a>
+      </div>
+
+      <div>
+        <h4>HỖ TRỢ</h4>
+        <a href="promotion.html">Khuyến mãi</a>
+        <a href="blog.html">Bài viết</a>
+        <a href="contact.html">Liên hệ</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 MUSTY STUDIO. BẢN QUYỀN ĐƯỢC BẢO LƯU.</span>
+      <span>ĐƯỢC TẠO NÊN TỪ SỰ SÁNG TẠO VÀ TÂM HUYẾT.</span>
+    </div>
+
+  </footer>
+
+
+  <!-- GIỎ HÀNG -->
+
+  <div class="cart-drawer">
+
+    <div class="cart-overlay"></div>
+
+    <div class="cart-panel">
+
+      <div class="cart-head">
+        <h3>GIỎ HÀNG CỦA BẠN</h3>
+        <button class="cart-close" aria-label="Đóng giỏ hàng">×</button>
+      </div>
+
+      <div class="cart-items"></div>
+
+      <div class="cart-total-line">
+        <span>Tổng cộng</span>
+        <span class="cart-total">0₫</span>
+      </div>
+
+      <a href="contact.html" class="checkout-link">
+        LIÊN HỆ ĐẶT HÀNG →
+      </a>
+
+    </div>
 
   </div>
 
 
-  <div class="col-grid">
+  <!-- XEM ẢNH LỚN -->
 
-   <!-- BỘ SƯU TẬP 01 -->
-
-   <article class="col-card">
-
-    <div class="col-card-image">
-     <img
-      src="images/product11.jpg"
-      alt="Bộ sưu tập túi dùng hằng ngày">
-    </div>
-
-    <div class="col-card-content">
-
-     <span class="col-label">01 / HẰNG NGÀY</span>
-
-     <h3>Túi dùng hằng ngày</h3>
-
-     <p>
-      Những thiết kế tiện dụng, linh hoạt và dễ kết hợp,
-      đồng hành cùng bạn trong nhịp sống thường ngày.
-     </p>
-
-    </div>
-
-   </article>
-
-
-   <!-- BỘ SƯU TẬP 02 -->
-
-   <article class="col-card">
-
-    <div class="col-card-image">
-     <img
-      src="images/ghepvai.jpg"
-      alt="Bộ sưu tập túi ghép vải">
-    </div>
-
-    <div class="col-card-content">
-
-     <span class="col-label">02 / GHÉP VẢI</span>
-
-     <h3>Câu chuyện từ những mảnh ghép</h3>
-
-     <p>
-      Sự kết hợp giữa những mảnh vải và chất liệu khác nhau,
-      tạo nên những thiết kế độc đáo mang cá tính riêng.
-     </p>
-
-    </div>
-
-   </article>
-
-
-   <!-- BỘ SƯU TẬP 03 -->
-
-   <article class="col-card">
-
-    <div class="col-card-image">
-     <img
-      src="images/docban.jpg"
-      alt="Bộ sưu tập thiết kế độc bản">
-    </div>
-
-    <div class="col-card-content">
-
-     <span class="col-label">03 / PHIÊN BẢN GIỚI HẠN</span>
-
-     <h3>Thiết kế độc bản</h3>
-
-     <p>
-      Những sản phẩm đặc biệt được sáng tạo với số lượng
-      giới hạn, dành cho những ai yêu thích sự khác biệt.
-     </p>
-
-    </div>
-
-   </article>
-
-
-   <!-- BỘ SƯU TẬP 04 -->
-
-   <article class="col-card">
-
-    <div class="col-card-image">
-     <img
-      src="images/vongdoimoi.jpg"
-      alt="Bộ sưu tập chất liệu tái sinh">
-    </div>
-
-    <div class="col-card-content">
-
-     <span class="col-label">04 / CHẤT LIỆU TÁI SINH</span>
-
-     <h3>Vòng đời mới của chất liệu</h3>
-
-     <p>
-      Từ những chất liệu tưởng chừng đã cũ,
-      MUSTY mở ra một hành trình mới bằng sự sáng tạo
-      và tinh thần trân trọng tài nguyên.
-     </p>
-
-    </div>
-
-   </article>
-
-  </div>
-
- </div>
-
-</section>
-
-
-<!-- =================================
-     03. SẢN PHẨM NỔI BẬT
-================================= -->
-
-<section class="col-section col-featured">
-
- <div class="col-container">
-
-  <div class="col-section-heading">
-
-   <span class="col-label">ĐƯỢC YÊU THÍCH</span>
-
-   <h2>NHỮNG THIẾT KẾ NỔI BẬT</h2>
-
-   <p>
-    Một vài thiết kế tiêu biểu mang tinh thần
-    tái chế và thủ công của MUSTY STUDIO.
-   </p>
-
+  <div class="image-viewer">
+    <button class="viewer-close" aria-label="Đóng ảnh">×</button>
+    <img src="" alt="Hình ảnh bộ sưu tập">
   </div>
 
 
-  <div class="col-product-grid">
+  <!-- MÃ ĐIỀU KHIỂN -->
 
-   <!-- SẢN PHẨM 01 -->
+  <script src="script.js"></script>
 
-   <article class="col-product-card">
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
 
-    <div class="col-product-image">
-     <img
-      src="images/product11.jpg"
-      alt="MUSTY BAG 01">
-    </div>
+      // MENU ĐIỆN THOẠI
 
-    <div class="col-product-info">
+      const menuBtn = document.querySelector(".menu-toggle");
+      const nav = document.querySelector(".site-header nav");
 
-     <h3>MUSTY BAG 01</h3>
+      if (menuBtn && nav) {
+        menuBtn.addEventListener("click", function () {
+          nav.classList.toggle("active");
+        });
+      }
 
-     <p>350.000₫</p>
+      // PHÓNG TO HÌNH ẢNH
 
-     <a class="col-product-link" href="products.html">
-      XEM SẢN PHẨM →
-     </a>
+      const viewer = document.querySelector(".image-viewer");
+      const viewerImg = viewer.querySelector("img");
+      const viewerClose = document.querySelector(".viewer-close");
 
-    </div>
+      document.querySelectorAll(".gallery-image").forEach(function (item) {
 
-   </article>
+        item.addEventListener("click", function (event) {
+          event.preventDefault();
 
+          const img = item.querySelector("img");
 
-   <!-- SẢN PHẨM 02 -->
+          viewerImg.src = img.src;
+          viewerImg.alt = img.alt;
 
-   <article class="col-product-card">
+          viewer.classList.add("active");
+        });
 
-    <div class="col-product-image">
-     <img
-      src="images/product2.jpg"
-      alt="MUSTY BAG 02">
-    </div>
+      });
 
-    <div class="col-product-info">
+      function closeViewer() {
+        viewer.classList.remove("active");
+        viewerImg.src = "";
+      }
 
-     <h3>MUSTY BAG 02</h3>
+      viewerClose.addEventListener("click", closeViewer);
 
-     <p>390.000₫</p>
+      viewer.addEventListener("click", function (event) {
+        if (event.target === viewer) {
+          closeViewer();
+        }
+      });
 
-     <a class="col-product-link" href="products.html">
-      XEM SẢN PHẨM →
-     </a>
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          closeViewer();
+        }
+      });
 
-    </div>
-
-   </article>
-
-
-   <!-- SẢN PHẨM 03 -->
-
-   <article class="col-product-card">
-
-    <div class="col-product-image">
-     <img
-      src="images/product3.jpg"
-      alt="MUSTY PATCH BAG">
-    </div>
-
-    <div class="col-product-info">
-
-     <h3>MUSTY PATCH BAG</h3>
-
-     <p>450.000₫</p>
-
-     <a class="col-product-link" href="products.html">
-      XEM SẢN PHẨM →
-     </a>
-
-    </div>
-
-   </article>
-
-
-   <!-- SẢN PHẨM 04 -->
-
-   <article class="col-product-card">
-
-    <div class="col-product-image">
-     <img
-      src="images/product4.jpg"
-      alt="MUSTY SPECIAL">
-    </div>
-
-    <div class="col-product-info">
-
-     <h3>MUSTY SPECIAL</h3>
-
-     <p>520.000₫</p>
-
-     <a class="col-product-link" href="products.html">
-      XEM SẢN PHẨM →
-     </a>
-
-    </div>
-
-   </article>
-
-  </div>
-
-
-  <div class="col-center-button">
-
-   <a class="action-button" href="products.html">
-    XEM TẤT CẢ SẢN PHẨM →
-   </a>
-
-  </div>
-
- </div>
-
-</section>
-
-
-<!-- =================================
-     04. CÂU CHUYỆN CHẤT LIỆU
-================================= -->
-
-<section class="col-section">
-
- <div class="col-container col-story">
-
-  <div class="col-story-image">
-
-   <img
-    src="images/vongdoimoi.jpg"
-    alt="Câu chuyện về chất liệu tái sinh của MUSTY">
-
-  </div>
-
-
-  <div class="col-story-content">
-
-   <span class="col-label">CÂU CHUYỆN PHÍA SAU</span>
-
-   <h2>KHÔNG CHỈ LÀ MỘT CHIẾC TÚI.</h2>
-
-   <p>
-    Đằng sau mỗi thiết kế là quá trình lựa chọn chất liệu,
-    kết hợp màu sắc và hoàn thiện bằng sự tỉ mỉ.
-   </p>
-
-   <p>
-    MUSTY tin rằng những chất liệu cũ vẫn có thể tiếp tục
-    kể những câu chuyện mới. Thay vì bỏ đi những gì đã qua,
-    chúng mình lựa chọn sáng tạo và trao cho chúng một
-    hình hài khác.
-   </p>
-
-   <p>
-    Mỗi sản phẩm không chỉ là một món phụ kiện,
-    mà còn là dấu ấn của sự sáng tạo và cá tính riêng.
-   </p>
-
-   <a class="action-button col-story-button" href="about.html">
-    TÌM HIỂU VỀ MUSTY →
-   </a>
-
-  </div>
-
- </div>
-
-</section>
-
-
-<!-- =================================
-     05. PHONG CÁCH MUSTY
-================================= -->
-
-<section class="col-section col-style">
-
- <div class="col-container">
-
-  <div class="col-section-heading col-style-heading">
-
-   <span class="col-label">MUSTY TRONG ĐỜI SỐNG</span>
-
-   <h2>MANG MUSTY THEO CÁCH CỦA BẠN</h2>
-
-   <p>
-    Một chiếc túi không chỉ để đựng đồ,
-    mà còn là cách bạn thể hiện cá tính mỗi ngày.
-   </p>
-
-  </div>
-
-
-  <div class="col-style-grid">
-
-   <div class="col-style-item">
-    <img
-     src="images/product05.jpg"
-     alt="Thiết kế túi MUSTY">
-   </div>
-
-   <div class="col-style-item">
-    <img
-     src="images/product06.jpg"
-     alt="Sản phẩm thủ công MUSTY">
-   </div>
-
-   <div class="col-style-item">
-    <img
-     src="images/product07.jpg"
-     alt="Thiết kế tái chế MUSTY">
-   </div>
-
-  </div>
-
-
-  <p class="col-style-caption">
-   Mỗi thiết kế mang một cá tính riêng.
-   Hãy chọn chiếc túi phù hợp với câu chuyện của bạn.
-  </p>
-
- </div>
-
-</section>
-
-
-<!-- =================================
-     06. LỜI KẾT THƯƠNG HIỆU
-================================= -->
-
-<section class="col-ending">
-
- <span class="col-label">MUSTY STUDIO</span>
-
- <h2>CŨ KHÔNG CÓ NGHĨA LÀ HẾT GIÁ TRỊ.</h2>
-
- <p>
-  Mỗi chất liệu đều xứng đáng có thêm một cơ hội
-  để trở nên đặc biệt. Cùng MUSTY viết tiếp những
-  câu chuyện mới từ những điều tưởng chừng đã cũ.
- </p>
-
- <a class="action-button" href="products.html">
-  KHÁM PHÁ SẢN PHẨM →
- </a>
-
-</section>
-
-</main>
-
-
-<!-- =================================
-     FOOTER
-================================= -->
-
-<footer class="site-footer">
-
- <div class="footer-columns">
-
-  <div>
-
-   <h3>MUSTY STUDIO</h3>
-
-   <p>
-    Tái chế • Thủ công • Độc bản.<br>
-    Những chiếc túi tái chế và thiết kế thủ công
-    mang dấu ấn riêng.
-   </p>
-
-  </div>
-
-
-  <div>
-
-   <h3>KHÁM PHÁ</h3>
-
-   <a href="about.html">Giới thiệu</a>
-   <a href="products.html">Sản phẩm</a>
-   <a href="collections.html">Bộ sưu tập</a>
-
-  </div>
-
-
-  <div>
-
-   <h3>KẾT NỐI</h3>
-
-   <a href="blog.html">Bài viết</a>
-   <a href="contact.html">Liên hệ</a>
-
-   <a href="https://www.instagram.com/musty_stu/"
-      target="_blank"
-      rel="noopener">
-    Instagram
-   </a>
-
-  </div>
-
- </div>
-
-
- <div class="footer-bottom">
-  © <span class="current-year"></span> MUSTY STUDIO. Tái chế & Thủ công.
- </div>
-
-</footer>
-
-
-<!-- =================================
-     GIỎ HÀNG
-================================= -->
-
-<div class="cart-drawer" aria-hidden="true">
-
- <aside class="cart-panel" aria-label="Giỏ hàng">
-
-  <div class="cart-head">
-
-   <h2>GIỎ HÀNG</h2>
-
-   <button class="cart-close"
-           type="button"
-           aria-label="Đóng">
-    ✕
-   </button>
-
-  </div>
-
-
-  <div class="cart-items">
-   <p>Giỏ hàng đang trống.</p>
-  </div>
-
-
-  <div class="cart-total-line">
-
-   <span>Tổng cộng</span>
-
-   <span class="cart-total">0₫</span>
-
-  </div>
-
-
-  <a class="action-button checkout-link" href="contact.html">
-   LIÊN HỆ ĐẶT HÀNG
-  </a>
-
- </aside>
-
-</div>
-
-
-<!-- JAVASCRIPT -->
-<script src="script.js"></script>
+    });
+  </script>
 
 </body>
 </html>
