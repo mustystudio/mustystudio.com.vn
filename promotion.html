@@ -1,0 +1,759 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Khuyến mãi | MUSTY STUDIO</title>
+<meta name="description" content="Khám phá những ưu đãi đặc biệt từ MUSTY STUDIO - túi tái chế và thiết kế handmade độc bản.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+:root {
+  --promo-black: #111;
+  --promo-white: #fff;
+  --promo-cyan: #12d5de;
+  --promo-gray: #777;
+  --promo-light: #f5f6f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--promo-black);
+  background: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* PROMOTION HERO */
+
+.promo-hero {
+  background: var(--promo-black);
+  color: white;
+  padding: 85px 7%;
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  overflow: hidden;
+  position: relative;
+}
+
+.promo-hero::after {
+  content: "SALE";
+  position: absolute;
+  right: -15px;
+  bottom: -90px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(150px, 24vw, 340px);
+  font-weight: 700;
+  color: rgba(255,255,255,.045);
+  pointer-events: none;
+}
+
+.promo-hero-content {
+  max-width: 650px;
+  position: relative;
+  z-index: 1;
+}
+
+.promo-label {
+  display: inline-block;
+  background: var(--promo-cyan);
+  color: #111;
+  padding: 9px 16px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+
+.promo-hero h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(42px, 6vw, 76px);
+  line-height: 1.05;
+  margin: 0 0 22px;
+  font-weight: 700;
+}
+
+.promo-hero h1 span {
+  color: var(--promo-cyan);
+}
+
+.promo-hero p {
+  color: #ccc;
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 500px;
+  margin-bottom: 30px;
+}
+
+.promo-main-btn {
+  display: inline-block;
+  background: var(--promo-cyan);
+  color: #111;
+  padding: 15px 27px;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 1px;
+  transition: .3s;
+}
+
+.promo-main-btn:hover {
+  background: white;
+  transform: translateY(-3px);
+}
+
+.promo-hero-note {
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(255,255,255,.35);
+  padding: 35px;
+  width: 270px;
+  flex-shrink: 0;
+  text-align: center;
+  transform: rotate(4deg);
+}
+
+.promo-hero-note strong {
+  display: block;
+  color: var(--promo-cyan);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 64px;
+}
+
+.promo-hero-note span {
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+/* GENERAL */
+
+.promo-container {
+  max-width: 1200px;
+  width: 88%;
+  margin: auto;
+}
+
+.promo-section {
+  padding: 80px 0;
+}
+
+.promo-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.promo-heading .small-title {
+  color: #08aeb7;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.promo-heading h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  margin: 12px 0;
+}
+
+.promo-heading p {
+  color: var(--promo-gray);
+  font-size: 15px;
+}
+
+/* BENEFITS */
+
+.promo-benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.promo-benefit {
+  background: var(--promo-light);
+  padding: 30px 25px;
+  text-align: center;
+  transition: .3s;
+}
+
+.promo-benefit:hover {
+  transform: translateY(-5px);
+}
+
+.promo-benefit .benefit-icon {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.promo-benefit h3 {
+  font-size: 16px;
+  margin: 0 0 10px;
+}
+
+.promo-benefit p {
+  color: var(--promo-gray);
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* PRODUCTS */
+
+.promo-products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.promo-product {
+  border: 1px solid #eee;
+  background: white;
+  position: relative;
+  transition: .3s;
+}
+
+.promo-product:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.08);
+}
+
+.promo-product-image {
+  position: relative;
+  background: #f4f4f4;
+  aspect-ratio: 1 / 1.05;
+  overflow: hidden;
+}
+
+.promo-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .5s;
+  display: block;
+}
+
+.promo-product:hover img {
+  transform: scale(1.06);
+}
+
+.sale-tag {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  background: var(--promo-cyan);
+  color: #111;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 8px 11px;
+}
+
+.promo-product-info {
+  padding: 20px;
+}
+
+.promo-product-info .category {
+  color: #999;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+
+.promo-product-info h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  margin: 9px 0 12px;
+}
+
+.promo-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 18px;
+}
+
+.new-price {
+  color: #08aeb7;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.old-price {
+  color: #999;
+  text-decoration: line-through;
+  font-size: 13px;
+}
+
+.promo-buy-btn {
+  display: block;
+  text-align: center;
+  background: #111;
+  color: white;
+  padding: 12px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  transition: .3s;
+}
+
+.promo-buy-btn:hover {
+  background: var(--promo-cyan);
+  color: #111;
+}
+
+/* CAMPAIGN */
+
+.promo-campaign {
+  background: var(--promo-cyan);
+  padding: 65px 7%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.promo-campaign-content .campaign-label {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.promo-campaign h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.15;
+  margin: 17px 0;
+}
+
+.promo-campaign p {
+  font-size: 15px;
+  line-height: 1.8;
+  max-width: 480px;
+}
+
+.campaign-image {
+  min-height: 300px;
+  background: #111;
+  overflow: hidden;
+}
+
+.campaign-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+/* BUNDLE */
+
+.promo-bundle {
+  background: #111;
+  color: white;
+  padding: 55px 35px;
+  text-align: center;
+}
+
+.promo-bundle .bundle-label {
+  color: var(--promo-cyan);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.promo-bundle h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(27px, 4vw, 40px);
+  margin: 15px 0;
+}
+
+.promo-bundle p {
+  color: #ccc;
+  line-height: 1.8;
+  max-width: 650px;
+  margin: 0 auto 25px;
+}
+
+.bundle-offer {
+  display: inline-block;
+  border: 1px solid var(--promo-cyan);
+  color: var(--promo-cyan);
+  padding: 15px 25px;
+  font-weight: 800;
+  font-size: 15px;
+}
+
+/* ENDING */
+
+.promo-ending {
+  text-align: center;
+  padding: 65px 20px;
+}
+
+.promo-ending h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.promo-ending p {
+  color: #777;
+  margin-bottom: 25px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .promo-products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .promo-hero-note {
+    width: 220px;
+    padding: 25px 15px;
+  }
+
+  .promo-hero-note strong {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 650px) {
+  .promo-hero {
+    padding: 65px 7%;
+    display: block;
+  }
+
+  .promo-hero-note {
+    margin-top: 45px;
+    width: 210px;
+  }
+
+  .promo-benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .promo-products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .promo-product-info {
+    padding: 13px;
+  }
+
+  .promo-product-info h3 {
+    font-size: 13px;
+  }
+
+  .new-price {
+    font-size: 15px;
+  }
+
+  .promo-price {
+    gap: 5px;
+  }
+
+  .promo-campaign {
+    grid-template-columns: 1fr;
+    padding: 45px 7%;
+  }
+
+  .promo-section {
+    padding: 55px 0;
+  }
+
+  .promo-bundle {
+    padding: 45px 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">MUSTY<span>.</span></a>
+
+    <button class="menu-toggle" type="button" aria-label="Mở menu">☰</button>
+
+    <nav>
+      <a href="index.html">Trang chủ</a>
+      <a href="about.html">Giới thiệu</a>
+      <a href="products.html">Sản phẩm</a>
+      <a href="collections.html">Bộ sưu tập</a>
+      <a href="blog.html">Tin tức</a>
+      <a href="promotion.html" style="color:#08aeb7;font-weight:800;">Khuyến mãi</a>
+      <a href="contact.html">Liên hệ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="promo-hero">
+  <div class="promo-hero-content">
+    <span class="promo-label">MUSTY SPECIAL OFFER</span>
+
+    <h1>ƯU ĐÃI<br><span>ĐẶC BIỆT</span></h1>
+
+    <p>
+      Những thiết kế độc bản, những chiếc túi mang tinh thần
+      tái chế và sáng tạo. Khám phá các ưu đãi đặc biệt
+      đang có tại MUSTY STUDIO.
+    </p>
+
+    <a href="#san-pham-khuyen-mai" class="promo-main-btn">
+      KHÁM PHÁ ƯU ĐÃI →
+    </a>
+  </div>
+
+  <div class="promo-hero-note">
+    <strong>SALE</strong>
+    <span>ĐẶC QUYỀN DÀNH CHO BẠN</span>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="promo-section">
+  <div class="promo-container">
+
+    <div class="promo-heading">
+      <span class="small-title">ƯU ĐÃI TẠI MUSTY</span>
+      <h2>Mua sắm theo cách của bạn</h2>
+      <p>Nhiều lựa chọn ưu đãi dành cho những người yêu thích MUSTY.</p>
+    </div>
+
+    <div class="promo-benefits">
+
+      <div class="promo-benefit">
+        <div class="benefit-icon">🏷️</div>
+        <h3>Giảm giá trực tiếp</h3>
+        <p>Sở hữu những thiết kế yêu thích với mức giá ưu đãi hấp dẫn.</p>
+      </div>
+
+      <div class="promo-benefit">
+        <div class="benefit-icon">🎁</div>
+        <h3>Ưu đãi đặc biệt</h3>
+        <p>Những chương trình khuyến mãi dành riêng cho khách hàng MUSTY.</p>
+      </div>
+
+      <div class="promo-benefit">
+        <div class="benefit-icon">🛍️</div>
+        <h3>Mua nhiều tiết kiệm hơn</h3>
+        <p>Kết hợp nhiều sản phẩm để nhận thêm ưu đãi khi mua sắm.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DISCOUNT PRODUCTS -->
+<section class="promo-section" id="san-pham-khuyen-mai" style="background:#f7f8f8;">
+  <div class="promo-container">
+
+    <div class="promo-heading">
+      <span class="small-title">LIMITED OFFERS</span>
+      <h2>Sản phẩm đang ưu đãi</h2>
+      <p>Khám phá những thiết kế MUSTY với mức giá đặc biệt.</p>
+    </div>
+
+    <div class="promo-products">
+
+      <!-- PRODUCT 1 -->
+      <article class="promo-product">
+        <div class="promo-product-image">
+          <span class="sale-tag">-15%</span>
+          <img src="images/product11.jpg" alt="MUSTY BAG 01">
+        </div>
+        <div class="promo-product-info">
+          <span class="category">MUSTY COLLECTION</span>
+          <h3>MUSTY BAG 01</h3>
+          <div class="promo-price">
+            <span class="new-price">299.000₫</span>
+            <span class="old-price">350.000₫</span>
+          </div>
+          <a href="products.html" class="promo-buy-btn">KHÁM PHÁ SẢN PHẨM</a>
+        </div>
+      </article>
+
+      <!-- PRODUCT 2 -->
+      <article class="promo-product">
+        <div class="promo-product-image">
+          <span class="sale-tag">-15%</span>
+          <img src="images/product2.jpg" alt="MUSTY BAG 02">
+        </div>
+        <div class="promo-product-info">
+          <span class="category">MUSTY COLLECTION</span>
+          <h3>MUSTY BAG 02</h3>
+          <div class="promo-price">
+            <span class="new-price">330.000₫</span>
+            <span class="old-price">390.000₫</span>
+          </div>
+          <a href="products.html" class="promo-buy-btn">KHÁM PHÁ SẢN PHẨM</a>
+        </div>
+      </article>
+
+      <!-- PRODUCT 3 -->
+      <article class="promo-product">
+        <div class="promo-product-image">
+          <span class="sale-tag">-11%</span>
+          <img src="images/product3.jpg" alt="MUSTY PATCH BAG">
+        </div>
+        <div class="promo-product-info">
+          <span class="category">LIMITED DESIGN</span>
+          <h3>MUSTY PATCH BAG</h3>
+          <div class="promo-price">
+            <span class="new-price">399.000₫</span>
+            <span class="old-price">450.000₫</span>
+          </div>
+          <a href="products.html" class="promo-buy-btn">KHÁM PHÁ SẢN PHẨM</a>
+        </div>
+      </article>
+
+      <!-- PRODUCT 4 -->
+      <article class="promo-product">
+        <div class="promo-product-image">
+          <span class="sale-tag">-10%</span>
+          <img src="images/product4.jpg" alt="MUSTY SPECIAL">
+        </div>
+        <div class="promo-product-info">
+          <span class="category">SPECIAL COLLECTION</span>
+          <h3>MUSTY SPECIAL</h3>
+          <div class="promo-price">
+            <span class="new-price">469.000₫</span>
+            <span class="old-price">520.000₫</span>
+          </div>
+          <a href="products.html" class="promo-buy-btn">KHÁM PHÁ SẢN PHẨM</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CAMPAIGN -->
+<section class="promo-campaign">
+
+  <div class="promo-campaign-content">
+    <span class="campaign-label">MUSTY GREEN LIFESTYLE</span>
+
+    <h2>Không chỉ là một chiếc túi, mà còn là lựa chọn bền vững.</h2>
+
+    <p>
+      Mỗi sản phẩm MUSTY là một cách để tái sử dụng chất liệu,
+      khuyến khích sáng tạo và lan tỏa lối sống có trách nhiệm.
+      Chọn một thiết kế bạn yêu thích và cùng MUSTY tạo nên
+      những giá trị tích cực.
+    </p>
+
+    <a href="collections.html" class="promo-main-btn">
+      KHÁM PHÁ BỘ SƯU TẬP →
+    </a>
+  </div>
+
+  <div class="campaign-image">
+    <img src="images/musty-hero.jpg" alt="MUSTY STUDIO - Recycled and Handmade">
+  </div>
+
+</section>
+
+<!-- BUNDLE OFFER -->
+<section class="promo-section">
+  <div class="promo-container">
+
+    <div class="promo-bundle">
+      <span class="bundle-label">BUNDLE DEAL</span>
+
+      <h2>MUA NHIỀU HƠN – ƯU ĐÃI HƠN</h2>
+
+      <p>
+        Khi lựa chọn từ 2 sản phẩm MUSTY trở lên trong cùng một đơn hàng,
+        khách hàng có thể nhận ưu đãi mua sắm theo chương trình.
+        Liên hệ MUSTY để được tư vấn chi tiết.
+      </p>
+
+      <div class="bundle-offer">
+        ƯU ĐÃI DÀNH CHO ĐƠN HÀNG KẾT HỢP
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ENDING -->
+<section class="promo-ending">
+  <h2>Đừng bỏ lỡ những thiết kế độc bản!</h2>
+  <p>Chọn chiếc túi phù hợp với phong cách của bạn tại MUSTY STUDIO.</p>
+
+  <a href="products.html" class="promo-main-btn">
+    MUA SẮM NGAY →
+  </a>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-columns">
+
+    <div>
+      <h3>MUSTY STUDIO</h3>
+      <p>
+        Recycled & Handmade.<br>
+        Những thiết kế độc bản được tạo nên từ sự sáng tạo
+        và tinh thần sống bền vững.
+      </p>
+    </div>
+
+    <div>
+      <h4>KHÁM PHÁ</h4>
+      <a href="index.html">Trang chủ</a>
+      <a href="about.html">Giới thiệu</a>
+      <a href="products.html">Sản phẩm</a>
+      <a href="collections.html">Bộ sưu tập</a>
+      <a href="promotion.html">Khuyến mãi</a>
+    </div>
+
+    <div>
+      <h4>KẾT NỐI</h4>
+      <a href="contact.html">Liên hệ</a>
+      <a href="https://www.instagram.com/musty_stu/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 MUSTY STUDIO. ALL RIGHTS RESERVED.
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
