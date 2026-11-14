@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mustystudio.github.io/mustystudio.com.vn/sitemap.xml
