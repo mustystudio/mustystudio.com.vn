@@ -1,4 +1,4 @@
-
+```html
 <!doctype html>
 <html lang="vi">
 
@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="google-site-verification" content="72t30WxZz05jJ3i_aDSJm0y2DnH1rtFQokcFeH_0YSY" />
+<meta name="google-site-verification" content="72t30WxZz05jJ3i_aDSJm0y2DnH1rtFQokcFeH_0YSY">
 
 <title>Trang chủ | MUSTY STUDIO</title>
 
@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
+
 /* =====================================
    CHIẾN DỊCH DỆT TIẾP VÒNG ĐỜI
 ===================================== */
@@ -120,17 +121,29 @@
     padding: 15px 30px;
     background: #a9d4c5;
     color: #153a39;
+    border: none;
     text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 1px;
     border-radius: 3px;
+    cursor: pointer;
     transition: .3s ease;
 }
 
 .campaign-button:hover {
     background: #fff;
     transform: translateY(-3px);
+}
+
+.campaign-arrow {
+    display: inline-block;
+    transition: transform .3s ease;
+}
+
+.campaign-button[aria-expanded="true"] .campaign-arrow {
+    transform: rotate(180deg);
 }
 
 .campaign-note {
@@ -140,7 +153,119 @@
     letter-spacing: .5px;
 }
 
-/* HIỂN THỊ TRÊN ĐIỆN THOẠI */
+/* =====================================
+   NỘI DUNG CHI TIẾT CHIẾN DỊCH
+===================================== */
+
+.campaign-details {
+    max-width: 980px;
+    margin: 30px auto 0;
+    padding: 32px;
+    text-align: left;
+    color: #183d3c;
+    background: #f7f3e9;
+    border-radius: 5px;
+    animation: campaignReveal .35s ease;
+}
+
+.campaign-details[hidden] {
+    display: none;
+}
+
+.campaign-details h3 {
+    margin: 0 0 12px;
+    color: #183d3c;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 21px;
+    line-height: 1.4;
+}
+
+.campaign-details p {
+    margin: 0 0 22px;
+    color: #465b52;
+    font-size: 14px;
+    line-height: 1.85;
+}
+
+.campaign-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.campaign-detail-card {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #dce5dc;
+    border-radius: 4px;
+}
+
+.campaign-detail-card .detail-number {
+    display: block;
+    margin-bottom: 10px;
+    color: #719b87;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.campaign-detail-card h4 {
+    margin: 0 0 9px;
+    color: #183d3c;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+}
+
+.campaign-detail-card p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.75;
+}
+
+.campaign-detail-note {
+    padding: 18px 20px;
+    background: #e5eee6;
+    border-left: 4px solid #82ae98;
+    color: #34574b;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.campaign-detail-contact {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 13px 22px;
+    background: #183d3c;
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    transition: .3s ease;
+}
+
+.campaign-detail-contact:hover {
+    background: #315d55;
+    transform: translateY(-2px);
+}
+
+@keyframes campaignReveal {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =====================================
+   HIỂN THỊ TRÊN ĐIỆN THOẠI
+===================================== */
 
 @media (max-width: 768px) {
 
@@ -182,14 +307,37 @@
         box-sizing: border-box;
         padding: 14px 18px;
     }
+
+    .campaign-details {
+        margin-top: 22px;
+        padding: 22px 17px;
+    }
+
+    .campaign-details h3 {
+        font-size: 18px;
+    }
+
+    .campaign-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .campaign-detail-contact {
+        width: 100%;
+        box-sizing: border-box;
+    }
 }
+
 </style>
 
 </head>
 
 <body>
 
-<!-- THANH ĐIỀU HƯỚNG -->
+<!-- =====================================
+     THANH ĐIỀU HƯỚNG
+===================================== -->
+
 <header class="site-header">
 
     <div class="header-inner">
@@ -199,7 +347,9 @@
             MUSTY STUDIO
         </a>
 
-        <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false">☰</button>
+        <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false">
+            ☰
+        </button>
 
         <nav aria-label="Điều hướng chính">
             <a href="index.html" aria-current="page">Trang chủ</a>
@@ -221,7 +371,10 @@
 
 <main>
 
-<!-- BANNER TRANG CHỦ -->
+<!-- =====================================
+     BANNER TRANG CHỦ
+===================================== -->
+
 <section class="page-hero">
 
     <div class="eyebrow">
@@ -252,7 +405,6 @@
 <!-- =====================================
      CHIẾN DỊCH ĐẶC BIỆT
      DỆT TIẾP VÒNG ĐỜI
-     NẰM SAU BANNER TRANG CHỦ
 ===================================== -->
 
 <section class="campaign-section">
@@ -260,13 +412,15 @@
     <div class="campaign-container">
 
         <!-- ẢNH BANNER CHIẾN DỊCH -->
+
         <img
             class="campaign-image"
             src="images/chiendichbanner.png"
             alt="Chiến dịch Dệt Tiếp Vòng Đời của MUSTY STUDIO"
         >
 
-        <!-- NỘI DUNG CHIẾN DỊCH -->
+        <!-- NỘI DUNG GIỚI THIỆU -->
+
         <div class="campaign-caption">
 
             <div class="campaign-label">
@@ -291,7 +445,8 @@
                 tái chế và sáng tạo.
             </p>
 
-            <!-- 3 BƯỚC THAM GIA -->
+            <!-- 3 BƯỚC GIỚI THIỆU -->
+
             <div class="campaign-steps">
 
                 <div class="campaign-step">
@@ -308,10 +463,219 @@
 
             </div>
 
-            <!-- NÚT KHÁM PHÁ -->
-            <a class="campaign-button" href="promotion.html">
-                KHÁM PHÁ CHIẾN DỊCH <span>→</span>
-            </a>
+
+            <!-- NÚT MỞ CHI TIẾT -->
+
+            <button
+                class="campaign-button"
+                id="campaignToggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="campaignDetails"
+            >
+                ĐỌC CHI TIẾT CHIẾN DỊCH
+                <span class="campaign-arrow">↓</span>
+            </button>
+
+
+            <!-- =====================================
+                 NỘI DUNG CHI TIẾT HIỆN TRÊN TRANG CHỦ
+            ===================================== -->
+
+            <div class="campaign-details" id="campaignDetails" hidden>
+
+                <!-- PHẦN 1 -->
+
+                <h3>01. CÂU CHUYỆN ĐẰNG SAU CHIẾN DỊCH</h3>
+
+                <p>
+                    Trong cuộc sống hằng ngày, nhiều chiếc áo cũ, mảnh vải thừa
+                    vẫn còn khả năng sử dụng nhưng thường bị bỏ quên hoặc trở thành
+                    rác thải. MUSTY tin rằng một chất liệu không nhất thiết phải
+                    kết thúc hành trình chỉ vì nó không còn được sử dụng
+                    với mục đích ban đầu.
+                </p>
+
+                <p>
+                    Từ suy nghĩ đó, chiến dịch
+                    <strong>“DỆT TIẾP VÒNG ĐỜI”</strong>
+                    được thực hiện với mong muốn khơi gợi cảm hứng tái sử dụng,
+                    khuyến khích mọi người nhìn nhận những món đồ cũ dưới một
+                    góc nhìn mới. Thay vì vội vàng bỏ đi, chúng ta có thể trao
+                    cho chúng cơ hội được biến đổi thành những sản phẩm hữu ích
+                    và mang dấu ấn riêng.
+                </p>
+
+
+                <!-- PHẦN 2 -->
+
+                <h3>02. MUSTY MUỐN LAN TỎA ĐIỀU GÌ?</h3>
+
+                <div class="campaign-detail-grid">
+
+                    <article class="campaign-detail-card">
+
+                        <span class="detail-number">GIÁ TRỊ 01</span>
+
+                        <h4>Kéo dài vòng đời chất liệu</h4>
+
+                        <p>
+                            Khuyến khích tận dụng quần áo cũ và vải thừa còn phù hợp
+                            để hạn chế việc lãng phí những chất liệu vẫn có thể
+                            tiếp tục sử dụng.
+                        </p>
+
+                    </article>
+
+
+                    <article class="campaign-detail-card">
+
+                        <span class="detail-number">GIÁ TRỊ 02</span>
+
+                        <h4>Khơi nguồn sáng tạo</h4>
+
+                        <p>
+                            Mỗi chất liệu cũ đều có thể trở thành nguồn cảm hứng
+                            cho một thiết kế mới. Sự khác biệt đến từ cách chúng ta
+                            sáng tạo và trao cho chúng một công dụng mới.
+                        </p>
+
+                    </article>
+
+
+                    <article class="campaign-detail-card">
+
+                        <span class="detail-number">GIÁ TRỊ 03</span>
+
+                        <h4>Lan tỏa lối sống có trách nhiệm</h4>
+
+                        <p>
+                            Bắt đầu từ một hành động nhỏ, mỗi người có thể góp phần
+                            hình thành thói quen cân nhắc trước khi vứt bỏ đồ dùng
+                            và ưu tiên lựa chọn những sản phẩm có giá trị sử dụng
+                            lâu dài.
+                        </p>
+
+                    </article>
+
+
+                    <article class="campaign-detail-card">
+
+                        <span class="detail-number">GIÁ TRỊ 04</span>
+
+                        <h4>Kết nối cộng đồng cùng sống xanh</h4>
+
+                        <p>
+                            MUSTY mong muốn tạo nên một hoạt động để mọi người
+                            cùng chia sẻ, trao đổi chất liệu và lan tỏa cảm hứng
+                            tái chế trong cuộc sống thường ngày.
+                        </p>
+
+                    </article>
+
+                </div>
+
+
+                <!-- PHẦN 3 -->
+
+                <h3>03. CÁCH THỨC THAM GIA CHIẾN DỊCH</h3>
+
+                <div class="campaign-detail-grid">
+
+                    <article class="campaign-detail-card">
+
+                        <span class="detail-number">BƯỚC 01</span>
+
+                        <h4>Chuẩn bị chất liệu cũ</h4>
+
+                        <p>
+                            Bạn có thể lựa chọn quần áo cũ hoặc những mảnh vải
+                            còn có khả năng tái sử dụng. Hãy ưu tiên chất liệu sạch,
+                            khô và được bảo quản tốt.
+                        </p>
+
+                    </article>
+
+
+                    <article class="campaign-detail-card">
+
+                        <span class="detail-number">BƯỚC 02</span>
+
+                        <h4>Liên hệ với MUSTY</h4>
+
+                        <p>
+                            Gửi tin nhắn cho MUSTY qua Instagram hoặc trang Liên hệ
+                            để trao đổi về chất liệu bạn muốn gửi và xác nhận
+                            cách thức tiếp nhận trước khi mang đến.
+                        </p>
+
+                    </article>
+
+
+                    <article class="campaign-detail-card">
+
+                        <span class="detail-number">BƯỚC 03</span>
+
+                        <h4>Trao lại chất liệu</h4>
+
+                        <p>
+                            Sau khi thống nhất cách tiếp nhận, bạn gửi chất liệu
+                            cho MUSTY. Những chất liệu phù hợp sẽ được xem xét
+                            để tiếp tục sử dụng trong quá trình sáng tạo.
+                        </p>
+
+                    </article>
+
+
+                    <article class="campaign-detail-card">
+
+                        <span class="detail-number">BƯỚC 04</span>
+
+                        <h4>Nhận món quà từ MUSTY</h4>
+
+                        <p>
+                            Như một lời cảm ơn cho sự đồng hành của bạn,
+                            MUSTY gửi tặng một chiếc túi vải nhỏ mang tinh thần
+                            tái chế và sáng tạo theo nội dung chiến dịch.
+                        </p>
+
+                    </article>
+
+                </div>
+
+
+                <!-- PHẦN 4 -->
+
+                <h3>04. MÓN QUÀ VÀ LỜI CẢM ƠN</h3>
+
+                <p>
+                    Với MUSTY, món quà không chỉ là lời cảm ơn dành cho người
+                    tham gia, mà còn là cách nhắc nhớ rằng một hành động nhỏ
+                    cũng có thể tạo nên ý nghĩa tích cực. Mỗi chất liệu được
+                    trao đi là một cơ hội để tiếp tục sáng tạo và kéo dài
+                    vòng đời sử dụng.
+                </p>
+
+                <div class="campaign-detail-note">
+
+                    <strong>LƯU Ý:</strong>
+
+                    Vui lòng liên hệ MUSTY trước khi gửi hoặc mang chất liệu đến
+                    để được xác nhận cách thức tiếp nhận và thông tin quà tặng.
+                    Việc tiếp nhận chất liệu và quà tặng sẽ theo điều kiện
+                    thực tế của chương trình.
+
+                </div>
+
+
+                <!-- NÚT LIÊN HỆ -->
+
+                <a class="campaign-detail-contact" href="contact.html">
+                    LIÊN HỆ THAM GIA CÙNG MUSTY →
+                </a>
+
+            </div>
+
 
             <div class="campaign-note">
                 #DetTiepVongDoi &nbsp; #MustyStudio
@@ -324,7 +688,10 @@
 </section>
 
 
-<!-- CÂU CHUYỆN THƯƠNG HIỆU -->
+<!-- =====================================
+     CÂU CHUYỆN THƯƠNG HIỆU
+===================================== -->
+
 <section class="content-section split-layout">
 
     <div>
@@ -365,7 +732,10 @@
 </section>
 
 
-<!-- VÌ SAO CHỌN MUSTY -->
+<!-- =====================================
+     VÌ SAO CHỌN MUSTY
+===================================== -->
+
 <section class="content-section why-musty">
 
     <div class="why-heading">
@@ -389,7 +759,6 @@
 
     <div class="why-grid">
 
-        <!-- LÝ DO 1 -->
         <article class="why-card">
 
             <div class="why-number">01</div>
@@ -407,7 +776,6 @@
         </article>
 
 
-        <!-- LÝ DO 2 -->
         <article class="why-card">
 
             <div class="why-number">02</div>
@@ -425,7 +793,6 @@
         </article>
 
 
-        <!-- LÝ DO 3 -->
         <article class="why-card">
 
             <div class="why-number">03</div>
@@ -443,7 +810,6 @@
         </article>
 
 
-        <!-- LÝ DO 4 -->
         <article class="why-card">
 
             <div class="why-number">04</div>
@@ -478,7 +844,10 @@
 </section>
 
 
-<!-- SẢN PHẨM NỔI BẬT -->
+<!-- =====================================
+     SẢN PHẨM NỔI BẬT
+===================================== -->
+
 <section class="content-section" style="background:var(--light)">
 
     <div class="eyebrow">
@@ -498,7 +867,6 @@
 
     <div class="product-grid">
 
-        <!-- SẢN PHẨM 1 -->
         <article class="product-card">
 
             <img src="images/product11.jpg" alt="Túi MUSTY số 01">
@@ -516,7 +884,6 @@
         </article>
 
 
-        <!-- SẢN PHẨM 2 -->
         <article class="product-card">
 
             <img src="images/product2.jpg" alt="Túi MUSTY số 02">
@@ -534,7 +901,6 @@
         </article>
 
 
-        <!-- SẢN PHẨM 3 -->
         <article class="product-card">
 
             <img src="images/product3.jpg" alt="Túi MUSTY ghép vải">
@@ -552,7 +918,6 @@
         </article>
 
 
-        <!-- SẢN PHẨM 4 -->
         <article class="product-card">
 
             <img src="images/product4.jpg" alt="Túi MUSTY phiên bản đặc biệt">
@@ -581,7 +946,10 @@
 </section>
 
 
-<!-- KHÁM PHÁ MUSTY -->
+<!-- =====================================
+     KHÁM PHÁ MUSTY
+===================================== -->
+
 <section class="content-section">
 
     <div class="eyebrow">
@@ -601,7 +969,6 @@
 
     <div class="info-grid">
 
-        <!-- GIỚI THIỆU -->
         <div class="info-card">
 
             <h3>01 / Giới thiệu</h3>
@@ -619,7 +986,6 @@
         </div>
 
 
-        <!-- BỘ SƯU TẬP -->
         <div class="info-card">
 
             <h3>02 / Bộ sưu tập</h3>
@@ -637,7 +1003,6 @@
         </div>
 
 
-        <!-- BÀI VIẾT -->
         <div class="info-card">
 
             <h3>03 / Bài viết</h3>
@@ -659,7 +1024,10 @@
 </section>
 
 
-<!-- THÔNG ĐIỆP CUỐI TRANG -->
+<!-- =====================================
+     THÔNG ĐIỆP CUỐI TRANG
+===================================== -->
+
 <section class="musty-ending">
 
     <div class="eyebrow">
@@ -687,12 +1055,14 @@
 </main>
 
 
-<!-- CHÂN TRANG -->
+<!-- =====================================
+     CHÂN TRANG
+===================================== -->
+
 <footer class="site-footer">
 
     <div class="footer-columns">
 
-        <!-- THÔNG TIN THƯƠNG HIỆU -->
         <div>
 
             <h3>MUSTY STUDIO</h3>
@@ -706,7 +1076,6 @@
         </div>
 
 
-        <!-- KHÁM PHÁ -->
         <div>
 
             <h3>KHÁM PHÁ</h3>
@@ -720,7 +1089,6 @@
         </div>
 
 
-        <!-- KẾT NỐI -->
         <div>
 
             <h3>KẾT NỐI VỚI MUSTY</h3>
@@ -749,7 +1117,10 @@
 </footer>
 
 
-<!-- GIỎ HÀNG -->
+<!-- =====================================
+     GIỎ HÀNG
+===================================== -->
+
 <div class="cart-drawer" aria-hidden="true">
 
     <aside class="cart-panel" aria-label="Giỏ hàng">
@@ -788,7 +1159,63 @@
 </div>
 
 
+<!-- =====================================
+     JAVASCRIPT
+===================================== -->
+
 <script src="script.js"></script>
+
+<script>
+
+/* =====================================
+   MỞ / THU GỌN CHI TIẾT CHIẾN DỊCH
+===================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const toggleButton = document.getElementById("campaignToggle");
+    const campaignDetails = document.getElementById("campaignDetails");
+
+    if (!toggleButton || !campaignDetails) {
+        return;
+    }
+
+    toggleButton.addEventListener("click", function () {
+
+        const isExpanded =
+            toggleButton.getAttribute("aria-expanded") === "true";
+
+        if (isExpanded) {
+
+            campaignDetails.hidden = true;
+
+            toggleButton.setAttribute("aria-expanded", "false");
+
+            toggleButton.innerHTML =
+                'ĐỌC CHI TIẾT CHIẾN DỊCH <span class="campaign-arrow">↓</span>';
+
+        } else {
+
+            campaignDetails.hidden = false;
+
+            toggleButton.setAttribute("aria-expanded", "true");
+
+            toggleButton.innerHTML =
+                'THU GỌN NỘI DUNG <span class="campaign-arrow">↑</span>';
+
+            campaignDetails.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest"
+            });
+
+        }
+
+    });
+
+});
+
+</script>
 
 </body>
 </html>
+```
