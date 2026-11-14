@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Khuyến mãi | MUSTY STUDIO</title>
-<meta name="description" content="Khám phá các sản phẩm ưu đãi tại MUSTY STUDIO.">
+<meta name="description" content="Khám phá các chương trình sale 159K, 179K và quà tặng móc khóa độc quyền tại MUSTY STUDIO.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +35,7 @@ button {
   font-family: inherit;
 }
 
-/* PHẦN GIỚI THIỆU */
+/* HERO */
 
 .promo-hero {
   background: #111;
@@ -157,7 +157,7 @@ button {
   line-height: 1.7;
 }
 
-/* CÁC HÌNH THỨC ƯU ĐÃI */
+/* BENEFITS */
 
 .promo-benefits {
   display: grid;
@@ -193,7 +193,7 @@ button {
   margin: 0;
 }
 
-/* DANH SÁCH SẢN PHẨM */
+/* PROMOTION GRID */
 
 .promo-product-section {
   background: #f7f8f8;
@@ -234,7 +234,7 @@ button {
 }
 
 .promo-product:hover .promo-image img {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
 .promo-sale-tag {
@@ -246,6 +246,17 @@ button {
   padding: 8px 11px;
   font-size: 11px;
   font-weight: 800;
+  z-index: 2;
+}
+
+.promo-image-count {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0,0,0,.75);
+  color: white;
+  padding: 6px 10px;
+  font-size: 10px;
   z-index: 2;
 }
 
@@ -312,7 +323,7 @@ button {
   color: #111;
 }
 
-/* ƯU ĐÃI ĐẶC BIỆT */
+/* CAMPAIGN */
 
 .promo-campaign {
   background: #12d5de;
@@ -345,7 +356,7 @@ button {
   object-fit: cover;
 }
 
-/* ƯU ĐÃI MUA NHIỀU */
+/* BUNDLE */
 
 .promo-bundle {
   background: #111;
@@ -383,7 +394,7 @@ button {
   font-size: 13px;
 }
 
-/* LỜI KẾT */
+/* ENDING */
 
 .promo-ending {
   text-align: center;
@@ -401,14 +412,14 @@ button {
   margin-bottom: 25px;
 }
 
-/* CỬA SỔ THÔNG TIN SẢN PHẨM */
+/* MODAL */
 
 .promo-modal {
   display: none;
   position: fixed;
   inset: 0;
   z-index: 99999;
-  background: rgba(0,0,0,.72);
+  background: rgba(0,0,0,.75);
   padding: 20px;
   align-items: center;
   justify-content: center;
@@ -422,7 +433,7 @@ button {
   position: relative;
   background: white;
   width: 100%;
-  max-width: 850px;
+  max-width: 900px;
   max-height: 90vh;
   overflow-y: auto;
   display: grid;
@@ -441,16 +452,37 @@ button {
   }
 }
 
-.promo-modal-image {
+.promo-modal-gallery {
   background: #f3f3f3;
-  min-height: 400px;
+  padding: 15px;
 }
 
-.promo-modal-image img {
+.promo-modal-main-image {
   width: 100%;
-  height: 100%;
+  height: 420px;
   object-fit: cover;
   display: block;
+  cursor: zoom-in;
+}
+
+.promo-thumbnails {
+  display: flex;
+  gap: 9px;
+  margin-top: 12px;
+  overflow-x: auto;
+}
+
+.promo-thumbnail {
+  width: 65px;
+  height: 65px;
+  flex: 0 0 65px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.promo-thumbnail.active {
+  border-color: #08aeb7;
 }
 
 .promo-modal-info {
@@ -525,7 +557,7 @@ button {
   box-shadow: 0 2px 10px rgba(0,0,0,.12);
 }
 
-/* ĐIỆN THOẠI */
+/* MOBILE */
 
 @media (max-width: 900px) {
   .promo-products {
@@ -553,6 +585,7 @@ button {
   }
 
   .promo-products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
   }
 
@@ -587,9 +620,8 @@ button {
     max-width: 430px;
   }
 
-  .promo-modal-image {
-    min-height: 230px;
-    height: 260px;
+  .promo-modal-main-image {
+    height: 280px;
   }
 
   .promo-modal-info {
@@ -605,7 +637,7 @@ button {
 
 <body>
 
-<!-- THANH ĐIỀU HƯỚNG -->
+<!-- HEADER -->
 
 <header class="site-header">
   <div class="header-inner">
@@ -636,7 +668,7 @@ button {
 
 <main>
 
-<!-- PHẦN ĐẦU TRANG -->
+<!-- HERO -->
 
 <section class="promo-hero">
   <div class="promo-hero-content">
@@ -663,7 +695,7 @@ button {
   </div>
 </section>
 
-<!-- CÁC HÌNH THỨC ƯU ĐÃI -->
+<!-- BENEFITS -->
 
 <section class="promo-section">
   <div class="promo-container">
@@ -690,19 +722,19 @@ button {
 
       <div class="promo-benefit">
         <div class="icon">🎁</div>
-        <h3>Ưu đãi theo chương trình</h3>
+        <h3>Quà tặng đặc biệt</h3>
         <p>
-          Theo dõi các chương trình đặc biệt và những hoạt động
-          ưu đãi được tổ chức bởi MUSTY.
+          Nhận những món quà nhỏ xinh và độc đáo
+          từ các chương trình của MUSTY.
         </p>
       </div>
 
       <div class="promo-benefit">
         <div class="icon">🛍️</div>
-        <h3>Ưu đãi khi mua nhiều</h3>
+        <h3>Ưu đãi mua sắm</h3>
         <p>
-          Kết hợp nhiều thiết kế trong cùng đơn hàng để nhận
-          các quyền lợi mua sắm theo chương trình.
+          Theo dõi các chương trình ưu đãi
+          để không bỏ lỡ những lựa chọn hấp dẫn.
         </p>
       </div>
 
@@ -710,184 +742,31 @@ button {
   </div>
 </section>
 
-<!-- SẢN PHẨM KHUYẾN MÃI -->
+<!-- DANH SÁCH KHUYẾN MÃI -->
 
 <section class="promo-section promo-product-section" id="danh-sach-san-pham">
 
   <div class="promo-container">
 
     <div class="promo-heading">
-      <span>SẢN PHẨM ƯU ĐÃI</span>
-      <h2>Những thiết kế đang được giảm giá</h2>
+      <span>ĐẶC BIỆT DÀNH CHO BẠN</span>
+      <h2>Khám phá các chương trình khuyến mãi</h2>
       <p>
-        Nhấn vào từng sản phẩm để xem hình ảnh, mô tả
-        và thông tin giá chi tiết.
+        Nhấn vào từng chương trình để xem hình ảnh,
+        mô tả và thông tin ưu đãi chi tiết.
       </p>
     </div>
 
-    <div class="promo-products">
+    <div class="promo-products" id="promoProducts">
 
-      <!-- SẢN PHẨM 01 -->
-
-      <article class="promo-product">
-
-        <div class="promo-image"
-          role="button" tabindex="0"
-          aria-label="Xem chi tiết MUSTY BAG 01"
-          data-product="0">
-
-          <span class="promo-sale-tag">GIẢM 15%</span>
-
-          <img src="images/promotion01.jpg"
-            alt="MUSTY BAG 01">
-        </div>
-
-        <div class="promo-product-info">
-
-          <span class="promo-category">DÒNG SẢN PHẨM MUSTY</span>
-
-          <h3>MUSTY BAG 01</h3>
-
-          <p class="promo-description">
-            Thiết kế túi mang phong cách trẻ trung, cá tính,
-            phù hợp để sử dụng trong các hoạt động hằng ngày.
-          </p>
-
-          <div class="promo-price">
-            <span class="promo-new-price">299.000₫</span>
-            <span class="promo-old-price">350.000₫</span>
-          </div>
-
-          <button class="promo-detail-button"
-            type="button" data-product="0">
-            XEM CHI TIẾT SẢN PHẨM
-          </button>
-
-        </div>
-      </article>
-
-      <!-- SẢN PHẨM 02 -->
-
-      <article class="promo-product">
-
-        <div class="promo-image"
-          role="button" tabindex="0"
-          aria-label="Xem chi tiết MUSTY BAG 02"
-          data-product="1">
-
-          <span class="promo-sale-tag">GIẢM 15%</span>
-
-          <img src="images/promotion02.jpg"
-            alt="MUSTY BAG 02">
-        </div>
-
-        <div class="promo-product-info">
-
-          <span class="promo-category">DÒNG SẢN PHẨM MUSTY</span>
-
-          <h3>MUSTY BAG 02</h3>
-
-          <p class="promo-description">
-            Kiểu dáng tiện dụng, dễ phối với nhiều trang phục,
-            dành cho những ai yêu thích sự đơn giản và khác biệt.
-          </p>
-
-          <div class="promo-price">
-            <span class="promo-new-price">330.000₫</span>
-            <span class="promo-old-price">390.000₫</span>
-          </div>
-
-          <button class="promo-detail-button"
-            type="button" data-product="1">
-            XEM CHI TIẾT SẢN PHẨM
-          </button>
-
-        </div>
-      </article>
-
-      <!-- SẢN PHẨM 03 -->
-
-      <article class="promo-product">
-
-        <div class="promo-image"
-          role="button" tabindex="0"
-          aria-label="Xem chi tiết MUSTY PATCH BAG"
-          data-product="2">
-
-          <span class="promo-sale-tag">GIẢM 11%</span>
-
-          <img src="images/promotion04.jpg"
-            alt="MUSTY PATCH BAG">
-        </div>
-
-        <div class="promo-product-info">
-
-          <span class="promo-category">THIẾT KẾ GIỚI HẠN</span>
-
-          <h3>MUSTY PATCH BAG</h3>
-
-          <p class="promo-description">
-            Thiết kế nổi bật với tinh thần thủ công và sáng tạo,
-            tạo điểm nhấn riêng cho phong cách cá nhân.
-          </p>
-
-          <div class="promo-price">
-            <span class="promo-new-price">399.000₫</span>
-            <span class="promo-old-price">450.000₫</span>
-          </div>
-
-          <button class="promo-detail-button"
-            type="button" data-product="2">
-            XEM CHI TIẾT SẢN PHẨM
-          </button>
-
-        </div>
-      </article>
-
-      <!-- SẢN PHẨM 04 -->
-
-      <article class="promo-product">
-
-        <div class="promo-image"
-          role="button" tabindex="0"
-          aria-label="Xem chi tiết MUSTY SPECIAL"
-          data-product="3">
-
-          <span class="promo-sale-tag">GIẢM 10%</span>
-
-          <img src="images/promotion03.jpg"
-            alt="MUSTY SPECIAL">
-        </div>
-
-        <div class="promo-product-info">
-
-          <span class="promo-category">DÒNG SẢN PHẨM ĐẶC BIỆT</span>
-
-          <h3>MUSTY SPECIAL</h3>
-
-          <p class="promo-description">
-            Thiết kế dành cho những ai yêu thích sự độc đáo,
-            thể hiện cá tính và dấu ấn riêng khi sử dụng.
-          </p>
-
-          <div class="promo-price">
-            <span class="promo-new-price">469.000₫</span>
-            <span class="promo-old-price">520.000₫</span>
-          </div>
-
-          <button class="promo-detail-button"
-            type="button" data-product="3">
-            XEM CHI TIẾT SẢN PHẨM
-          </button>
-
-        </div>
-      </article>
+      <!-- Các thẻ khuyến mãi được tạo tự động bằng JavaScript -->
 
     </div>
+
   </div>
 </section>
 
-<!-- CHIẾN DỊCH CỦA MUSTY -->
+<!-- CAMPAIGN -->
 
 <section class="promo-campaign">
 
@@ -917,31 +796,31 @@ button {
 
 </section>
 
-<!-- ƯU ĐÃI MUA NHIỀU -->
+<!-- BUNDLE -->
 
 <section class="promo-section">
   <div class="promo-container">
 
     <div class="promo-bundle">
 
-      <span>ƯU ĐÃI KHI MUA NHIỀU SẢN PHẨM</span>
+      <span>ƯU ĐÃI MUA SẮM</span>
 
-      <h2>MUA NHIỀU HƠN – TIẾT KIỆM HƠN</h2>
+      <h2>CHỌN MÓN ĐỒ BẠN YÊU THÍCH</h2>
 
       <p>
-        Lựa chọn nhiều thiết kế MUSTY trong cùng một đơn hàng
-        để khám phá các chương trình ưu đãi dành cho khách hàng.
-        Liên hệ với MUSTY để được tư vấn về điều kiện áp dụng.
+        Khám phá các thiết kế độc bản, những chương trình sale
+        và quà tặng đặc biệt từ MUSTY STUDIO.
+        Liên hệ với MUSTY để được tư vấn thêm về ưu đãi.
       </p>
 
-      <strong>ƯU ĐÃI DÀNH CHO ĐƠN HÀNG KẾT HỢP</strong>
+      <strong>MAKE IT UNIQUE – MAKE IT MUSTY</strong>
 
     </div>
 
   </div>
 </section>
 
-<!-- LỜI KẾT -->
+<!-- ENDING -->
 
 <section class="promo-ending">
 
@@ -960,7 +839,7 @@ button {
 
 </main>
 
-<!-- CỬA SỔ CHI TIẾT SẢN PHẨM -->
+<!-- MODAL CHI TIẾT -->
 
 <div class="promo-modal" id="promoModal"
   role="dialog" aria-modal="true"
@@ -971,13 +850,21 @@ button {
     <button class="promo-modal-close"
       type="button" aria-label="Đóng cửa sổ">×</button>
 
-    <div class="promo-modal-image">
-      <img id="promoModalImage" src="" alt="">
+    <div class="promo-modal-gallery">
+
+      <img id="promoModalImage"
+        class="promo-modal-main-image"
+        src="" alt="">
+
+      <div class="promo-thumbnails" id="promoThumbnails"></div>
+
     </div>
 
     <div class="promo-modal-info">
 
-      <span class="modal-category">SẢN PHẨM ƯU ĐÃI</span>
+      <span class="modal-category" id="promoModalCategory">
+        ƯU ĐÃI MUSTY STUDIO
+      </span>
 
       <h2 id="promoModalName"></h2>
 
@@ -988,13 +875,12 @@ button {
         <span class="modal-old-price" id="promoModalOldPrice"></span>
       </div>
 
-      <p>
-        Sản phẩm đang được áp dụng mức giá ưu đãi
-        theo chương trình khuyến mãi của MUSTY STUDIO.
+      <p id="promoModalNote">
+        Liên hệ MUSTY STUDIO để được tư vấn thêm về chương trình.
       </p>
 
-      <a href="products.html" class="promo-modal-link">
-        XEM CÁC SẢN PHẨM KHÁC →
+      <a href="contact.html" class="promo-modal-link">
+        LIÊN HỆ MUSTY →
       </a>
 
     </div>
@@ -1002,7 +888,7 @@ button {
   </div>
 </div>
 
-<!-- CHÂN TRANG -->
+<!-- FOOTER -->
 
 <footer class="site-footer">
 
@@ -1044,108 +930,386 @@ button {
 <script src="script.js"></script>
 
 <script>
-/* DỮ LIỆU CHI TIẾT SẢN PHẨM */
+
+/* =====================================
+   DỮ LIỆU CÁC CHƯƠNG TRÌNH KHUYẾN MÃI
+===================================== */
 
 const promotionProducts = [
+
+  /* 4 SẢN PHẨM KHUYẾN MÃI CŨ */
+
   {
     name: "MUSTY BAG 01",
-    image: "images/promotion01.jpg",
+    category: "DÒNG SẢN PHẨM MUSTY",
+    images: ["images/promotion01.jpg"],
     description:
       "MUSTY BAG 01 mang phong cách trẻ trung và cá tính. Thiết kế phù hợp để sử dụng trong các hoạt động hằng ngày, dễ kết hợp với nhiều phong cách trang phục khác nhau.",
     price: "299.000₫",
-    oldPrice: "350.000₫"
+    oldPrice: "350.000₫",
+    tag: "GIẢM 15%",
+    note: "Sản phẩm đang được áp dụng mức giá ưu đãi."
   },
+
   {
     name: "MUSTY BAG 02",
-    image: "images/promotion02.jpg",
+    category: "DÒNG SẢN PHẨM MUSTY",
+    images: ["images/promotion02.jpg"],
     description:
       "MUSTY BAG 02 hướng đến sự tiện dụng và linh hoạt. Đây là lựa chọn phù hợp cho những ai yêu thích phong cách đơn giản nhưng vẫn muốn tạo dấu ấn riêng.",
     price: "330.000₫",
-    oldPrice: "390.000₫"
+    oldPrice: "390.000₫",
+    tag: "GIẢM 15%",
+    note: "Sản phẩm đang được áp dụng mức giá ưu đãi."
   },
+
   {
     name: "MUSTY PATCH BAG",
-    image: "images/promotion03.jpg",
+    category: "THIẾT KẾ GIỚI HẠN",
+    images: ["images/promotion04.jpg"],
     description:
       "MUSTY PATCH BAG thể hiện tinh thần sáng tạo và thủ công của MUSTY STUDIO. Thiết kế mang nét riêng, phù hợp với những người yêu thích các sản phẩm độc đáo.",
     price: "399.000₫",
-    oldPrice: "450.000₫"
+    oldPrice: "450.000₫",
+    tag: "GIẢM 11%",
+    note: "Sản phẩm đang được áp dụng mức giá ưu đãi."
   },
+
   {
     name: "MUSTY SPECIAL",
-    image: "images/promotion04.jpg",
+    category: "DÒNG SẢN PHẨM ĐẶC BIỆT",
+    images: ["images/promotion03.jpg"],
     description:
       "MUSTY SPECIAL là thiết kế dành cho những ai yêu thích sự khác biệt. Sản phẩm góp phần thể hiện cá tính và phong cách riêng trong mỗi lần sử dụng.",
     price: "469.000₫",
-    oldPrice: "520.000₫"
+    oldPrice: "520.000₫",
+    tag: "GIẢM 10%",
+    note: "Sản phẩm đang được áp dụng mức giá ưu đãi."
+  },
+
+  /* CHƯƠNG TRÌNH 1: SALE 159K */
+
+  {
+    name: "SALE ĐỒNG GIÁ 159K",
+    category: "CHƯƠNG TRÌNH SALE ĐẶC BIỆT",
+    images: [
+      "images/15901.jpg",
+      "images/15902.jpg",
+      "images/15903.jpg"
+    ],
+    description:
+      "Cơ hội sở hữu những thiết kế MUSTY với mức giá cực kỳ hấp dẫn. Chương trình SALE 159K mang đến các lựa chọn túi độc đáo, trẻ trung và cá tính. Nhấn vào từng hình bên dưới để khám phá các mẫu sản phẩm trong chương trình.",
+    price: "159.000₫",
+    oldPrice: "",
+    tag: "SALE 159K",
+    note: "Mức giá áp dụng cho các sản phẩm thuộc chương trình SALE 159K."
+  },
+
+  /* CHƯƠNG TRÌNH 2: SALE 179K */
+
+  {
+    name: "SALE ĐỒNG GIÁ 179K",
+    category: "CHƯƠNG TRÌNH SALE ĐẶC BIỆT",
+    images: [
+      "images/17901.jpg",
+      "images/17902.jpg"
+    ],
+    description:
+      "Khám phá những thiết kế được MUSTY lựa chọn dành riêng cho chương trình SALE 179K. Mỗi sản phẩm mang nét cá tính riêng, phù hợp với phong cách sáng tạo và yêu thích sự khác biệt.",
+    price: "179.000₫",
+    oldPrice: "",
+    tag: "SALE 179K",
+    note: "Mức giá áp dụng cho các sản phẩm thuộc chương trình SALE 179K."
+  },
+
+  /* CHƯƠNG TRÌNH 3: TẶNG MÓC KHÓA LINH THÚ */
+
+  {
+    name: "TẶNG MÓC KHÓA LINH THÚ",
+    category: "QUÀ TẶNG ĐẶC BIỆT",
+    images: [
+      "images/linhthusale.jpg"
+    ],
+    description:
+      "Một món quà nhỏ xinh dành cho những khách hàng yêu thích sự đáng yêu và độc đáo. Móc khóa linh thú là điểm nhấn thú vị, giúp bạn cá nhân hóa chiếc túi và thể hiện phong cách riêng.",
+    price: "QUÀ TẶNG",
+    oldPrice: "",
+    tag: "FREE GIFT",
+    note: "Vui lòng liên hệ MUSTY STUDIO để biết điều kiện nhận quà."
+  },
+
+  /* CHƯƠNG TRÌNH 4: TẶNG MÓC KHÓA TAG 3 BESTIE */
+
+  {
+    name: "TẶNG MÓC KHÓA TAG 3 BESTIE",
+    category: "QUÀ TẶNG ĐẶC BIỆT",
+    images: [
+      "images/bestie%20sale.jpg"
+    ],
+    description:
+      "Món quà dành cho hội bạn thân yêu thích sự đồng điệu. Móc khóa tag 3 Bestie mang ý nghĩa gắn kết, là phụ kiện đáng yêu để bạn và những người bạn thân cùng lưu giữ những khoảnh khắc đặc biệt.",
+    price: "QUÀ TẶNG",
+    oldPrice: "",
+    tag: "FREE GIFT",
+    note: "Vui lòng liên hệ MUSTY STUDIO để biết điều kiện nhận quà."
   }
+
 ];
 
-/* MỞ CHI TIẾT SẢN PHẨM */
 
-const promoModal = document.getElementById("promoModal");
-const promoModalImage = document.getElementById("promoModalImage");
-const promoModalName = document.getElementById("promoModalName");
-const promoModalDescription = document.getElementById("promoModalDescription");
-const promoModalPrice = document.getElementById("promoModalPrice");
-const promoModalOldPrice = document.getElementById("promoModalOldPrice");
+/* =====================================
+   HIỂN THỊ CÁC THẺ KHUYẾN MÃI
+===================================== */
+
+const promoProductsContainer =
+  document.getElementById("promoProducts");
+
+promotionProducts.forEach((product, index) => {
+
+  const card = document.createElement("article");
+  card.className = "promo-product";
+
+  const imageCount = product.images.length;
+
+  const priceHTML = product.oldPrice
+    ? `<div class="promo-price">
+         <span class="promo-new-price">${product.price}</span>
+         <span class="promo-old-price">${product.oldPrice}</span>
+       </div>`
+    : `<div class="promo-price">
+         <span class="promo-new-price">${product.price}</span>
+       </div>`;
+
+  card.innerHTML = `
+    <div class="promo-image"
+      role="button"
+      tabindex="0"
+      aria-label="Xem ${product.name}"
+      data-product="${index}">
+
+      <span class="promo-sale-tag">${product.tag}</span>
+
+      <img
+        src="${product.images[0]}"
+        alt="${product.name}"
+        loading="lazy">
+
+      ${imageCount > 1
+        ? `<span class="promo-image-count">
+             ${imageCount} HÌNH ẢNH
+           </span>`
+        : ""}
+    </div>
+
+    <div class="promo-product-info">
+
+      <span class="promo-category">${product.category}</span>
+
+      <h3>${product.name}</h3>
+
+      <p class="promo-description">
+        ${product.description}
+      </p>
+
+      ${priceHTML}
+
+      <button
+        class="promo-detail-button"
+        type="button"
+        data-product="${index}">
+        XEM CHI TIẾT ƯU ĐÃI
+      </button>
+
+    </div>
+  `;
+
+  promoProductsContainer.appendChild(card);
+
+});
+
+
+/* =====================================
+   MODAL CHI TIẾT
+===================================== */
+
+const promoModal =
+  document.getElementById("promoModal");
+
+const promoModalImage =
+  document.getElementById("promoModalImage");
+
+const promoModalName =
+  document.getElementById("promoModalName");
+
+const promoModalDescription =
+  document.getElementById("promoModalDescription");
+
+const promoModalPrice =
+  document.getElementById("promoModalPrice");
+
+const promoModalOldPrice =
+  document.getElementById("promoModalOldPrice");
+
+const promoModalCategory =
+  document.getElementById("promoModalCategory");
+
+const promoModalNote =
+  document.getElementById("promoModalNote");
+
+const promoThumbnails =
+  document.getElementById("promoThumbnails");
+
+
+/* MỞ CHI TIẾT */
 
 function openPromotionDetail(index) {
+
   const product = promotionProducts[index];
 
   if (!product) return;
 
-  promoModalImage.src = product.image;
-  promoModalImage.alt = product.name;
   promoModalName.textContent = product.name;
-  promoModalDescription.textContent = product.description;
-  promoModalPrice.textContent = product.price;
-  promoModalOldPrice.textContent = product.oldPrice;
 
-  promoModal.classList.add("active");
-  document.body.style.overflow = "hidden";
-}
+  promoModalDescription.textContent =
+    product.description;
 
-function closePromotionDetail() {
-  promoModal.classList.remove("active");
-  document.body.style.overflow = "";
-}
+  promoModalPrice.textContent =
+    product.price;
 
-/* NHẤN VÀO ẢNH HOẶC NÚT CHI TIẾT */
+  promoModalOldPrice.textContent =
+    product.oldPrice || "";
 
-document.querySelectorAll("[data-product]").forEach(element => {
-  element.addEventListener("click", () => {
-    const index = Number(element.dataset.product);
-    openPromotionDetail(index);
+  promoModalCategory.textContent =
+    product.category;
+
+  promoModalNote.textContent =
+    product.note;
+
+  promoThumbnails.innerHTML = "";
+
+  /* ẢNH CHÍNH */
+
+  promoModalImage.src = product.images[0];
+  promoModalImage.alt = product.name;
+
+  /* TẠO DANH SÁCH ẢNH NHỎ */
+
+  product.images.forEach((image, imageIndex) => {
+
+    const thumbnail = document.createElement("img");
+
+    thumbnail.src = image;
+    thumbnail.alt = product.name + " - Hình " + (imageIndex + 1);
+    thumbnail.className =
+      "promo-thumbnail" +
+      (imageIndex === 0 ? " active" : "");
+
+    thumbnail.addEventListener("click", () => {
+
+      promoModalImage.src = image;
+
+      document
+        .querySelectorAll(".promo-thumbnail")
+        .forEach(item => item.classList.remove("active"));
+
+      thumbnail.classList.add("active");
+
+    });
+
+    promoThumbnails.appendChild(thumbnail);
+
   });
 
-  if (element.classList.contains("promo-image")) {
-    element.addEventListener("keydown", event => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        openPromotionDetail(Number(element.dataset.product));
-      }
-    });
-  }
+  /* ẨN PHẦN ẢNH NHỎ NẾU CHỈ CÓ 1 ẢNH */
+
+  promoThumbnails.style.display =
+    product.images.length > 1 ? "flex" : "none";
+
+  promoModal.classList.add("active");
+
+  document.body.style.overflow = "hidden";
+
+}
+
+
+/* ĐÓNG MODAL */
+
+function closePromotionDetail() {
+
+  promoModal.classList.remove("active");
+
+  document.body.style.overflow = "";
+
+}
+
+
+/* CLICK ẢNH HOẶC NÚT CHI TIẾT */
+
+document.addEventListener("click", event => {
+
+  const target = event.target.closest("[data-product]");
+
+  if (!target) return;
+
+  const index = Number(target.dataset.product);
+
+  openPromotionDetail(index);
+
 });
 
-/* ĐÓNG CỬA SỔ */
 
-document.querySelector(".promo-modal-close")
+/* HỖ TRỢ NHẤN ENTER / SPACE TRÊN ẢNH */
+
+document.addEventListener("keydown", event => {
+
+  const target = event.target.closest(".promo-image");
+
+  if (
+    target &&
+    (event.key === "Enter" || event.key === " ")
+  ) {
+
+    event.preventDefault();
+
+    openPromotionDetail(
+      Number(target.dataset.product)
+    );
+
+  }
+
+});
+
+
+/* NÚT ĐÓNG */
+
+document
+  .querySelector(".promo-modal-close")
   .addEventListener("click", closePromotionDetail);
 
+
+/* NHẤN RA NGOÀI ĐỂ ĐÓNG */
+
 promoModal.addEventListener("click", event => {
+
   if (event.target === promoModal) {
     closePromotionDetail();
   }
+
 });
 
+
+/* NHẤN ESC ĐỂ ĐÓNG */
+
 document.addEventListener("keydown", event => {
+
   if (event.key === "Escape") {
     closePromotionDetail();
   }
+
 });
+
 </script>
 
 </body>
 </html>
+```
