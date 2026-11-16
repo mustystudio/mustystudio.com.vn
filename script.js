@@ -1,4 +1,4 @@
-```javascript
+
 document.addEventListener("DOMContentLoaded", () => {
 
   // =====================================
@@ -180,8 +180,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!button) return;
 
+    // Ưu tiên lấy tên và giá trực tiếp từ nút
+    // Dùng cho nút thêm giỏ trong cửa sổ chi tiết
+
     let name = button.dataset.name;
     let price = Number(button.dataset.price);
+
+    // Nếu nút nằm trong thẻ sản phẩm cũ
+    // thì lấy thông tin từ thẻ sản phẩm
 
     const productCard = button.closest(".product-card, .product");
 
@@ -203,11 +209,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
+    // Kiểm tra dữ liệu
     if (!name || !Number.isFinite(price) || price <= 0) {
       alert("Không thể thêm sản phẩm. Vui lòng kiểm tra thông tin sản phẩm.");
       return;
     }
 
+    // Kiểm tra sản phẩm đã có trong giỏ chưa
     const existingProduct = cart.find(
       item => item.name === name
     );
@@ -222,8 +230,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+    // Cập nhật giỏ hàng
     updateCart();
 
+    // Thông báo thêm thành công
     const originalText = button.textContent;
 
     button.textContent = "ĐÃ THÊM VÀO GIỎ ✓";
@@ -294,99 +304,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // =====================================
-  // 10. SHARED FOOTER - MUSTY STUDIO
-  // =====================================
-
-  const footerHTML = `
-    <footer class="site-footer">
-
-      <div class="footer-columns">
-
-        <div class="footer-brand">
-          <h3>MUSTY STUDIO</h3>
-          <p>
-            Recycled & Handmade – Những chiếc túi được tạo nên
-            từ sự sáng tạo, tinh thần tái chế và dấu ấn riêng.
-          </p>
-          <p>
-            Mỗi sản phẩm là một câu chuyện, mỗi lựa chọn là
-            một cách sống xanh hơn.
-          </p>
-        </div>
-
-        <div class="footer-links">
-          <h3>KHÁM PHÁ</h3>
-          <a href="index.html">Trang chủ</a>
-          <a href="about.html">Giới thiệu</a>
-          <a href="collections.html">Bộ sưu tập</a>
-          <a href="products.html">Sản phẩm</a>
-          <a href="promotion.html">Khuyến mãi</a>
-          <a href="blog.html">Bài viết</a>
-          <a href="contact.html">Liên hệ</a>
-        </div>
-
-        <div class="footer-contact">
-          <h3>KẾT NỐI VỚI CHÚNG TÔI</h3>
-          <p>
-            Hotline:
-            <a href="tel:+84397123380">0397 123 380</a>
-          </p>
-          <p>
-            Zalo:
-            <a href="https://zalo.me/0397123380" target="_blank" rel="noopener">
-              Nhắn tin qua Zalo
-            </a>
-          </p>
-          <p>
-            Instagram:
-            <a href="https://www.instagram.com/musty_stu/"
-               target="_blank" rel="noopener">
-              @musty_stu
-            </a>
-          </p>
-        </div>
-
-        <div class="footer-address">
-          <h3>ĐỊA CHỈ</h3>
-          <p>
-            39 Lê Minh Xuân, phường Tân Lập,
-            Thành phố Buôn Ma Thuột
-          </p>
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=39+Le+Minh+Xuan+Tan+Lap+Buon+Ma+Thuot"
-            target="_blank"
-            rel="noopener">
-            Xem bản đồ →
-          </a>
-        </div>
-
-      </div>
-
-      <div class="footer-bottom">
-        <p>
-          © <span class="current-year"></span> MUSTY STUDIO.
-          ALL RIGHTS RESERVED.
-        </p>
-        <p>Recycled & Handmade with love.</p>
-      </div>
-
-    </footer>
-  `;
-
-  // Thay chân trang cũ nếu trang đang có footer .site-footer.
-  // Nếu chưa có thì tự động thêm footer vào cuối trang.
-
-  const oldFooter = document.querySelector("footer.site-footer");
-
-  if (oldFooter) {
-    oldFooter.outerHTML = footerHTML;
-  } else {
-    document.body.insertAdjacentHTML("beforeend", footerHTML);
-  }
-
-
-  // =====================================
-  // 11. CURRENT YEAR
+  // 10. CURRENT YEAR
   // =====================================
 
   document.querySelectorAll(".current-year").forEach(element => {
@@ -395,106 +313,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // =====================================
-  // 12. INITIALIZE
+  // 11. INITIALIZE
   // =====================================
 
   updateCart();
 
 });
-```
-```css
-/* =====================================
-   MUSTY STUDIO - SHARED FOOTER
-===================================== */
-
-.site-footer {
-  background: #111111;
-  color: #ffffff;
-  padding: 55px 7% 22px;
-  margin-top: 60px;
-}
-
-.site-footer .footer-columns {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1.2fr 1.3fr;
-  gap: 40px;
-  padding-bottom: 35px;
-}
-
-.site-footer h3 {
-  color: #12d5de;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 15px;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
-}
-
-.site-footer p,
-.site-footer a {
-  color: #cccccc;
-  font-family: "DM Sans", sans-serif;
-  font-size: 13px;
-  line-height: 1.9;
-}
-
-.site-footer p {
-  margin-bottom: 10px;
-}
-
-.site-footer a {
-  display: inline-block;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.site-footer .footer-links a {
-  display: block;
-  margin-bottom: 7px;
-}
-
-.site-footer a:hover {
-  color: #12d5de;
-}
-
-.site-footer .footer-bottom {
-  border-top: 1px solid #383838;
-  padding-top: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-}
-
-.site-footer .footer-bottom p {
-  margin: 0;
-  font-size: 11px;
-  letter-spacing: 0.5px;
-}
-
-/* TABLET */
-
-@media (max-width: 900px) {
-  .site-footer .footer-columns {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-  }
-}
-
-/* MOBILE */
-
-@media (max-width: 550px) {
-  .site-footer {
-    padding: 40px 6% 20px;
-  }
-
-  .site-footer .footer-columns {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-  .site-footer .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-}
