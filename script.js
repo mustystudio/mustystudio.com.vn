@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const menuClass = nav.matches(".site-header nav") ? "open" : "active";
       const isOpen = nav.classList.toggle(menuClass);
 
-      menuBtn.setAttribute("aria-expanded", isOpen);
+      menuBtn.setAttribute("aria-expanded", String(isOpen));
     });
 
     nav.querySelectorAll("a").forEach(link => {
@@ -35,12 +35,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (searchInput) {
     searchInput.addEventListener("input", () => {
-      const keyword = searchInput.value.trim().toLocaleLowerCase("vi");
+
+      const keyword = searchInput.value
+        .trim()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
 
       document.querySelectorAll(".product-card, .product").forEach(product => {
-        const productText = product.textContent.toLocaleLowerCase("vi");
+
+        const productText = product.textContent
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "");
 
         product.style.display = productText.includes(keyword) ? "" : "none";
+
       });
     });
   }
@@ -51,6 +61,27 @@ document.addEventListener("DOMContentLoaded", () => {
   // =====================================
 
   let cart = [];
+
+  try {
+    const savedCart = JSON.parse(localStorage.getItem("mustyCart"));
+
+    if (Array.isArray(savedCart)) {
+      cart = savedCart.filter(item =>
+        item &&
+        typeof item.name === "string" &&
+        Number.isFinite(Number(item.price)) &&
+        Number(item.price) > 0 &&
+        Number.isInteger(Number(item.quantity)) &&
+        Number(item.quantity) > 0
+      ).map(item => ({
+        name: item.name,
+        price: Number(item.price),
+        quantity: Number(item.quantity)
+      }));
+    }
+  } catch (error) {
+    cart = [];
+  }
 
   const cartBtn = document.querySelector(".cart-open, .cart-btn");
   const cartDrawer = document.querySelector(".cart-drawer, .cart-overlay");
@@ -81,6 +112,13 @@ document.addEventListener("DOMContentLoaded", () => {
       (sum, item) => sum + item.price * item.quantity, 0
     );
 
+    // Lưu giỏ hàng vào trình duyệt
+    try {
+      localStorage.setItem("mustyCart", JSON.stringify(cart));
+    } catch (error) {
+      console.warn("Không thể lưu giỏ hàng:", error);
+    }
+
     if (cartCount) {
       cartCount.textContent = totalQuantity;
     }
@@ -100,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="cart-item cart-row">
 
         <div>
-          <strong>${item.name}</strong>
+          <strong></strong>
 
           <p>
             ${formatMoney(item.price)} × ${item.quantity}
@@ -121,6 +159,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       </div>
     `).join("");
+
+    // Hiển thị tên sản phẩm an toàn
+    cartItems.querySelectorAll(".cart-item strong").forEach((element, index) => {
+      element.textContent = cart[index].name;
+    });
   }
 
 
@@ -171,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // =====================================
-  // 7. ADD PRODUCT TO CART - FIXED
+  // 7. ADD PRODUCT TO CART
   // =====================================
 
   document.addEventListener("click", event => {
@@ -180,14 +223,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!button) return;
 
-    // Ưu tiên lấy tên và giá trực tiếp từ nút
-    // Dùng cho nút thêm giỏ trong cửa sổ chi tiết
-
     let name = button.dataset.name;
     let price = Number(button.dataset.price);
-
-    // Nếu nút nằm trong thẻ sản phẩm cũ
-    // thì lấy thông tin từ thẻ sản phẩm
 
     const productCard = button.closest(".product-card, .product");
 
@@ -209,13 +246,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // Kiểm tra dữ liệu
     if (!name || !Number.isFinite(price) || price <= 0) {
       alert("Không thể thêm sản phẩm. Vui lòng kiểm tra thông tin sản phẩm.");
       return;
     }
 
-    // Kiểm tra sản phẩm đã có trong giỏ chưa
     const existingProduct = cart.find(
       item => item.name === name
     );
@@ -230,19 +265,29 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // Cập nhật giỏ hàng
     updateCart();
 
-    // Thông báo thêm thành công
     const originalText = button.textContent;
 
     button.textContent = "ĐÃ THÊM VÀO GIỎ ✓";
-    button.disabled = true;
 
-    setTimeout(() => {
-      button.textContent = originalText;
-      button.disabled = false;
-    }, 1000);
+    // Nút trong cửa sổ chi tiết không bị khóa
+    if (button.id === "detailAddCart") {
+
+      setTimeout(() => {
+        button.textContent = originalText;
+      }, 1000);
+
+    } else {
+
+      button.disabled = true;
+
+      setTimeout(() => {
+        button.textContent = originalText;
+        button.disabled = false;
+      }, 1000);
+
+    }
 
   });
 
