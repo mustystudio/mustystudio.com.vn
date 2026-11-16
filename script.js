@@ -1,4 +1,4 @@
-
+```javascript
 document.addEventListener("DOMContentLoaded", () => {
 
   // =====================================
@@ -180,14 +180,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!button) return;
 
-    // Ưu tiên lấy tên và giá trực tiếp từ nút
-    // Dùng cho nút thêm giỏ trong cửa sổ chi tiết
-
     let name = button.dataset.name;
     let price = Number(button.dataset.price);
-
-    // Nếu nút nằm trong thẻ sản phẩm cũ
-    // thì lấy thông tin từ thẻ sản phẩm
 
     const productCard = button.closest(".product-card, .product");
 
@@ -209,13 +203,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // Kiểm tra dữ liệu
     if (!name || !Number.isFinite(price) || price <= 0) {
       alert("Không thể thêm sản phẩm. Vui lòng kiểm tra thông tin sản phẩm.");
       return;
     }
 
-    // Kiểm tra sản phẩm đã có trong giỏ chưa
     const existingProduct = cart.find(
       item => item.name === name
     );
@@ -230,10 +222,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // Cập nhật giỏ hàng
     updateCart();
 
-    // Thông báo thêm thành công
     const originalText = button.textContent;
 
     button.textContent = "ĐÃ THÊM VÀO GIỎ ✓";
@@ -304,7 +294,100 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // =====================================
-  // 10. CURRENT YEAR
+  // 10. SHARED FOOTER - MUSTY STUDIO
+  // =====================================
+
+  const footerHTML = `
+    <footer class="site-footer">
+
+      <div class="footer-columns">
+
+        <div class="footer-brand">
+          <h3>MUSTY STUDIO</h3>
+          <p>
+            Recycled & Handmade – Những chiếc túi được tạo nên
+            từ sự sáng tạo, tinh thần tái chế và dấu ấn riêng.
+          </p>
+          <p>
+            Mỗi sản phẩm là một câu chuyện, mỗi lựa chọn là
+            một cách sống xanh hơn.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <h3>KHÁM PHÁ</h3>
+          <a href="index.html">Trang chủ</a>
+          <a href="about.html">Giới thiệu</a>
+          <a href="collections.html">Bộ sưu tập</a>
+          <a href="products.html">Sản phẩm</a>
+          <a href="promotion.html">Khuyến mãi</a>
+          <a href="blog.html">Bài viết</a>
+          <a href="contact.html">Liên hệ</a>
+        </div>
+
+        <div class="footer-contact">
+          <h3>THÔNG TIN LIÊN HỆ</h3>
+
+          <p>
+            Điện thoại:
+            <a href="tel:+84397123380">0397 123 380</a>
+          </p>
+
+          <p>
+            Zalo:
+            <a href="https://zalo.me/0397123380"
+               target="_blank" rel="noopener">
+              0397 123 380
+            </a>
+          </p>
+
+          <p>
+            Instagram:
+            <a href="https://www.instagram.com/musty_stu/"
+               target="_blank" rel="noopener">
+              @musty_stu
+            </a>
+          </p>
+        </div>
+
+        <div class="footer-address">
+          <h3>ĐỊA CHỈ CỬA HÀNG</h3>
+
+          <p>
+            39 Lê Minh Xuân, phường Tân Lập,
+            Thành phố Buôn Ma Thuột
+          </p>
+
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=39+Le+Minh+Xuan+Tan+Lap+Buon+Ma+Thuot"
+            target="_blank"
+            rel="noopener">
+            Xem bản đồ →
+          </a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          © <span class="current-year"></span>
+          MUSTY STUDIO. ALL RIGHTS RESERVED.
+        </p>
+
+        <p>Recycled & Handmade with love.</p>
+      </div>
+
+    </footer>
+  `;
+
+  // Chỉ thêm footer nếu trang chưa có footer .site-footer
+  if (!document.querySelector("footer.site-footer")) {
+    document.body.insertAdjacentHTML("beforeend", footerHTML);
+  }
+
+
+  // =====================================
+  // 11. CURRENT YEAR
   // =====================================
 
   document.querySelectorAll(".current-year").forEach(element => {
@@ -313,9 +396,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // =====================================
-  // 11. INITIALIZE
+  // 12. INITIALIZE
   // =====================================
 
   updateCart();
 
 });
+```
