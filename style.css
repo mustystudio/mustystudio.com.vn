@@ -1899,3 +1899,89 @@ footer .copyright {
         letter-spacing: 1.5px;
     }
 }
+
+/* =========================================
+   MUSTY STUDIO - FOOTER 4 CỘT ĐỒNG BỘ
+========================================= */
+
+.site-footer {
+    background: #111111 !important;
+    color: #ffffff;
+    padding: 55px 7% 25px;
+}
+
+.site-footer .footer-columns {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 45px !important;
+    align-items: start !important;
+    text-align: left !important;
+    padding-bottom: 40px;
+}
+
+.site-footer .footer-columns > div {
+    min-width: 0;
+    width: 100%;
+    text-align: left !important;
+}
+
+.site-footer .footer-columns h3 {
+    color: #12d5de;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    margin: 0 0 20px;
+    white-space: normal;
+}
+
+.site-footer .footer-columns p {
+    color: #cccccc;
+    font-size: 13px;
+    line-height: 1.9;
+    margin: 0;
+}
+
+.site-footer .footer-columns a {
+    display: block !important;
+    width: fit-content;
+    color: #cccccc;
+    font-size: 13px;
+    line-height: 1.9;
+    text-decoration: none;
+    margin: 0 0 9px;
+    transition: color .3s ease;
+}
+
+.site-footer .footer-columns a:hover {
+    color: #12d5de;
+}
+
+.site-footer .footer-bottom {
+    border-top: 1px solid #444444;
+    padding-top: 22px;
+    color: #999999;
+    font-size: 11px;
+    text-align: center;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+    .site-footer .footer-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 35px !important;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 550px) {
+    .site-footer {
+        padding: 40px 7% 22px;
+    }
+
+    .site-footer .footer-columns {
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+    }
+}
