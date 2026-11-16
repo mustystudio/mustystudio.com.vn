@@ -6,8 +6,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Khuyến mãi | MUSTY STUDIO</title>
+
 <meta name="description" content="Khám phá các chương trình sale 159K, 179K và quà tặng móc khóa độc quyền tại MUSTY STUDIO.">
 <link rel="canonical" href="https://mustystudio.github.io/mustystudio.com.vn/promotion.html">
+
+<meta name="keywords" content="MUSTY STUDIO, khuyến mãi MUSTY, túi handmade giảm giá, túi tái chế, sale túi handmade, ưu đãi túi thủ công">
+<meta name="author" content="MUSTY STUDIO">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<meta name="theme-color" content="#111111">
+
+<!-- OPEN GRAPH -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:site_name" content="MUSTY STUDIO">
+<meta property="og:url" content="https://mustystudio.github.io/mustystudio.com.vn/promotion.html">
+<meta property="og:title" content="Khuyến mãi | MUSTY STUDIO">
+<meta property="og:description" content="Khám phá các chương trình sale 159K, 179K và quà tặng móc khóa độc quyền tại MUSTY STUDIO.">
+<meta property="og:image" content="https://mustystudio.github.io/mustystudio.com.vn/images/musty-hero.jpg">
+
+<!-- TWITTER CARD -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Khuyến mãi | MUSTY STUDIO">
+<meta name="twitter:description" content="Khám phá các chương trình sale và quà tặng đặc biệt tại MUSTY STUDIO.">
+<meta name="twitter:image" content="https://mustystudio.github.io/mustystudio.com.vn/images/musty-hero.jpg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -758,9 +781,7 @@ button {
     </div>
 
     <div class="promo-products" id="promoProducts">
-
       <!-- Các thẻ khuyến mãi được tạo tự động bằng JavaScript -->
-
     </div>
 
   </div>
@@ -946,6 +967,7 @@ button {
   </div>
 
 </footer>
+
 <script src="script.js"></script>
 
 <script>
@@ -1178,14 +1200,23 @@ const promoModalNote =
 const promoThumbnails =
   document.getElementById("promoThumbnails");
 
+const promoModalClose =
+  document.querySelector(".promo-modal-close");
+
+let lastPromoTrigger = null;
+let previousBodyOverflow = "";
+
 
 /* MỞ CHI TIẾT */
 
-function openPromotionDetail(index) {
+function openPromotionDetail(index, trigger = null) {
 
   const product = promotionProducts[index];
 
   if (!product) return;
+
+  lastPromoTrigger = trigger || document.activeElement;
+  previousBodyOverflow = document.body.style.overflow;
 
   promoModalName.textContent = product.name;
 
@@ -1219,6 +1250,7 @@ function openPromotionDetail(index) {
 
     thumbnail.src = image;
     thumbnail.alt = product.name + " - Hình " + (imageIndex + 1);
+
     thumbnail.className =
       "promo-thumbnail" +
       (imageIndex === 0 ? " active" : "");
@@ -1227,7 +1259,7 @@ function openPromotionDetail(index) {
 
       promoModalImage.src = image;
 
-      document
+      promoThumbnails
         .querySelectorAll(".promo-thumbnail")
         .forEach(item => item.classList.remove("active"));
 
@@ -1248,6 +1280,8 @@ function openPromotionDetail(index) {
 
   document.body.style.overflow = "hidden";
 
+  promoModalClose.focus();
+
 }
 
 
@@ -1255,9 +1289,18 @@ function openPromotionDetail(index) {
 
 function closePromotionDetail() {
 
+  if (!promoModal.classList.contains("active")) return;
+
   promoModal.classList.remove("active");
 
-  document.body.style.overflow = "";
+  document.body.style.overflow = previousBodyOverflow;
+
+  if (
+    lastPromoTrigger &&
+    typeof lastPromoTrigger.focus === "function"
+  ) {
+    lastPromoTrigger.focus();
+  }
 
 }
 
@@ -1272,7 +1315,7 @@ document.addEventListener("click", event => {
 
   const index = Number(target.dataset.product);
 
-  openPromotionDetail(index);
+  openPromotionDetail(index, target);
 
 });
 
@@ -1291,7 +1334,8 @@ document.addEventListener("keydown", event => {
     event.preventDefault();
 
     openPromotionDetail(
-      Number(target.dataset.product)
+      Number(target.dataset.product),
+      target
     );
 
   }
@@ -1301,9 +1345,10 @@ document.addEventListener("keydown", event => {
 
 /* NÚT ĐÓNG */
 
-document
-  .querySelector(".promo-modal-close")
-  .addEventListener("click", closePromotionDetail);
+promoModalClose.addEventListener(
+  "click",
+  closePromotionDetail
+);
 
 
 /* NHẤN RA NGOÀI ĐỂ ĐÓNG */
@@ -1321,7 +1366,10 @@ promoModal.addEventListener("click", event => {
 
 document.addEventListener("keydown", event => {
 
-  if (event.key === "Escape") {
+  if (
+    event.key === "Escape" &&
+    promoModal.classList.contains("active")
+  ) {
     closePromotionDetail();
   }
 
@@ -1331,4 +1379,3 @@ document.addEventListener("keydown", event => {
 
 </body>
 </html>
-```
