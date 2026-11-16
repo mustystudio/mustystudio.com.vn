@@ -754,9 +754,10 @@ document.querySelectorAll(".product-card").forEach(card => {
   detailAddCart.dataset.name = product.name;
   detailAddCart.dataset.price = product.price;
 
-  overlay.classList.add("active");
-  overlay.setAttribute("aria-hidden", "false");
-  document.body.classList.add("modal-open");
+ overlay.classList.add("active");
+overlay.setAttribute("aria-hidden", "false");
+document.body.classList.add("modal-open");
+document.querySelector(".detail-close").focus();
  });
 });
 
@@ -765,8 +766,8 @@ function closeProductDetail() {
  overlay.classList.remove("active");
  overlay.setAttribute("aria-hidden", "true");
  document.body.classList.remove("modal-open");
+ document.querySelector(".product-search").focus();
 }
-
 document.querySelector(".detail-close").addEventListener("click", closeProductDetail);
 
 overlay.addEventListener("click", event => {
