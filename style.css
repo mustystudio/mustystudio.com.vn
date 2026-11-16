@@ -1986,27 +1986,93 @@ footer .copyright {
     }
 }
 
-/* SỬA RIÊNG CỘT KHÁM PHÁ */
+/* =========================================
+   FOOTER MUSTY - 4 CỘT BẰNG NHAU
+========================================= */
 
-.site-footer .footer-columns .footer-links {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    gap: 9px !important;
+.site-footer {
+    background: #111111 !important;
+    color: #ffffff;
+    padding: 55px 4% 25px !important;
 }
 
-.site-footer .footer-columns .footer-links h3 {
+.site-footer .footer-columns {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 30px !important;
+    align-items: start !important;
+    justify-content: stretch !important;
+    text-align: left !important;
+}
+
+.site-footer .footer-columns > div {
     display: block !important;
     width: 100% !important;
-    white-space: nowrap !important;
-    margin: 0 0 12px !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    text-align: left !important;
 }
 
-.site-footer .footer-columns .footer-links a {
+/* TIÊU ĐỀ */
+.site-footer .footer-columns h3 {
     display: block !important;
-    width: auto !important;
-    white-space: nowrap !important;
-    margin: 0 !important;
-    line-height: 1.8 !important;
+    width: 100% !important;
+    color: #12d5de !important;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 15px;
+    margin: 0 0 18px !important;
+    white-space: normal !important;
+}
+
+/* TẤT CẢ LIÊN KẾT XẾP DỌC */
+.site-footer .footer-columns > div:nth-child(2) {
+    display: block !important;
+}
+
+.site-footer .footer-columns > div:nth-child(2) a,
+.site-footer .footer-columns a {
+    display: block !important;
+    width: fit-content !important;
+    max-width: 100%;
+    color: #cccccc !important;
+    font-size: 13px;
+    line-height: 1.9 !important;
+    margin: 0 0 8px !important;
+    white-space: normal !important;
+    text-decoration: none;
+}
+
+.site-footer .footer-columns a:hover {
+    color: #12d5de !important;
+}
+
+.site-footer .footer-columns p {
+    color: #cccccc;
+    font-size: 13px;
+    line-height: 1.9;
+    margin: 0 0 10px;
+}
+
+.site-footer .footer-bottom {
+    border-top: 1px solid #444444;
+    margin-top: 35px;
+    padding-top: 22px;
+    text-align: center;
+    color: #999999;
+    font-size: 11px;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+    .site-footer .footer-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+/* ĐIỆN THOẠI */
+@media (max-width: 550px) {
+    .site-footer .footer-columns {
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+    }
 }
