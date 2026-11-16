@@ -402,3 +402,99 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 ```
+```css
+/* =====================================
+   MUSTY STUDIO - SHARED FOOTER
+===================================== */
+
+.site-footer {
+  background: #111111;
+  color: #ffffff;
+  padding: 55px 7% 22px;
+  margin-top: 60px;
+}
+
+.site-footer .footer-columns {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr 1.3fr;
+  gap: 40px;
+  padding-bottom: 35px;
+}
+
+.site-footer h3 {
+  color: #12d5de;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.site-footer p,
+.site-footer a {
+  color: #cccccc;
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.site-footer p {
+  margin-bottom: 10px;
+}
+
+.site-footer a {
+  display: inline-block;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.site-footer .footer-links a {
+  display: block;
+  margin-bottom: 7px;
+}
+
+.site-footer a:hover {
+  color: #12d5de;
+}
+
+.site-footer .footer-bottom {
+  border-top: 1px solid #383838;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.site-footer .footer-bottom p {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .site-footer .footer-columns {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 550px) {
+  .site-footer {
+    padding: 40px 6% 20px;
+  }
+
+  .site-footer .footer-columns {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .site-footer .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
