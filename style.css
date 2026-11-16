@@ -1985,3 +1985,28 @@ footer .copyright {
         gap: 28px !important;
     }
 }
+
+/* SỬA RIÊNG CỘT KHÁM PHÁ */
+
+.site-footer .footer-columns .footer-links {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 9px !important;
+}
+
+.site-footer .footer-columns .footer-links h3 {
+    display: block !important;
+    width: 100% !important;
+    white-space: nowrap !important;
+    margin: 0 0 12px !important;
+}
+
+.site-footer .footer-columns .footer-links a {
+    display: block !important;
+    width: auto !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+    line-height: 1.8 !important;
+}
